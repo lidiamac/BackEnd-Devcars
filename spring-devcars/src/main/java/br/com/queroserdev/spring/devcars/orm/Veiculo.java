@@ -25,7 +25,7 @@ public class Veiculo {
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_marca", nullable = false)
-	private List<Marca> marca;
+	private Marca marca;
 	
 	@Column(nullable = false)
 	private String numeroChassi;
@@ -38,23 +38,23 @@ public class Veiculo {
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_cor", nullable = false)
-	private List<Cor> cor;
+	private Cor cor;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_motor", nullable = false)
-	private List<Motor> motor;
+	private Motor motor;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_combustivel", nullable = false)
-	private List<Combustivel> combustivel;
+	private Combustivel combustivel;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_cambio", nullable = false)
-	private List<Cambio> cambio;
+	private Cambio cambio;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_fornecedor", nullable = false)
-	private List<Fornecedor> fornecedor;
+	private Fornecedor fornecedor;
 	
 	@Column(nullable = false)
 	private Boolean estoque;
