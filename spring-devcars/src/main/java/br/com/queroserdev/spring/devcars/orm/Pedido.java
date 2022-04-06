@@ -3,6 +3,7 @@ package br.com.queroserdev.spring.devcars.orm;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -41,9 +42,16 @@ public class Pedido {
 	@JoinColumn(name="tb_frete", nullable = false)
 	private Frete frete;
 	
+	@Column(nullable = false)
 	private BigDecimal valorTotalPedido;
+	
+	@Column(nullable = false)
 	private LocalDate dataPedido;
+	
+	@Column(nullable = false)
 	private Integer previsaoEntrega;
+	
+	@Column(nullable = false)
 	private LocalDate dataEnvio;
 	
 	@ManyToOne
