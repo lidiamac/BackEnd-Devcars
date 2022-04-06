@@ -1,10 +1,10 @@
-package br.com.rd.devcars.backend.devcars;
+package br.com.rd.queroserdev.spring.devcars;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendDevcarsApplicationTests {
+class SpringDevcarsApplicationTests {
 
 	@Test
 	void contextLoads() {

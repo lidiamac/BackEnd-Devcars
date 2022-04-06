@@ -1,13 +1,13 @@
-package br.com.rd.devcars.backend.devcars;
+package br.com.rd.queroserdev.spring.devcars;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendDevcarsApplication {
+public class SpringDevcarsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendDevcarsApplication.class, args);
+		SpringApplication.run(SpringDevcarsApplication.class, args);
 	}
 
 }
