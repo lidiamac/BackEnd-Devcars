@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
@@ -60,6 +60,25 @@ public class Cliente {
 	private List<Endereco> enderecos;
 	
 	
+
+	@OneToMany(mappedBy = "cliente")
+	private List<Favorito> favoritos;
+	
+	
+	@OneToMany(mappedBy = "cargo")
+	private List<Agendamento> cliente;
+	
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Pedido> pedidos;
+	
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Cartao> cartoes;
+	
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<CabecalhoNF> cabecalhos;
 	
 	
 	public Cliente() {
