@@ -8,14 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.queroserdev.spring.devcars.orm.Boleto;
 import br.com.queroserdev.spring.devcars.orm.Cartao;
-import br.com.queroserdev.spring.devcars.orm.Cliente;
 import br.com.queroserdev.spring.devcars.orm.FormaPagamento;
 import br.com.queroserdev.spring.devcars.orm.Pix;
-import br.com.queroserdev.spring.devcars.orm.Veiculo;
 
 
 @Entity
@@ -24,31 +25,37 @@ public class Agendamento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cod_agendamento")
+	@Column(name="cod_agendamento", nullable = false)
 	private Integer codAgendamento;
 	
-	@Column
+	@OneToMany
+	@JoinColumn(name = "cod_veiculo", nullable = false)
 	private Veiculo veiculo;
 	
-	@Column
+	@ManyToOne
+	@JoinColumn(name = "cod_cliente", nullable = false)
 	private Cliente cliente;
 	
-	@Column(name="data_reserva")
+	@Column(name="data_reserva", nullable = false)
 	private Date dataReserva;
 	
-	@Column(name="taxa_agendamento")
+	@Column(name="taxa_agendamento" , nullable = false)
 	private BigDecimal taxaAgendamento;
 	
-	@Column
+	@ManyToOne
+	@JoinColumn(name = "cod_forma_pagamento", nullable = false)
 	private FormaPagamento formaPagamento;
 	
-	@Column
+	@ManyToOne
+	@JoinColumn(name = "cod_cartao", nullable = true)
 	private Cartao cartao;
 	
-	@Column
+	@ManyToOne
+	@JoinColumn(name = "cod_boleto", nullable = true)
 	private Boleto boleto;
 	
-	@Column
+	@ManyToOne
+	@JoinColumn(name = "cod_pix", nullable = true)
 	private Pix pix;
 	
 	
