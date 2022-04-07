@@ -91,11 +91,11 @@ public class Veiculo {
 		this.modeloVeiculo = modeloVeiculo;
 	}
 
-	public List<Marca> getMarca() {
+	public Marca getMarca() {
 		return marca;
 	}
 
-	public void setMarca(List<Marca> marca) {
+	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
 
@@ -123,43 +123,43 @@ public class Veiculo {
 		this.precoVeiculo = precoVeiculo;
 	}
 
-	public List<Cor> getCor() {
+	public Cor getCor() {
 		return cor;
 	}
 
-	public void setCor(List<Cor> cor) {
+	public void setCor(Cor cor) {
 		this.cor = cor;
 	}
 
-	public List<Motor> getMotor() {
+	public Motor getMotor() {
 		return motor;
 	}
 
-	public void setMotor(List<Motor> motor) {
+	public void setMotor(Motor motor) {
 		this.motor = motor;
 	}
 
-	public List<Combustivel> getCombustivel() {
+	public Combustivel getCombustivel() {
 		return combustivel;
 	}
 
-	public void setCombustivel(List<Combustivel> combustivel) {
+	public void setCombustivel(Combustivel combustivel) {
 		this.combustivel = combustivel;
 	}
 
-	public List<Cambio> getCambio() {
+	public Cambio getCambio() {
 		return cambio;
 	}
 
-	public void setCambio(List<Cambio> cambio) {
+	public void setCambio(Cambio cambio) {
 		this.cambio = cambio;
 	}
 
-	public List<Fornecedor> getFornecedor() {
+	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
 
-	public void setFornecedor(List<Fornecedor> fornecedor) {
+	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
 	}
 

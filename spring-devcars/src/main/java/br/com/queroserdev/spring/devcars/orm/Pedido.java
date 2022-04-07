@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -42,6 +43,10 @@ public class Pedido {
 	@JoinColumn(name="tb_frete", nullable = false)
 	private Frete frete;
 	
+	@OneToMany
+	@JoinColumn(name="tb_cabecalho_nf", nullable = false)
+	private CabecalhoNF cabecalhoNf;
+
 	@Column(nullable = false)
 	private BigDecimal valorTotalPedido;
 	
@@ -113,6 +118,14 @@ public class Pedido {
 	public BigDecimal getValorTotalPedido() {
 		return valorTotalPedido;
 	}
+	
+	public CabecalhoNF getCabecalhoNf() {
+		return cabecalhoNf;
+	}
+
+	public void setCabecalhoNf(CabecalhoNF cabecalhoNf) {
+		this.cabecalhoNf = cabecalhoNf;
+	}
 
 	public void setValorTotalPedido(BigDecimal valorTotalPedido) {
 		this.valorTotalPedido = valorTotalPedido;
@@ -149,28 +162,24 @@ public class Pedido {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-
-	//MÉTODO TOSTRING
 	
+	//MÉTODO TOSTRING
+
 	@Override
 	public String toString() {
-		return "Pedido [codPedido=" + codPedido + 
-						", veiculo=" + veiculo + 
-						", valorTotalPedido=" + valorTotalPedido + 
-						", dataPedido=" + dataPedido + 
-						", previsaoEntrega=" + previsaoEntrega + 
-						", dataEnvio=" + dataEnvio + 
-						", getCodPedido()=" + getCodPedido() + 
-						", getVeiculo()=" + getVeiculo() + 
-						", getValorTotalPedido()=" + getValorTotalPedido() + 
-						", getDataPedido()=" + getDataPedido() + 
-						", getPrevisaoEntrega()=" + getPrevisaoEntrega() + 
-						", getDataEnvio()=" + getDataEnvio() + 
-						", getClass()=" + getClass() + 
-						", hashCode()=" + hashCode() + 
-						", toString()=" + 
-						super.toString() + "]";
+		return "Pedido [codPedido=" + this.codPedido + 
+				", cliente=" + this.cliente + 
+				", veiculo=" + this.veiculo + 
+				", endereco=" + this.endereco + 
+				", formaPagamento=" + this.formaPagamento + 
+				", frete=" + this.frete + 
+				", cabecalhoNf=" + this.cabecalhoNf + 
+				", valorTotalPedido=" + this.valorTotalPedido + 
+				", dataPedido=" + this.dataPedido + 
+				", previsaoEntrega=" + this.previsaoEntrega + 
+				", dataEnvio=" + this.dataEnvio + 
+				", status=" + this.status + 
+				"]";
 	}
-
 
 }
