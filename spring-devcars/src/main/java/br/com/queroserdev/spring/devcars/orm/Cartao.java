@@ -26,16 +26,13 @@ public class Cartao {
 	
 	@OneToMany
 	@JoinColumn(name = "cod_modalidade", nullable = false)
-	private modalidadeCartao cod_modalidade;
+	private ModalidadeCartao cod_modalidade;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_cliente", nullable = false)
 	private Cliente cliente;
 
-	@ManyToOne
-	@JoinColumn(name = "cod_cliente", nullable = false)
-	private Cliente cliente;
-	
+		
 	@Column(name="nome_titular", nullable = false)
 	private String nome_titular;
 	
@@ -56,11 +53,11 @@ public class Cartao {
 		this.cod_cartao = cod_cartao;
 	}
 
-	public modalidadeCartao getCod_modalidade() {
+	public ModalidadeCartao getCod_modalidade() {
 		return cod_modalidade;
 	}
 
-	public void setCod_modalidade(modalidadeCartao cod_modalidade) {
+	public void setCod_modalidade(ModalidadeCartao cod_modalidade) {
 		this.cod_modalidade = cod_modalidade;
 	}
 
@@ -72,13 +69,7 @@ public class Cartao {
 		this.cliente = cliente;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+	
 
 	public String getNome_titular() {
 		return nome_titular;
