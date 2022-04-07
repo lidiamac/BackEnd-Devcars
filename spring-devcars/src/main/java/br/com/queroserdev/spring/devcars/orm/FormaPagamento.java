@@ -21,7 +21,7 @@ public class FormaPagamento {
 	@Column(nullable = false)
 	private String descricaoFormaPagamento;
 	
-	@OneToMany(mappedBy = "formapagamento")
+	@OneToMany(mappedBy = "formaPagamento")
 	private List<Agendamento> agendamento;
 	
 	@OneToMany(mappedBy = "pedido")
