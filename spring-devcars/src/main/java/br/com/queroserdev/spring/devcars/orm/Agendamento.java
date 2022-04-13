@@ -13,10 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import br.com.queroserdev.spring.devcars.orm.Boleto;
-import br.com.queroserdev.spring.devcars.orm.Cartao;
-import br.com.queroserdev.spring.devcars.orm.FormaPagamento;
-import br.com.queroserdev.spring.devcars.orm.Pix;
 
 
 @Entity

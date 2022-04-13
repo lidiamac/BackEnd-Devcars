@@ -13,9 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.queroserdev.spring.devcars.orm.Frete;
-import br.com.queroserdev.spring.devcars.orm.Loja;
-import br.com.queroserdev.spring.devcars.orm.NaturezaOperacao;
 
 @Entity
 @Table(name = "tb_cabecalho_nf")
@@ -162,9 +159,10 @@ public class CabecalhoNF {
 
 	@Override
 	public String toString() {
-		return "CabecalhoNF [codNota=" + this.getCodNota() + ", cliente=" + this.getCliente() + ", numeroNota=" + this.getNumeroNota()
-				+ ", chaveAcesso=" + this.getChaveAcesso() + ", numeroSerie=" + this.getNumeroSerie() + ", valorTotalNF=" + this.getValorTotalNF()
-				+ ", dataEmissaoNF=" + this.getDataEmissaoNF() + ", pedido=" + this.getPedido() + "]";
+		return "CabecalhoNF [codNota=" + codNota + ", cliente=" + cliente + ", loja=" + loja + ", numeroNota="
+				+ numeroNota + ", chaveAcesso=" + chaveAcesso + ", numeroSerie=" + numeroSerie + ", valorTotalNF="
+				+ valorTotalNF + ", dataEmissaoNF=" + dataEmissaoNF + ", pedido=" + pedido + ", frete=" + frete + "]";
 	}
+	
 	
 }
