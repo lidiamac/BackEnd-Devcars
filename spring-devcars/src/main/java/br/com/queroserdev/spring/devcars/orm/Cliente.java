@@ -81,6 +81,7 @@ public class Cliente {
 	private List<CabecalhoNF> cabecalhos;
 	
 	
+
 	public Cliente() {
 		
 	}

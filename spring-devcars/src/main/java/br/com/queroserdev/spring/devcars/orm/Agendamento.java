@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -24,8 +24,7 @@ public class Agendamento {
 	@Column(name="cod_agendamento", nullable = false)
 	private Integer codAgendamento;
 	
-	@OneToMany
-	@JoinColumn(name = "cod_veiculo", nullable = false)
+	@OneToOne
 	private Veiculo veiculo;
 	
 	@ManyToOne

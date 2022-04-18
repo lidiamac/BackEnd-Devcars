@@ -5,13 +5,15 @@ import java.util.Scanner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import br.com.queroserdev.spring.devcars.service.ClienteService;
 import br.com.queroserdev.spring.devcars.service.VeiculoService;
 
-@EnableJpaRepositories
+@EnableJpaRepositories("br.com.queroserdev.spring.devcars.repository")
 @SpringBootApplication
+@EntityScan(basePackages = "br.com.queroserdev.spring.devcars.orm")
 public class SpringDevcarsApplication implements CommandLineRunner {
 	
 	private Boolean sistema = true;
