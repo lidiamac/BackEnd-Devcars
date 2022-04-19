@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -22,7 +23,9 @@ public class Favorito {
 	@Column(name="cod_favorito", nullable = false)
 	private Integer codFavorito;
 	
-	@Column(name="cod_cliente", nullable = false)
+	
+	@ManyToOne
+	@JoinColumn(name="tb_cliente", nullable = false)
 	private Cliente cliente;
 	
 	

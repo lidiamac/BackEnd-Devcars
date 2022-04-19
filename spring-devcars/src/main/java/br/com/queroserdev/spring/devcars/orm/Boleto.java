@@ -21,8 +21,6 @@ public class Boleto {
 	@Column(name="numero_cod_barra", nullable = false)
 	private String numeroCodBarra;	
 	
-	@OneToMany(mappedBy = "boleto")
-	private Agendamento agendamento;
 
 	
 	
@@ -52,22 +50,22 @@ public class Boleto {
 		this.numeroCodBarra = numeroCodBarra;
 	}
 
-
-	public Agendamento getAgendamento() {
-		return agendamento;
-	}
-
-
-	public void setAgendamento(Agendamento agendamento) {
-		this.agendamento = agendamento;
-	}
+//
+//	public Agendamento getAgendamento() {
+//		return agendamento;
+//	}
+//
+//
+//	public void setAgendamento(Agendamento agendamento) {
+//		this.agendamento = agendamento;
+//	}
 
 
 
 
 	@Override
 	public String toString() {
-		return "Boleto [codBoleto=" + codBoleto + ", numeroCodBarra=" + numeroCodBarra + ", agendamento=" + agendamento
+		return "Boleto [codBoleto=" + codBoleto + ", numeroCodBarra=" + numeroCodBarra 
 				+ "]";
 	}
 	
