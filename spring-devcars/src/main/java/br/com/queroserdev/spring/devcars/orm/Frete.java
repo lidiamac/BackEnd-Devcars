@@ -25,13 +25,13 @@ public class Frete {
 	@Column(name="valor_frete", nullable = false)
 	private BigDecimal valorFrete;
 	
-	@OneToMany(mappedBy = "frete")
-	private List<Pedido> pedidos;
-	
-	@OneToMany(mappedBy = "frete")
-	private List<CabecalhoNF> cabecalhos;
-
-	
+//	@OneToMany(mappedBy = "frete")
+//	private List<Pedido> pedidos;
+//	
+//	@OneToMany(mappedBy = "frete")
+//	private List<CabecalhoNF> cabecalhos;
+//
+//	
 	
 	
 	public Frete() {
@@ -66,28 +66,28 @@ public class Frete {
 		this.valorFrete = valorFrete;
 	}
 
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
-
-	public List<CabecalhoNF> getCabecalhos() {
-		return cabecalhos;
-	}
-
-	public void setCabecalhos(List<CabecalhoNF> cabecalhos) {
-		this.cabecalhos = cabecalhos;
-	}
+//	public List<Pedido> getPedidos() {
+//		return pedidos;
+//	}
+//
+//	public void setPedidos(List<Pedido> pedidos) {
+//		this.pedidos = pedidos;
+//	}
+//
+//	public List<CabecalhoNF> getCabecalhos() {
+//		return cabecalhos;
+//	}
+//
+//	public void setCabecalhos(List<CabecalhoNF> cabecalhos) {
+//		this.cabecalhos = cabecalhos;
+//	}
 
 	
 	
 	@Override
 	public String toString() {
 		return "Frete [cod_frete=" + cod_frete + ", unidadeFederetiva=" + unidadeFederetiva + ", valorFrete="
-				+ valorFrete + ", pedidos=" + pedidos + ", cabecalhos=" + cabecalhos + "]";
+				+ valorFrete + "]";
 	}
 	
 }

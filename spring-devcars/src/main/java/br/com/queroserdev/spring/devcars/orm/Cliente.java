@@ -65,7 +65,7 @@ public class Cliente {
 	private List<Favorito> favoritos;
 	
 	
-	@OneToMany(mappedBy = "cargo")
+	@OneToMany(mappedBy = "cliente")
 	private List<Agendamento> cliente;
 	
 	
