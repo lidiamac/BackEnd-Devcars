@@ -61,7 +61,7 @@ public class SpringDevcarsApplication implements CommandLineRunner {
 			} else {
 				sistema = false;
 				System.out.println("+ --------------------------------- +");
-				System.out.println("|           FIM DO PROGRAMA         |");
+				System.out.println("|           FIM DO PROGRAMA!        |");
 				System.out.println("+ --------------------------------- +");
 			}
 			
