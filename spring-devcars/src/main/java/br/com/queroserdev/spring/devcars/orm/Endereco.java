@@ -41,7 +41,7 @@ public class Endereco {
 	@Column(name="uf", nullable = false)
 	private String uf;
 	
-	@ManyToMany(mappedBy="unidadeTrabalhos",fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy="enderecos",fetch = FetchType.EAGER)
 	private List<Cliente> clientes;
 	
 	
