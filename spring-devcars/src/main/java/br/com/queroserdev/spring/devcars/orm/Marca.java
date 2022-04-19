@@ -1,10 +1,13 @@
 package br.com.queroserdev.spring.devcars.orm;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +20,9 @@ public class Marca {
 	
 	@Column(nullable = false)
 	private String marca_veiculo;
+	
+	@OneToMany(mappedBy = "marca")
+	private List<Veiculo> veiculo;
 
 	public Integer getCod_marca() {
 		return cod_marca;
