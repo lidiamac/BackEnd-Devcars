@@ -25,6 +25,7 @@ public class Agendamento {
 	private Integer codAgendamento;
 	
 	@OneToOne
+	@JoinColumn(name = "cod_veiculo", nullable = false)
 	private Veiculo veiculo;
 	
 	@ManyToOne

@@ -18,7 +18,7 @@ public class Status {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codStatus;
 	
-	@Column(nullable = false)
+	@Column(name="status", nullable = false)
 	private String statusPedido;
 	
 	@OneToMany(mappedBy = "status")

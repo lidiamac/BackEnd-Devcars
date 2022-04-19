@@ -25,7 +25,7 @@ public class Favorito {
 	
 	
 	@ManyToOne
-	@JoinColumn(name="tb_cliente", nullable = false)
+	@JoinColumn(name="cod_cliente", nullable = false)
 	private Cliente cliente;
 	
 	
