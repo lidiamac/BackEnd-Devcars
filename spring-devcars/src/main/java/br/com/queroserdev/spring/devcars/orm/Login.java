@@ -1,11 +1,10 @@
 package br.com.queroserdev.spring.devcars.orm;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -16,13 +15,15 @@ public class Login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String email;
-	private String senha;
-	private String usuario;
 	
-	@ManyToOne
-	@JoinColumn(name = "id", nullable = false)
-	private Login login;
+	@Column(nullable=false)
+	private String email;
+	
+	@Column(nullable=false)
+	private String senha;
+	
+	@Column(nullable=true)
+	private String usuario;
 
 	public Integer getId() {
 		return id;
@@ -56,18 +57,11 @@ public class Login {
 		this.usuario = usuario;
 	}
 
-	public Login getLogin() {
-		return login;
-	}
-
-	public void setLogin(Login login) {
-		this.login = login;
-	}
 
 	@Override
 	public String toString() {
-		return "Login [id=" + id + ", email=" + email + ", senha=" + senha + ", usuario=" + usuario + ", login=" + login
-				+ "]";
+		return "Login [id=" + id + ", email=" + email + ", senha=" + senha + ", usuario=" + usuario +
+			 "]";
 	}
 	
 	

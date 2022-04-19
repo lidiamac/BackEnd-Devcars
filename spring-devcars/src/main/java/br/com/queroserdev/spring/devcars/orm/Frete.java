@@ -19,8 +19,8 @@ public class Frete {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cod_frete;
 			
-	@Column(name="unidade_federetiva", nullable = false)
-	private String unidadeFederetiva;
+	@Column(name="unidade_federativa", nullable = false)
+	private String unidadeFederativa;
 	
 	@Column(name="valor_frete", nullable = false)
 	private BigDecimal valorFrete;
@@ -50,12 +50,12 @@ public class Frete {
 		this.cod_frete = cod_frete;
 	}
 
-	public String getUnidadeFederetiva() {
-		return unidadeFederetiva;
+	public String getUnidadeFederativa() {
+		return unidadeFederativa;
 	}
 
-	public void setUnidadeFederetiva(String unidadeFederetiva) {
-		this.unidadeFederetiva = unidadeFederetiva;
+	public void setUnidadeFederativa(String unidadeFederativa) {
+		this.unidadeFederativa = unidadeFederativa;
 	}
 
 	public BigDecimal getValorFrete() {
@@ -86,7 +86,7 @@ public class Frete {
 	
 	@Override
 	public String toString() {
-		return "Frete [cod_frete=" + cod_frete + ", unidadeFederetiva=" + unidadeFederetiva + ", valorFrete="
+		return "Frete [cod_frete=" + cod_frete + ", unidadeFederativa=" + unidadeFederativa + ", valorFrete="
 				+ valorFrete + "]";
 	}
 	

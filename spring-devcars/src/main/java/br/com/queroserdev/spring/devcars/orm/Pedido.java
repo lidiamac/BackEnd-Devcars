@@ -24,28 +24,28 @@ public class Pedido {
 	private Integer codPedido;
 	
 	@ManyToOne
-	@JoinColumn(name="tb_cliente", nullable = false)
+	@JoinColumn(name="cod_cliente", nullable = false)
 	private Cliente cliente;
 	
 	@OneToOne
-	@JoinColumn(name="tb_veiculo", nullable = false)
+	@JoinColumn(name="cod_veiculo", nullable = false)
 	private Veiculo veiculo;
 	
 	@ManyToOne
-	@JoinColumn(name="tb_endereco", nullable = false)
+	@JoinColumn(name="cod_endereco", nullable = false)
 	private Endereco endereco;
 	
 	@ManyToOne
-	@JoinColumn(name="tb_forma_pagamento", nullable = false)
+	@JoinColumn(name="cod_forma_pagamento", nullable = false)
 	private FormaPagamento formaPagamento;
 	
 	@ManyToOne
-	@JoinColumn(name="tb_frete", nullable = false)
+	@JoinColumn(name="cod_frete", nullable = false)
 	private Frete frete;
 	
-	@OneToMany
-	@JoinColumn(name="tb_cabecalho_nf", nullable = false)
-	private CabecalhoNF cabecalhoNf;
+//	@OneToMany
+//	@JoinColumn(name="tb_cabecalho_nf", nullable = false)
+//	private CabecalhoNF cabecalhoNf;
 
 	@Column(nullable = false)
 	private BigDecimal valorTotalPedido;
@@ -60,7 +60,7 @@ public class Pedido {
 	private LocalDate dataEnvio;
 	
 	@ManyToOne
-	@JoinColumn(name="tb_status", nullable = false)
+	@JoinColumn(name="cod_status", nullable = false)
 	private Status status;
 	
 	
@@ -119,13 +119,13 @@ public class Pedido {
 		return valorTotalPedido;
 	}
 	
-	public CabecalhoNF getCabecalhoNf() {
-		return cabecalhoNf;
-	}
-
-	public void setCabecalhoNf(CabecalhoNF cabecalhoNf) {
-		this.cabecalhoNf = cabecalhoNf;
-	}
+//	public CabecalhoNF getCabecalhoNf() {
+//		return cabecalhoNf;
+//	}
+//
+//	public void setCabecalhoNf(CabecalhoNF cabecalhoNf) {
+//		this.cabecalhoNf = cabecalhoNf;
+//	}
 
 	public void setValorTotalPedido(BigDecimal valorTotalPedido) {
 		this.valorTotalPedido = valorTotalPedido;
@@ -173,7 +173,7 @@ public class Pedido {
 				", endereco=" + this.endereco + 
 				", formaPagamento=" + this.formaPagamento + 
 				", frete=" + this.frete + 
-				", cabecalhoNf=" + this.cabecalhoNf + 
+//				", cabecalhoNf=" + this.cabecalhoNf + 
 				", valorTotalPedido=" + this.valorTotalPedido + 
 				", dataPedido=" + this.dataPedido + 
 				", previsaoEntrega=" + this.previsaoEntrega + 

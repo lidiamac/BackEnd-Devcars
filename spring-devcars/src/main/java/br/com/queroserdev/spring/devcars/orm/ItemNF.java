@@ -21,11 +21,8 @@ public class ItemNF {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cod_iten_nf;
 
-	@Column(name = "cod_nota", nullable = false)
-	private Integer codNota;
-
 	@Column(name = "preco_veiculo", nullable = false)
-	private Integer precoVeiculo;
+	private BigDecimal precoVeiculo;
 
 	@Column(name = "percentual_icms", nullable = false)
 	private BigDecimal percentualIcms;
@@ -45,19 +42,12 @@ public class ItemNF {
 		this.cod_iten_nf = cod_iten_nf;
 	}
 
-	public Integer getCodNota() {
-		return codNota;
-	}
 
-	public void setCodNota(Integer codNota) {
-		this.codNota = codNota;
-	}
-
-	public Integer getPrecoVeiculo() {
+	public BigDecimal getPrecoVeiculo() {
 		return precoVeiculo;
 	}
 
-	public void setPrecoVeiculo(Integer precoVeiculo) {
+	public void setPrecoVeiculo(BigDecimal precoVeiculo) {
 		this.precoVeiculo = precoVeiculo;
 	}
 
@@ -87,7 +77,7 @@ public class ItemNF {
 
 	@Override
 	public String toString() {
-		return "CabecalhoNF [cod_iten_nf=" + cod_iten_nf + ", codNota=" + codNota + ", precoVeiculo=" + precoVeiculo
+		return "CabecalhoNF [cod_iten_nf=" + cod_iten_nf + ", precoVeiculo=" + precoVeiculo
 				+ ", percentualIcms=" + percentualIcms + ", valorIcms=" + valorIcms + ", cabecalhonf=" + cabecalhonf
 				+ "]";
 	}

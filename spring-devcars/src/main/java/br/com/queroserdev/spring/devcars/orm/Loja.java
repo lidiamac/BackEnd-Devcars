@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -28,8 +27,6 @@ public class Loja {
 	@Column(name = "telefone_loja", nullable = false)
 	private String telefoneLoja;
 	
-	@Column(name = "cod_endereco", nullable = false)
-	private Integer codEndereco;
 	
 	@OneToOne
 	@JoinColumn(name = "cod_endereco", nullable = false)
@@ -67,13 +64,6 @@ public class Loja {
 		this.telefoneLoja = telefoneLoja;
 	}
 
-	public Integer getCodEndereco() {
-		return codEndereco;
-	}
-
-	public void setCodEndereco(Integer codEndereco) {
-		this.codEndereco = codEndereco;
-	}
 
 	public Endereco getEndereco() {
 		return endereco;
@@ -86,7 +76,7 @@ public class Loja {
 	@Override
 	public String toString() {
 		return "Loja [codLoja=" + codLoja + ", razaoSocialLoja=" + razaoSocialLoja + ", cnpjLoja=" + cnpjLoja
-				+ ", telefoneLoja=" + telefoneLoja + ", codEndereco=" + codEndereco + "]";
+				+ ", telefoneLoja=" + telefoneLoja + "]";
 	}
 	
 	
