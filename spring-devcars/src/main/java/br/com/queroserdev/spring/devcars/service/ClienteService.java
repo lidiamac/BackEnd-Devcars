@@ -19,13 +19,17 @@ public class ClienteService {
 		this.clienteRepository = clienteRepository;
 	}
 	
-	private void listagemCartoes() { // Metodo Listagem de cartões 
+	private void listarCartoes() { // Metodo Listagem de cartões 
 		Iterable<Cliente> clientes = clienteRepository.findAll();
 		clientes.forEach(cliente -> System.out.println(cliente));
 	}
 	                              
+
+	private void dadosPedido() {// Metodo dadosPedido
+		
+	}
 	
-	private void altDadosCliente(Scanner sc) { // Método que altera dados do cliente
+	private void salvarCliente(Scanner sc) { // Método salvarCliente
 		int id;
 		String descricao;
 		
