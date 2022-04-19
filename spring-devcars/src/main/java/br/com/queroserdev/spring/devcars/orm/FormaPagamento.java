@@ -21,11 +21,11 @@ public class FormaPagamento {
 	@Column(nullable = false)
 	private String descricaoFormaPagamento;
 	
-	@OneToMany(mappedBy = "formaPagamento")
-	private List<Agendamento> agendamento;
-	
-	@OneToMany(mappedBy = "pedido")
-	private List<Pedido> pedido;
+//	@OneToMany(mappedBy = "formaPagamento")
+//	private List<Agendamento> agendamento;
+//	
+//	@OneToMany(mappedBy = "formaPagamento")
+//	private List<Pedido> pedido;
 	
 	//MÉTODO GETTERS AND SETTERS
 
@@ -45,21 +45,21 @@ public class FormaPagamento {
 		this.descricaoFormaPagamento = descricaoFormaPagamento;
 	}
 
-	public List<Agendamento> getAgendamento() {
-		return agendamento;
-	}
-
-	public void setAgendamento(List<Agendamento> agendamento) {
-		this.agendamento = agendamento;
-	}
-
-	public List<Pedido> getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(List<Pedido> pedido) {
-		this.pedido = pedido;
-	}
+//	public List<Agendamento> getAgendamento() {
+//		return agendamento;
+//	}
+//
+//	public void setAgendamento(List<Agendamento> agendamento) {
+//		this.agendamento = agendamento;
+//	}
+//
+//	public List<Pedido> getPedido() {
+//		return pedido;
+//	}
+//
+//	public void setPedido(List<Pedido> pedido) {
+//		this.pedido = pedido;
+//	}
 
 	//MÉTODO TOSTRING
 	
@@ -67,8 +67,8 @@ public class FormaPagamento {
 	public String toString() {
 		return "FormaPagamento [codFormaPagamento=" + this.codFormaPagamento + 
 				", descricaoFormaPagamento=" + this.descricaoFormaPagamento + 
-				", agendamento=" + this.agendamento + 
-				", pedido=" + this.pedido + 
+//				", agendamento=" + this.agendamento + 
+//				", pedido=" + this.pedido + 
 				"]";
 	}
 	
