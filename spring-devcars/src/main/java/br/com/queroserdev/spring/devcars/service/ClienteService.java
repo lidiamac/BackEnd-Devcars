@@ -13,12 +13,11 @@ import br.com.queroserdev.spring.devcars.repository.ClienteRepository;
 
 
 @Service
-<<<<<<< HEAD
 public class ClienteService {  
 	private final ClienteRepository clienteRepository;
-=======
-public class ClienteService {
->>>>>>> 73dc109631a8258c667fc1bca2ba77083d103b3f
+
+
+
 	
 	private Boolean continuar = true;
 
