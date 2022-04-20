@@ -22,9 +22,9 @@ public interface VeiculoRepository extends PagingAndSortingRepository<Veiculo, I
 	
 	List<Veiculo> findAll();
 	
-	List<Veiculo> findByModelo(String modelo);
+//	List<Veiculo> findByModelo(String modelo);
 	
-	List<Veiculo> findByAno(Integer ano);
+//	List<Veiculo> findByAno(Integer ano);
 	
 	
 }
