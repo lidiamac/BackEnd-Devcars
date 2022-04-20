@@ -17,7 +17,7 @@ public interface MarcaRepository extends CrudRepository<Marca, Integer>,
 	List<Marca> findAll();
 
 	@Query("from Veiculo where marca.marca_veiculo = :marca_veiculo")
-	List<Marca> getByBrand(@Param("marcar_veiculo")String marca_veiculo);
+	List<Marca> getByBrand(@Param("marca_veiculo")String marca_veiculo);
 
 	
 }

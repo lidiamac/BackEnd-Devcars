@@ -91,14 +91,17 @@ public class VeiculoService {
 
 
 	private void visualizarVeiculo(Scanner sc) {
-		System.out.println("Qual a página deseja visualizar?");
-		Integer page = Integer.parseInt(sc.nextLine());
+//		System.out.println("Qual a página deseja visualizar?");
+//		Integer page = Integer.parseInt(sc.nextLine());
+//		
+//		Pageable pageable = PageRequest.of(page, 1, Sort.by(Sort.Direction.ASC));
+//		Page<Veiculo> veiculos = veiculoRepository.findAll(pageable);
+//		System.out.println("Página atual: " + veiculos.getNumber());
+//		System.out.println("Total de páginas: " + veiculos.getTotalElements());
+//		
+//		veiculos.forEach(veiculo -> System.out.println(veiculo));
 		
-		Pageable pageable = PageRequest.of(page, 1, Sort.by(Sort.Direction.ASC));
-		Page<Veiculo> veiculos = veiculoRepository.findAll(pageable);
-		System.out.println("Página atual: " + veiculos.getNumber());
-		System.out.println("Total de páginas: " + veiculos.getTotalElements());
-		
+		Iterable<Veiculo> veiculos = veiculoRepository.findAll();
 		veiculos.forEach(veiculo -> System.out.println(veiculo));
 		
 	}
