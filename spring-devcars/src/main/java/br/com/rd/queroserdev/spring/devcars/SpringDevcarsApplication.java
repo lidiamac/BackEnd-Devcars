@@ -8,12 +8,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import br.com.queroserdev.spring.devcars.service.ClienteService;
-import br.com.queroserdev.spring.devcars.service.VeiculoService;
+import br.com.rd.queroserdev.spring.devcars.service.ClienteService;
+import br.com.rd.queroserdev.spring.devcars.service.VeiculoService;
 
-@EnableJpaRepositories("br.com.queroserdev.spring.devcars.repository")
+@EnableJpaRepositories("br.com.rd.queroserdev.spring.devcars.repository")
 @SpringBootApplication
-@EntityScan(basePackages = "br.com.queroserdev.spring.devcars.orm")
+
 public class SpringDevcarsApplication implements CommandLineRunner {
 	
 	private Boolean sistema = true;
