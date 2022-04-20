@@ -3,12 +3,14 @@ package br.com.queroserdev.spring.devcars.service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.queroserdev.spring.devcars.orm.Cliente;
+import br.com.queroserdev.spring.devcars.orm.Endereco;
 import br.com.queroserdev.spring.devcars.repository.ClienteRepository;
 
 @Service
@@ -44,7 +46,7 @@ public class ClienteService {
 //				listarCartoes(sc);
 				break;
 			case 3:
-//				listarEnderecos(sc);
+				listarEnderecos(sc);
 				break;
 			case 4:
 //				dadosAgendamento(sc);
@@ -156,9 +158,18 @@ public class ClienteService {
 //	}
 	
 	
-//	listarEnderecos(){
-//		
-//	}
+	public List<Endereco> listarEnderecos(Scanner sc){
+		
+		List<Cliente> clientes = this.clienteRepository.findAll();
+		clientes.forEach(c -> System.out.println(c));
+		
+		
+		System.out.println("INFORME O ID DO CLIENTE: ");
+		int id = sc.nextInt();
+		
+		
+		return this.clienteRepository.findAllByCliente(id);
+	}
 	
 	
 //	dadosAgendamento(){
