@@ -3,6 +3,7 @@ package br.com.rd.queroserdev.spring.devcars.orm;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -54,7 +55,7 @@ public class Cliente {
 	private String razaoSocial;
 	
 	@Fetch(FetchMode.SELECT)
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "tb_endereco_cliente", joinColumns = {
 			@JoinColumn(name = "cod_cliente") }, inverseJoinColumns = { @JoinColumn(name = "cod_endereco") })
 	private List<Endereco> enderecos;
@@ -117,7 +118,11 @@ public class Cliente {
 	}
 	
 	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+		if(this.getNomeCliente() == "null") {
+			this.nomeCliente = this.getRazaoSocial();
+		} else {
+			this.nomeCliente = nomeCliente;
+		}
 	}
 	
 	public Date getDataNascimento() {
@@ -174,7 +179,7 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return "Cliente [Id: " + codCliente + ", / Nome: " + nomeCliente + "/ Razão Social: " + razaoSocial + "]";
+		return "Cliente [Id: " + codCliente + ", / Nome: " + nomeCliente + "]";
 	}
 	
 	
