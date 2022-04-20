@@ -6,25 +6,26 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Service;
 
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
 import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
+import br.com.rd.queroserdev.spring.devcars.repository.EnderecoRepository;
 
-@Component
+
 @Service
 public class ClienteService {
 	
 	private Boolean continuar = true;
 	
-   
+	private final EnderecoRepository enderecoRepository;
 	private final ClienteRepository clienteRepository;
 	
-	public ClienteService(ClienteRepository clienteRepository) {
+	public ClienteService(ClienteRepository clienteRepository, EnderecoRepository enderecoRepository) {
 		this.clienteRepository = clienteRepository;
+		this.enderecoRepository = enderecoRepository;
 	}
 	
 	
@@ -85,7 +86,7 @@ public class ClienteService {
 			cliente.setTipoDocumento("CPF");
 			
 			System.out.println("Digite o nome do cliente");
-			String nome = sc.nextLine();
+			String nome = sc.next();
 			
 			System.out.println("Digite o CPF do cliente");
 			String cpf = sc.nextLine();
@@ -121,22 +122,22 @@ public class ClienteService {
 			cliente.setTipoDocumento("CNPJ");
 			
 			System.out.println("Digite a razão social do cliente");
-			String nome = sc.nextLine();
+			String nome = sc.next();
 			
 			System.out.println("Digite o CNPJ do cliente");
-			String cnpj = sc.nextLine();
+			String cnpj = sc.next();
 			
 			System.out.println("Digite email do cliente");
-			String email = sc.nextLine();
+			String email = sc.next();
 			
 			System.out.println("Digite o telefone do cliente");
-			String telefone = sc.nextLine();
+			String telefone = sc.next();
 			
 			System.out.println("Digite a senha do cliente");
-			String senha = sc.nextLine();
+			String senha = sc.next();
 			
 			System.out.println("Digite a inscrição estadual do cliente");
-			String inscEstadual = sc.nextLine();
+			String inscEstadual = sc.next();
 			
 			
 			cliente.setNomeCliente(nome);
@@ -164,7 +165,7 @@ public class ClienteService {
 //	}
 	
 	
-	public List<Endereco> listarEnderecos(Scanner sc){
+	public void listarEnderecos(Scanner sc){
 		
 		List<Cliente> clientes = this.clienteRepository.findAll();
 		clientes.forEach(c -> System.out.println(c));
@@ -173,8 +174,9 @@ public class ClienteService {
 		System.out.println("INFORME O ID DO CLIENTE: ");
 		int id = sc.nextInt();
 		
-		
-		return this.clienteRepository.findAllByCliente(id);
+		List<Endereco> enderecos = this.clienteRepository.findAllByCliente(id);
+		enderecos.forEach(end -> System.out.println(end));
+//		return enderecos;
 	}
 	
 	

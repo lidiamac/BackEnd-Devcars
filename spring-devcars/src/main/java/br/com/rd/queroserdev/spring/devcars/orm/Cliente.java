@@ -174,7 +174,7 @@ public class Cliente {
 	
 	@Override
 	public String toString() {
-		return "Cliente [codCliente=" + codCliente + ", nomeCliente=" + nomeCliente + "]";
+		return "Cliente [Id: " + codCliente + ", / Nome: " + nomeCliente + "/ Razão Social: " + razaoSocial + "]";
 	}
 	
 	
