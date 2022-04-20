@@ -51,8 +51,8 @@ public class Cartao {
 	}
 	
 	
-	@ManyToMany(mappedBy="cartoes",fetch = FetchType.EAGER)
-	private List<Cartao> cartoes;
+//	@ManyToMany(mappedBy="cartoes",fetch = FetchType.EAGER)
+//	private List<Cartao> cartoes;
 
 
 	public void setCodCartao(Integer codCartao) {
@@ -111,19 +111,19 @@ public class Cartao {
 
 	
 
-	public List<Cartao> getCartoes() {
-		return cartoes;
-	}
-
-	public void setCartoes(List<Cartao> cartoes) {
-		this.cartoes = cartoes;
-	}
+//	public List<Cartao> getCartoes() {
+//		return cartoes;
+//	}
+//
+//	public void setCartoes(List<Cartao> cartoes) {
+//		this.cartoes = cartoes;
+//	}
 
 	@Override
 	public String toString() {
 		return "Cartao [codCartao=" + codCartao + ", codModalidade=" + codModalidade + ", cliente=" + cliente
 				+ ", nomeTitular=" + nomeTitular + ", numeroCartao=" + numeroCartao + ", validadeCartao="
-				+ validadeCartao + ", cvv=" + cvv + ", cartoes=" + cartoes + "]";
+				+ validadeCartao + ", cvv=" + cvv +  "]";
 	}
 	
 	
