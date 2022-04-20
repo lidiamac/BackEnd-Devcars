@@ -54,7 +54,7 @@ public class Cliente {
 	private String razaoSocial;
 	
 	@Fetch(FetchMode.SELECT)
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "tb_endereco_cliente", joinColumns = {
 			@JoinColumn(name = "cod_cliente") }, inverseJoinColumns = { @JoinColumn(name = "cod_endereco") })
 	private List<Endereco> enderecos;

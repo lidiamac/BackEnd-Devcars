@@ -89,22 +89,22 @@ public class ClienteService {
 			String nome = sc.next();
 			
 			System.out.println("Digite o CPF do cliente");
-			String cpf = sc.nextLine();
+			String cpf = sc.next();
 			
 			System.out.println("Digite a data de nascimento do cliente (yyyy/MM/dd)");
-			String data = sc.nextLine();
+			String data = sc.next();
 			SimpleDateFormat sdf = new SimpleDateFormat ("yyyy/MM/dd");
 			Date dataNasc = sdf.parse(data);
 			
 			
 			System.out.println("Digite email do cliente");
-			String email = sc.nextLine();
+			String email = sc.next();
 			
 			System.out.println("Digite o telefone do cliente");
-			String telefone = sc.nextLine();
+			String telefone = sc.next();
 			
 			System.out.println("Digite a senha do cliente");
-			String senha = sc.nextLine();
+			String senha = sc.next();
 			
 			
 			cliente.setNomeCliente(nome);
@@ -140,7 +140,7 @@ public class ClienteService {
 			String inscEstadual = sc.next();
 			
 			
-			cliente.setNomeCliente(nome);
+			cliente.setRazaoSocial(nome);
 			cliente.setNumeroDocumento(cnpj);
 			cliente.setEmailCliente(email);
 			cliente.setTelefoneCliente(telefone);
@@ -150,11 +150,13 @@ public class ClienteService {
 			
 			
 			this.clienteRepository.save(cliente);
+			sc.next();
 		}
 		
 		
 		
 		System.out.println("CLIENTE CADASTRADO!");
+		System.out.println("");
 		
 		
 	}
