@@ -15,7 +15,7 @@ import br.com.rd.queroserdev.spring.devcars.orm.Veiculo;
 public interface MarcaRepository extends CrudRepository<Marca, Integer>,
 										 JpaSpecificationExecutor<Marca> {
 	
-	List<Marca> findAll(String marca);
+	List<Marca> findAll();
 
 	@Query("from Veiculo where marca.marca_veiculo = :marca_veiculo")
 	List<Marca> getByBrand(String marca_veiculo);
