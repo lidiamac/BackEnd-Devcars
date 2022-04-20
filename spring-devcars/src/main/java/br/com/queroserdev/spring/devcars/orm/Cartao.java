@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -20,13 +19,12 @@ public class Cartao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cod_cartao", nullable = false)
-	private Integer cod_cartao;
+	private Integer codCartao;
 	
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "cod_modalidade", nullable = false)
-	private ModalidadeCartao cod_modalidade;
+	private ModalidadeCartao codModalidade;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_cliente", nullable = false)
@@ -34,31 +32,31 @@ public class Cartao {
 
 		
 	@Column(name="nome_titular", nullable = false)
-	private String nome_titular;
+	private String nomeTitular;
 	
 	@Column(name="numero_cartao", nullable = false)
-	private Integer numero_cartao;
+	private String numeroCartao;
 	
 	@Column(name="validade_cartao", nullable = false)
-	private Date validade_cartao;
+	private String validadeCartao;
 	
 	@Column(name="cvv", nullable = false)
-	private Integer cvv;
+	private String cvv;
 
-	public Integer getCod_cartao() {
-		return cod_cartao;
+	public Integer getCodCartao() {
+		return codCartao;
 	}
 
-	public void setCod_cartao(Integer cod_cartao) {
-		this.cod_cartao = cod_cartao;
+	public void setCodCartao(Integer codCartao) {
+		this.codCartao = codCartao;
 	}
 
-	public ModalidadeCartao getCod_modalidade() {
-		return cod_modalidade;
+	public ModalidadeCartao getCodModalidade() {
+		return codModalidade;
 	}
 
-	public void setCod_modalidade(ModalidadeCartao cod_modalidade) {
-		this.cod_modalidade = cod_modalidade;
+	public void setCodModalidade(ModalidadeCartao codModalidade) {
+		this.codModalidade = codModalidade;
 	}
 
 	public Cliente getCliente() {
@@ -71,42 +69,42 @@ public class Cartao {
 
 	
 
-	public String getNome_titular() {
-		return nome_titular;
+	public String getNomeTitular() {
+		return nomeTitular;
 	}
 
-	public void setNome_titular(String nome_titular) {
-		this.nome_titular = nome_titular;
+	public void setNomeTitular(String nomeTitular) {
+		this.nomeTitular = nomeTitular;
 	}
 
-	public Integer getNumero_cartao() {
-		return numero_cartao;
+	public String getNumeroCartao() {
+		return numeroCartao;
 	}
 
-	public void setNumero_cartao(Integer numero_cartao) {
-		this.numero_cartao = numero_cartao;
+	public void setNumeroCartao(String numeroCartao) {
+		this.numeroCartao = numeroCartao;
 	}
 
-	public Date getValidade_cartao() {
-		return validade_cartao;
+	public String getValidadeCartao() {
+		return validadeCartao;
 	}
 
-	public void setValidade_cartao(Date validade_cartao) {
-		this.validade_cartao = validade_cartao;
+	public void setValidadeCartao(String validadeCartao) {
+		this.validadeCartao = validadeCartao;
 	}
 
-	public Integer getCvv() {
+	public String getCvv() {
 		return cvv;
 	}
 
-	public void setCvv(Integer cvv) {
+	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
 
 	@Override
 	public String toString() {
-		return "Cartao [cod_cartao=" + cod_cartao + ", cliente=" + cliente + ", nome_titular=" + nome_titular
-				+ ", numero_cartao=" + numero_cartao + ", validade_cartao=" + validade_cartao + ", cvv=" + cvv + "]";
+		return "Cartao [codCartao=" + codCartao + ", cliente=" + cliente + ", nomeTitular=" + nomeTitular
+				+ ", numeroCartao=" + numeroCartao + ", validadeCartao=" + validadeCartao + ", cvv=" + cvv + "]";
 	}
 	
 	

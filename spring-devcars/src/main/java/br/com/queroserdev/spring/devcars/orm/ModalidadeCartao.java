@@ -23,9 +23,9 @@ public class ModalidadeCartao {
 	@Column(name="descricao_modalidade", nullable = false)
 	private String descricaoModalidadeCartao;
 	
-	@OneToMany
-	@JoinColumn(name = "cod_cartao", nullable = false)
-	private List<Cartao> cartoes;
+//	@OneToMany
+//	@JoinColumn(name = "cod_cartao", nullable = false)
+//	private List<Cartao> cartoes;
 	
 	public ModalidadeCartao() {
 	
