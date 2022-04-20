@@ -6,9 +6,14 @@ import java.util.Date;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.com.queroserdev.spring.devcars.orm.Cliente;
+import br.com.queroserdev.spring.devcars.orm.Veiculo;
 import br.com.queroserdev.spring.devcars.repository.ClienteRepository;
 
 @Service
@@ -153,6 +158,13 @@ public class ClienteService {
 	
 //	listarCartoes(){
 //			
+//	}
+	
+	
+	
+//	private void listarCartoes() {
+//		Iterable<Cartao> cartoes = cartaoRepository.findAll();
+//		cargos.forEach(cargo -> System.out.println(cargo));
 //	}
 	
 	
