@@ -7,6 +7,6 @@ import br.com.rd.queroserdev.spring.devcars.orm.Agendamento;
 
 
 @Repository
-public interface AgendamentoRepository extends CrudRepository<Agendamento, Integer> {
+public interface AgendamentoRepository  extends CrudRepository<Agendamento, Integer> {
 
 }

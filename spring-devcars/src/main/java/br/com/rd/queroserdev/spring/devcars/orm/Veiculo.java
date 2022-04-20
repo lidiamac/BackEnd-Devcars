@@ -92,13 +92,6 @@ public class Veiculo {
 		this.imagem = imagem;
 		this.descricao = descricao;
 	}
-	
-	
-
-	public Veiculo() {
-		super();
-	}
-
 
 
 	//MÉTODOS GETTERS AND SETTERS:

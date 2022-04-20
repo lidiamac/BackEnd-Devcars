@@ -3,7 +3,6 @@ package br.com.rd.queroserdev.spring.devcars.service;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -24,19 +23,20 @@ public class VeiculoService {
 	
 	private Boolean sistema = true;
 	
-	@Autowired
-	private VeiculoRepository veiculoRepository;
+	private final VeiculoRepository veiculoRepository;
+	private final CambioRepository cambioRepository;
+	private final MotorRepository motorRepository;
+	private final MarcaRepository marcaRepository;
 	
-	@Autowired
-	private CambioRepository cambioRepository;
-	
-	@Autowired
-	private MotorRepository motorRepository;
-	
-	@Autowired
-	private MarcaRepository marcaRepository;
-	
-	
+	public VeiculoService(VeiculoRepository veiculoRepository, CambioRepository cambioRepository,
+		MotorRepository motorRepository, MarcaRepository marcaRepository) {
+	this.veiculoRepository = veiculoRepository;
+	this.cambioRepository = cambioRepository;
+	this.motorRepository = motorRepository;
+	this.marcaRepository = marcaRepository;
+}
+
+
 	public void iniciar(Scanner sc) {
 		int acao;
 		
@@ -74,12 +74,12 @@ public class VeiculoService {
 				case 4:
 					buscarPorAno(sc);
 					break;
-				case 5:
-					buscarPorMotor(sc);
-					break;
-				case 6:
-					buscarPorCambio(sc);
-					break;
+//				case 5:
+//					buscarPorMotor(sc);
+//					break;
+//				case 6:
+//					buscarPorCambio(sc);
+//					break;
 				default:
 					sistema = false;
 					break;
@@ -117,21 +117,21 @@ public class VeiculoService {
 		
 	}
 	
-	private void buscarPorMotor(Scanner sc) {
-		System.out.println("Qual o motor que deseja encontrar?");
-		String motor = sc.nextLine();
-		
-		List<Motor> motores = motorRepository.getByMotor(motor);
-		motores.forEach(System.out::println);
-	}
-	
-	private void buscarPorCambio(Scanner sc) {
-		System.out.println("Qual o câmbio que deseja encontrar?");
-		String cambio = sc.nextLine();
-		
-		List<Cambio> cambios = cambioRepository.getByCambio(cambio);
-		cambios.forEach(System.out::println);
-	}
+//	private void buscarPorMotor(Scanner sc) {
+//		System.out.println("Qual o motor que deseja encontrar?");
+//		String motor = sc.nextLine();
+//		
+//		List<Motor> motores = motorRepository.getByMotor(motor);
+//		motores.forEach(System.out::println);
+//	}
+//	
+//	private void buscarPorCambio(Scanner sc) {
+//		System.out.println("Qual o câmbio que deseja encontrar?");
+//		String cambio = sc.nextLine();
+//		
+//		List<Cambio> cambios = cambioRepository.getByCambio(cambio);
+//		cambios.forEach(System.out::println);
+//	}
 			
 	private void buscarPorModelo(Scanner sc) {
 		// TODO Auto-generated method stub

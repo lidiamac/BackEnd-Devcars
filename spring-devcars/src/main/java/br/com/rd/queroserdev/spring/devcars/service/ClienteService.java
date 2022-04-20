@@ -3,21 +3,28 @@ package br.com.rd.queroserdev.spring.devcars.service;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
+import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
 
+@Component
 @Service
 public class ClienteService {
 	
 	private Boolean continuar = true;
 	
-    @Autowired
-	ClienteRepository clienteRepository;
+   
+	private final ClienteRepository clienteRepository;
+	
+	public ClienteService(ClienteRepository clienteRepository) {
+		this.clienteRepository = clienteRepository;
+	}
 	
 	
 	public void iniciar(Scanner sc) throws ParseException {
@@ -44,7 +51,7 @@ public class ClienteService {
 //				listarCartoes(sc);
 				break;
 			case 3:
-//				listarEnderecos(sc);
+				listarEnderecos(sc);
 				break;
 			case 4:
 //				dadosAgendamento(sc);
@@ -156,9 +163,18 @@ public class ClienteService {
 //	}
 	
 	
-//	listarEnderecos(){
-//		
-//	}
+	public List<Endereco> listarEnderecos(Scanner sc){
+		
+		List<Cliente> clientes = this.clienteRepository.findAll();
+		clientes.forEach(c -> System.out.println(c));
+		
+		
+		System.out.println("INFORME O ID DO CLIENTE: ");
+		int id = sc.nextInt();
+		
+		
+		return this.clienteRepository.findAllByCliente(id);
+	}
 	
 	
 //	dadosAgendamento(){
