@@ -7,24 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD:spring-devcars/src/main/java/br/com/queroserdev/spring/devcars/service/ClienteService.java
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
-
-import br.com.queroserdev.spring.devcars.orm.Cliente;
-import br.com.queroserdev.spring.devcars.orm.Veiculo;
-import br.com.queroserdev.spring.devcars.repository.ClienteRepository;
-=======
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
 import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
->>>>>>> 093dbc97ebeaa04c0a114b46b633c68046981cbb:spring-devcars/src/main/java/br/com/rd/queroserdev/spring/devcars/service/ClienteService.java
 
 @Component
 @Service
@@ -176,18 +164,6 @@ public class ClienteService {
 //	}
 	
 	
-<<<<<<< HEAD:spring-devcars/src/main/java/br/com/queroserdev/spring/devcars/service/ClienteService.java
-	
-//	private void listarCartoes() {
-//		Iterable<Cartao> cartoes = cartaoRepository.findAll();
-//		cargos.forEach(cargo -> System.out.println(cargo));
-//	}
-	
-	
-//	listarEnderecos(){
-//		
-//	}
-=======
 	public List<Endereco> listarEnderecos(Scanner sc){
 		
 		List<Cliente> clientes = this.clienteRepository.findAll();
@@ -200,7 +176,6 @@ public class ClienteService {
 		
 		return this.clienteRepository.findAllByCliente(id);
 	}
->>>>>>> 093dbc97ebeaa04c0a114b46b633c68046981cbb:spring-devcars/src/main/java/br/com/rd/queroserdev/spring/devcars/service/ClienteService.java
 	
 	
 //	dadosAgendamento(){
