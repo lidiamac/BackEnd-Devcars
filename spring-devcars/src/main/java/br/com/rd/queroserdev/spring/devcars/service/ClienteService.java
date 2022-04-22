@@ -10,9 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import br.com.rd.queroserdev.spring.devcars.orm.Cartao;
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
 import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
+import br.com.rd.queroserdev.spring.devcars.orm.Veiculo;
+import br.com.rd.queroserdev.spring.devcars.repository.CambioRepository;
+import br.com.rd.queroserdev.spring.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
+import br.com.rd.queroserdev.spring.devcars.repository.MarcaRepository;
+import br.com.rd.queroserdev.spring.devcars.repository.MotorRepository;
+import br.com.rd.queroserdev.spring.devcars.repository.VeiculoRepository;
 
 @Component
 @Service
@@ -22,10 +29,14 @@ public class ClienteService {
 	
    
 	private final ClienteRepository clienteRepository;
+	private final CartaoRepository cartaoRepository;
+
 	
-	public ClienteService(ClienteRepository clienteRepository) {
+	public ClienteService(ClienteRepository clienteRepository, CartaoRepository cartaoRepository) {
 		this.clienteRepository = clienteRepository;
+		this.cartaoRepository = cartaoRepository;
 	}
+	
 	
 	
 	public void iniciar(Scanner sc) throws ParseException {
@@ -158,11 +169,14 @@ public class ClienteService {
 		
 	}
 	
+//	
+	
+	
+	
 	
 //	listarCartoes(){
 //			
-//	}
-	
+//	}	
 	
 	public List<Endereco> listarEnderecos(Scanner sc){
 		
@@ -191,5 +205,19 @@ public class ClienteService {
 //	alterarCliente(){
 //		
 //	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

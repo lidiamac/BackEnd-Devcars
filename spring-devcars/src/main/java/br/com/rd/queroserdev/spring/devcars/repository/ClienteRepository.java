@@ -14,14 +14,12 @@ import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>,
 											CrudRepository<Cliente, Integer>{
 	
-	
-	
-	
-	
 	List<Cliente> findAll();
 	
 	
 	@Query("select e from Endereco e join e.clientes c where c.codCliente = :id")
 	List<Endereco> findAllByCliente(Integer id);
+	
+	
 
 }
