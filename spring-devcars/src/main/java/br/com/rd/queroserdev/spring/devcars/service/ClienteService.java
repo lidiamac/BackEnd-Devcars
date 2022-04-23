@@ -50,9 +50,9 @@ public class ClienteService {
 			case 2:
 //				listarCartoes(sc);
 				break;
-			case 3:
-				listarEnderecos(sc);
-				break;
+//			case 3:
+//				listarEnderecos(sc);
+//				break;
 			case 4:
 //				dadosAgendamento(sc);
 				break;
@@ -163,18 +163,18 @@ public class ClienteService {
 //	}
 	
 	
-	public List<Endereco> listarEnderecos(Scanner sc){
-		
-		List<Cliente> clientes = this.clienteRepository.findAll();
-		clientes.forEach(c -> System.out.println(c));
-		
-		
-		System.out.println("INFORME O ID DO CLIENTE: ");
-		int id = sc.nextInt();
-		
-		
-		return this.clienteRepository.findAllByCliente(id);
-	}
+//	public List<Endereco> listarEnderecos(Scanner sc){
+//		
+//		List<Cliente> clientes = this.clienteRepository.findAll();
+//		clientes.forEach(c -> System.out.println(c));
+//		
+//		
+//		System.out.println("INFORME O ID DO CLIENTE: ");
+//		int id = sc.nextInt();
+//		
+//		
+//		return this.clienteRepository.findAllByCliente(id);
+//	}
 	
 	
 //	dadosAgendamento(){
