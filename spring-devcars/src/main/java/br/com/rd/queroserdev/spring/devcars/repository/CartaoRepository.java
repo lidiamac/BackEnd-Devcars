@@ -19,7 +19,7 @@ public interface CartaoRepository extends JpaRepository<Cartao,Long>,
 //	List<Cartao> findAll();
 	
 	
-//	@Query(value="select c from tb_c c ", nativeQuery= true)
+//	@Query(value="select Cartao where ",)
 //	List<Cartao> orderBy(int codCartao) ;
 	
 }
