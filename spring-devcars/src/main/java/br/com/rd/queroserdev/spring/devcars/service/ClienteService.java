@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -57,9 +56,9 @@ public class ClienteService {
 			case 2:
 				listarCartoes(sc);
 				break;
-			case 3:
-				listarEnderecos(sc);
-				break;
+//			case 3:
+//				listarEnderecos(sc);
+//				break;
 			case 4:
 //				dadosAgendamento(sc);
 				break;
@@ -162,7 +161,7 @@ public class ClienteService {
 		
 //		System.out.println(" Aqui esta os Cartoes cadastrados de : "  + "Pedro Jose" );
 //		System.out.println("44657******* 23");
-		System.out.println(cartaoRepository.count());
+//		System.out.println(cartaoRepository.count());
 		
 		
 //		List<Cartao> cartoes = this.cartaoRepository.findAll();
@@ -172,6 +171,7 @@ public class ClienteService {
 	}
 
 //			
+
 //	}	
 
 	public List<Endereco> listarEnderecos(Scanner sc) {
@@ -184,6 +184,25 @@ public class ClienteService {
 
 		return this.clienteRepository.findAllByCliente(id);
 	}
+
+
+//	}
+	
+	
+//	public List<Endereco> listarEnderecos(Scanner sc){
+//		
+//		List<Cliente> clientes = this.clienteRepository.findAll();
+//		clientes.forEach(c -> System.out.println(c));
+//		
+//		
+//		System.out.println("INFORME O ID DO CLIENTE: ");
+//		int id = sc.nextInt();
+//		
+//		
+//		return this.clienteRepository.findAllByCliente(id);
+//	}
+	
+	
 
 //	dadosAgendamento(){
 //		
