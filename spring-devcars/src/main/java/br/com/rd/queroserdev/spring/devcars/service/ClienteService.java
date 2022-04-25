@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Scanner;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
-
 import org.springframework.stereotype.Service;
 
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
@@ -53,9 +52,9 @@ public class ClienteService {
 			case 2:
 //				listarCartoes(sc);
 				break;
-			case 3:
-				listarEnderecos(sc);
-				break;
+//			case 3:
+//				listarEnderecos(sc);
+//				break;
 			case 4:
 //				dadosAgendamento(sc);
 				break;
@@ -170,6 +169,7 @@ public class ClienteService {
 //	}
 	
 	
+
 	public void listarEnderecos(Scanner sc){
 		
 		List<Cliente> clientes = this.clienteRepository.findAll();
@@ -182,6 +182,20 @@ public class ClienteService {
 		List<Endereco> enderecos = this.enderecoRepository.findAllByCliente(id);
 		enderecos.forEach(end -> System.out.println(end));
 	}
+
+
+//	public List<Endereco> listarEnderecos(Scanner sc){
+//		
+//		List<Cliente> clientes = this.clienteRepository.findAll();
+//		clientes.forEach(c -> System.out.println(c));
+//		
+//		
+//		System.out.println("INFORME O ID DO CLIENTE: ");
+//		int id = sc.nextInt();
+//		
+//		
+//		return this.clienteRepository.findAllByCliente(id);
+//	}
 	
 	
 //	dadosAgendamento(){
