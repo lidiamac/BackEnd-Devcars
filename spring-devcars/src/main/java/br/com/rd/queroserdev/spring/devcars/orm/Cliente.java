@@ -118,11 +118,8 @@ public class Cliente {
 	}
 	
 	public void setNomeCliente(String nomeCliente) {
-		if(this.getNomeCliente() == "null") {
-			this.nomeCliente = this.getRazaoSocial();
-		} else {
 			this.nomeCliente = nomeCliente;
-		}
+		
 	}
 	
 	public Date getDataNascimento() {
@@ -172,7 +169,6 @@ public class Cliente {
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
-	
 	
 	
 	

@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 
 import org.springframework.stereotype.Service;
@@ -107,17 +108,18 @@ public class ClienteService {
 			String senha = sc.next();
 			
 			
+			
 			cliente.setNomeCliente(nome);
 			cliente.setNumeroDocumento(cpf);
 			cliente.setDataNascimento(dataNasc);
 			cliente.setEmailCliente(email);
 			cliente.setTelefoneCliente(telefone);
-			cliente.setSenhaCliente(senha);
+			cliente.setSenhaCliente(criptografar(senha));
 			
 			
 			this.clienteRepository.save(cliente);
 			
-		} else{
+		} else {
 			Cliente cliente = new Cliente();
 			cliente.setTipoDocumento("CNPJ");
 			
@@ -136,6 +138,7 @@ public class ClienteService {
 			System.out.println("Digite a senha do cliente");
 			String senha = sc.next();
 			
+			
 			System.out.println("Digite a inscrição estadual do cliente");
 			String inscEstadual = sc.next();
 			
@@ -144,7 +147,7 @@ public class ClienteService {
 			cliente.setNumeroDocumento(cnpj);
 			cliente.setEmailCliente(email);
 			cliente.setTelefoneCliente(telefone);
-			cliente.setSenhaCliente(senha);
+			cliente.setSenhaCliente(criptografar(senha));
 			cliente.setInscricaoEstadual(inscEstadual);
 			
 			
@@ -176,9 +179,8 @@ public class ClienteService {
 		System.out.println("INFORME O ID DO CLIENTE: ");
 		int id = sc.nextInt();
 		
-		List<Endereco> enderecos = this.clienteRepository.findAllByCliente(id);
+		List<Endereco> enderecos = this.enderecoRepository.findAllByCliente(id);
 		enderecos.forEach(end -> System.out.println(end));
-//		return enderecos;
 	}
 	
 	
@@ -195,5 +197,10 @@ public class ClienteService {
 //	alterarCliente(){
 //		
 //	}
+	
+	public String criptografar (String senha) {
+		String criptografada = BCrypt.withDefaults().hashToString(10, senha.toCharArray());
+		return criptografada;
+	}
 	
 }

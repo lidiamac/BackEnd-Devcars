@@ -107,7 +107,7 @@ create table tb_cliente
 	data_nascimento date null,
 	email_cliente varchar(50) not null,
 	telefone_cliente varchar(20) not null,
-	senha_cliente varchar(40) not null,
+	senha_cliente varchar(500) not null,
 	inscricao_estadual varchar(15) null,
 	razao_social varchar(50) null,
 
