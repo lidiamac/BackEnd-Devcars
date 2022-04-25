@@ -180,7 +180,10 @@ public class ClienteService {
 		int id = sc.nextInt();
 		
 		List<Endereco> enderecos = this.enderecoRepository.findAllByCliente(id);
+		
+		System.out.println("================================================================");
 		enderecos.forEach(end -> System.out.println(end));
+		System.out.println("================================================================");
 	}
 
 
