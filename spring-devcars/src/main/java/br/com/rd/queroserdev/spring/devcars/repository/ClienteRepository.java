@@ -19,7 +19,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	@Query("select e from Endereco e join e.clientes c where c.codCliente = :id")
 	List<Endereco> findAllByCliente(Integer id);
 	
-//	@Query("select e from Endereco e join e.clientes c where c.idCliente = e.clientes.codCliente")
-//	List<Endereco> findAllByCliente(Integer id);
+
 
 }

@@ -8,7 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import br.com.rd.queroserdev.spring.devcars.service.AgendamentoService;
 import br.com.rd.queroserdev.spring.devcars.service.ClienteService;
 import br.com.rd.queroserdev.spring.devcars.service.VeiculoService;
 
@@ -26,7 +25,7 @@ public class SpringDevcarsApplication implements CommandLineRunner {
 	private ClienteService clienteService;
 	
 	@Autowired
-	private AgendamentoService agendamentoService;
+//	private AgendamentoService agendamentoService;
 	
 	
 //	private final VeiculoService veiculoService;
@@ -70,7 +69,7 @@ public class SpringDevcarsApplication implements CommandLineRunner {
 			} else if (acao == 2) {
 				this.clienteService.iniciar(sc);
 			} else if (acao == 3) {
-				this.agendamentoService.iniciar(sc);
+//				this.agendamentoService.iniciar(sc);
 			} else {
 				sistema = false;
 				System.out.println("+ --------------------------------- +");

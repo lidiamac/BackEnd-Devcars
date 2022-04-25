@@ -12,13 +12,8 @@ import org.springframework.stereotype.Service;
 import br.com.rd.queroserdev.spring.devcars.orm.Cartao;
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
 import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
-import br.com.rd.queroserdev.spring.devcars.orm.Veiculo;
-import br.com.rd.queroserdev.spring.devcars.repository.CambioRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
-import br.com.rd.queroserdev.spring.devcars.repository.MarcaRepository;
-import br.com.rd.queroserdev.spring.devcars.repository.MotorRepository;
-import br.com.rd.queroserdev.spring.devcars.repository.VeiculoRepository;
 
 @Component
 @Service
@@ -151,28 +146,50 @@ public class ClienteService {
 
 	}
 
-//	
+
+	
+
+
+	
+	
+	
+	
+	
+	
 
 //	listarCartoes(){
-	public List<Cartao> listarCartoes(Scanner sc) {
+	public List<Cartao> listarCartoes(Scanner sc) throws ParseException {
 
 		System.out.println("INFORME O ID DO CLIENTE, PARA LISTARMOS OS CARTOES CADASTRADOS POR ELE : ");
-		int id = sc.nextInt();
+		String id = sc.nextLine();
+				
+		List<Cartao> cartoes = this.cartaoRepository.findAll();
 		
-//		System.out.println(" Aqui esta os Cartoes cadastrados de : "  + "Pedro Jose" );
-//		System.out.println("44657******* 23");
-//		System.out.println(cartaoRepository.count());
-		
-		
-//		List<Cartao> cartoes = this.cartaoRepository.findAll();
-//		cartoes.forEach(c -> System.out.println(c));		
+		cartoes.forEach(c -> System.out.println(c));		
 
 		return this.cartaoRepository.findAll();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
-//			
 
-//	}	
 
 	public List<Endereco> listarEnderecos(Scanner sc) {
 
@@ -209,6 +226,10 @@ public class ClienteService {
 //	}
 
 //	dadosPedido(){
+	
+	
+	
+	
 //		
 //	}
 
