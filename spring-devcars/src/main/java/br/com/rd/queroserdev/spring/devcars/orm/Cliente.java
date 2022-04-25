@@ -61,7 +61,6 @@ public class Cliente {
 	private List<Endereco> enderecos;
 	
 	
-
 	@OneToMany(mappedBy = "cliente")
 	private List<Favorito> favoritos;
 	

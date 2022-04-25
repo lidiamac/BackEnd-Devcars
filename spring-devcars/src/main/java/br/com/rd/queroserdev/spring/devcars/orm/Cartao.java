@@ -2,13 +2,16 @@ package br.com.rd.queroserdev.spring.devcars.orm;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -46,6 +49,11 @@ public class Cartao {
 	public Integer getCodCartao() {
 		return codCartao;
 	}
+	
+	
+//	@ManyToMany(mappedBy="cartoes",fetch = FetchType.EAGER)
+//	private List<Cartao> cartoes;
+
 
 	public void setCodCartao(Integer codCartao) {
 		this.codCartao = codCartao;
@@ -101,11 +109,23 @@ public class Cartao {
 		this.cvv = cvv;
 	}
 
+	
+
+//	public List<Cartao> getCartoes() {
+//		return cartoes;
+//	}
+//
+//	public void setCartoes(List<Cartao> cartoes) {
+//		this.cartoes = cartoes;
+//	}
+
 	@Override
 	public String toString() {
-		return "Cartao [codCartao=" + codCartao + ", cliente=" + cliente + ", nomeTitular=" + nomeTitular
-				+ ", numeroCartao=" + numeroCartao + ", validadeCartao=" + validadeCartao + ", cvv=" + cvv + "]";
+		return "Cartao [codCartao=" + codCartao + ", codModalidade=" + codModalidade + ", cliente=" + cliente
+				+ ", nomeTitular=" + nomeTitular + ", numeroCartao=" + numeroCartao + ", validadeCartao="
+				+ validadeCartao + ", cvv=" + cvv +  "]";
 	}
+	
 	
 	
 }
