@@ -6,33 +6,28 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import br.com.rd.queroserdev.spring.devcars.orm.Cartao;
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
 import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
-import br.com.rd.queroserdev.spring.devcars.orm.Veiculo;
-import br.com.rd.queroserdev.spring.devcars.repository.CambioRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
-import br.com.rd.queroserdev.spring.devcars.repository.MarcaRepository;
-import br.com.rd.queroserdev.spring.devcars.repository.MotorRepository;
-import br.com.rd.queroserdev.spring.devcars.repository.VeiculoRepository;
 
-@Component
 @Service
 public class ClienteService {
 
 	private Boolean continuar = true;
 
-	private final ClienteRepository clienteRepository;
-	private final CartaoRepository cartaoRepository;
+	@Autowired
+	ClienteRepository clienteRepository;
+	
+	@Autowired
+	CartaoRepository cartaoRepository;
 
-	public ClienteService(ClienteRepository clienteRepository, CartaoRepository cartaoRepository) {
-		this.clienteRepository = clienteRepository;
-		this.cartaoRepository = cartaoRepository;
-	}
+
 
 	public void iniciar(Scanner sc) throws ParseException {
 		int acao;
@@ -43,9 +38,7 @@ public class ClienteService {
 			System.out.println("1 - INSERIR NOVO");
 			System.out.println("2 - LISTAR CARTÕES");
 			System.out.println("3 - LISTAR ENDEREÇOS");
-			System.out.println("4 - DADOS DE UM CLIENTE EM UM AGENDAMENTO");
-			System.out.println("5 - DADOS DE UM CLIENTE EM UM PEDIDO");
-			System.out.println("6 - ALTERAR DADOS DE UM CLIENTE");
+			System.out.println("4 - ALTERAR DADOS DE UM CLIENTE");
 
 			acao = sc.nextInt();
 
@@ -56,17 +49,11 @@ public class ClienteService {
 			case 2:
 				listarCartoes(sc);
 				break;
-//			case 3:
-//				listarEnderecos(sc);
-//				break;
+			case 3:
+				listarEnderecos(sc);
+				break;
 			case 4:
-//				dadosAgendamento(sc);
-				break;
-			case 5:
-//				dadosPedido(sc);
-				break;
-			case 6:
-//				alterarCliente(sc);
+				alterarCliente(sc);
 				break;
 			default:
 				continuar = false;
@@ -105,6 +92,8 @@ public class ClienteService {
 
 			System.out.println("Digite a senha do cliente");
 			String senha = sc.nextLine();
+			
+			
 
 			cliente.setNomeCliente(nome);
 			cliente.setNumeroDocumento(cpf);
@@ -115,6 +104,11 @@ public class ClienteService {
 
 			this.clienteRepository.save(cliente);
 
+			cliente.setSenhaCliente(criptografar(senha));
+			
+			
+			this.clienteRepository.save(cliente);
+			
 		} else {
 			Cliente cliente = new Cliente();
 			cliente.setTipoDocumento("CNPJ");
@@ -137,27 +131,32 @@ public class ClienteService {
 			System.out.println("Digite a inscrição estadual do cliente");
 			String inscEstadual = sc.nextLine();
 
+			
+			
 			cliente.setNomeCliente(nome);
+			cliente.setRazaoSocial(nome);
 			cliente.setNumeroDocumento(cnpj);
 			cliente.setEmailCliente(email);
 			cliente.setTelefoneCliente(telefone);
-			cliente.setSenhaCliente(senha);
+			cliente.setSenhaCliente(criptografar(senha));
 			cliente.setInscricaoEstadual(inscEstadual);
 
 			this.clienteRepository.save(cliente);
+			sc.next();
 		}
 
 		System.out.println("CLIENTE CADASTRADO!");
-
 	}
 
-//	
 
-//	listarCartoes(){
+
+
 	public List<Cartao> listarCartoes(Scanner sc) {
 
 		System.out.println("INFORME O ID DO CLIENTE, PARA LISTARMOS OS CARTOES CADASTRADOS POR ELE : ");
 		int id = sc.nextInt();
+		System.out.println("");
+
 		
 //		System.out.println(" Aqui esta os Cartoes cadastrados de : "  + "Pedro Jose" );
 //		System.out.println("44657******* 23");
@@ -170,9 +169,8 @@ public class ClienteService {
 		return this.cartaoRepository.findAll();
 	}
 
-//			
 
-//	}	
+	
 
 	public List<Endereco> listarEnderecos(Scanner sc) {
 
@@ -184,36 +182,23 @@ public class ClienteService {
 
 		return this.clienteRepository.findAllByCliente(id);
 	}
-
-
-//	}
 	
 	
-//	public List<Endereco> listarEnderecos(Scanner sc){
-//		
-//		List<Cliente> clientes = this.clienteRepository.findAll();
-//		clientes.forEach(c -> System.out.println(c));
-//		
-//		
-//		System.out.println("INFORME O ID DO CLIENTE: ");
-//		int id = sc.nextInt();
-//		
-//		
-//		return this.clienteRepository.findAllByCliente(id);
-//	}
 	
 	
+	
+	public void alterarCliente(Scanner sc) {
+		
+	}
+	
 
-//	dadosAgendamento(){
-//		
-//	}
+	
 
-//	dadosPedido(){
-//		
-//	}
 
-//	alterarCliente(){
-//		
-//	}
-
+	
+	public String criptografar (String senha) {
+		String criptografada = BCrypt.withDefaults().hashToString(10, senha.toCharArray());
+		return criptografada;
+	}
+	
 }
