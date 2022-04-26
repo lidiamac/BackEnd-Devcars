@@ -16,6 +16,10 @@ import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 import br.com.rd.queroserdev.spring.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
 
+import br.com.rd.queroserdev.spring.devcars.repository.EnderecoRepository;
+
+
+
 @Service
 public class ClienteService {
 
@@ -23,10 +27,21 @@ public class ClienteService {
 
 	@Autowired
 	ClienteRepository clienteRepository;
+
 	
 	@Autowired
 	CartaoRepository cartaoRepository;
 
+
+	
+	@Autowired
+	CartaoRepository cartaoRepository;
+	
+	@Autowired
+	EnderecoRepository enderecoRepository;
+
+
+	
 
 
 	public void iniciar(Scanner sc) throws ParseException {
@@ -52,7 +67,11 @@ public class ClienteService {
 			case 3:
 				listarEnderecos(sc);
 				break;
+
 			case 4:
+
+			case 5:
+
 				alterarCliente(sc);
 				break;
 			default:
@@ -85,6 +104,9 @@ public class ClienteService {
 			Date dataNasc = sdf.parse(data);
 
 			System.out.println("Digite email do cliente");
+
+
+
 			String email = sc.nextLine();
 
 			System.out.println("Digite o telefone do cliente");
@@ -92,7 +114,9 @@ public class ClienteService {
 
 			System.out.println("Digite a senha do cliente");
 			String senha = sc.nextLine();
-			
+
+	
+
 			
 
 			cliente.setNomeCliente(nome);
@@ -109,11 +133,16 @@ public class ClienteService {
 			
 			this.clienteRepository.save(cliente);
 			
+
+
+
 		} else {
 			Cliente cliente = new Cliente();
 			cliente.setTipoDocumento("CNPJ");
 
 			System.out.println("Digite a razão social do cliente");
+
+
 			String nome = sc.nextLine();
 
 			System.out.println("Digite o CNPJ do cliente");
@@ -132,7 +161,7 @@ public class ClienteService {
 			String inscEstadual = sc.nextLine();
 
 			
-			
+
 			cliente.setNomeCliente(nome);
 			cliente.setRazaoSocial(nome);
 			cliente.setNumeroDocumento(cnpj);
@@ -146,9 +175,17 @@ public class ClienteService {
 		}
 
 		System.out.println("CLIENTE CADASTRADO!");
+
 	}
 
 
+
+
+
+
+	}
+
+	
 
 
 	public List<Cartao> listarCartoes(Scanner sc) {
@@ -170,6 +207,7 @@ public class ClienteService {
 	}
 
 
+
 	
 
 	public List<Endereco> listarEnderecos(Scanner sc) {
@@ -182,6 +220,7 @@ public class ClienteService {
 
 		return this.clienteRepository.findAllByCliente(id);
 	}
+
 	
 	
 	
@@ -190,9 +229,17 @@ public class ClienteService {
 	public void alterarCliente(Scanner sc) {
 		
 	}
-	
 
 	
+	
+	
+	
+	public void alterarCliente(Scanner sc){
+		
+	}
+	
+
+
 
 
 	
@@ -200,5 +247,6 @@ public class ClienteService {
 		String criptografada = BCrypt.withDefaults().hashToString(10, senha.toCharArray());
 		return criptografada;
 	}
+	
 	
 }
