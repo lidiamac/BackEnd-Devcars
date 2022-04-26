@@ -106,13 +106,13 @@ public class ClienteService {
 			Date dataNasc = sdf.parse(data);
 
 			System.out.println("Digite email do cliente");
-			String email = sc.nextLine();
+			String email = sc.next();
 
 			System.out.println("Digite o telefone do cliente");
 			String telefone = sc.next();
 
 			System.out.println("Digite a senha do cliente");
-			String senha = sc.nextLine();
+			String senha = sc.next();
 
 
 	
@@ -143,7 +143,7 @@ public class ClienteService {
 			System.out.println("Digite a razão social do cliente");
 
 
-			String nome = sc.nextLine();
+			String nome = sc.next();
 
 			System.out.println("Digite o CNPJ do cliente");
 			String cnpj = sc.next();
