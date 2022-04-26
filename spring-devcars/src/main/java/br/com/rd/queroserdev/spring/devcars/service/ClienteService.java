@@ -15,7 +15,9 @@ import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
 import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 import br.com.rd.queroserdev.spring.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
+
 import br.com.rd.queroserdev.spring.devcars.repository.EnderecoRepository;
+
 
 
 @Service
@@ -25,15 +27,18 @@ public class ClienteService {
 
 	@Autowired
 	ClienteRepository clienteRepository;
+
 	
 	@Autowired
 	CartaoRepository cartaoRepository;
+
 	
 	@Autowired
 	EnderecoRepository enderecoRepository;
 
 
 	
+
 
 	public void iniciar(Scanner sc) throws ParseException {
 		int acao;
@@ -59,7 +64,11 @@ public class ClienteService {
 			case 3:
 				listarEnderecos(sc);
 				break;
+
+			case 4:
+
 			case 5:
+
 				alterarCliente(sc);
 				break;
 			case 6:
@@ -97,14 +106,17 @@ public class ClienteService {
 			Date dataNasc = sdf.parse(data);
 
 			System.out.println("Digite email do cliente");
-			String email = sc.next();
+			String email = sc.nextLine();
 
 			System.out.println("Digite o telefone do cliente");
 			String telefone = sc.next();
 
 			System.out.println("Digite a senha do cliente");
-			String senha = sc.next();
+			String senha = sc.nextLine();
+
+
 	
+
 			
 
 			cliente.setNomeCliente(nome);
@@ -122,13 +134,16 @@ public class ClienteService {
 			this.clienteRepository.save(cliente);
 			
 
+
+
 		} else {
 			Cliente cliente = new Cliente();
 			cliente.setTipoDocumento("CNPJ");
 
 			System.out.println("Digite a razão social do cliente");
 
-			String nome = sc.next();
+
+			String nome = sc.nextLine();
 
 			System.out.println("Digite o CNPJ do cliente");
 			String cnpj = sc.next();
@@ -146,6 +161,7 @@ public class ClienteService {
 			String inscEstadual = sc.next();
 
 			
+
 			cliente.setNomeCliente(nome);
 			cliente.setRazaoSocial(nome);
 			cliente.setNumeroDocumento(cnpj);
@@ -205,7 +221,10 @@ public class ClienteService {
 
 	}
 
+
+
 	
+
 
 	public List<Cartao> listarCartoes(Scanner sc) {
 
@@ -224,25 +243,29 @@ public class ClienteService {
 
 		return this.cartaoRepository.findAll();
 	}
-	
-	
+
+
+
 	
 
-	public void listarEnderecos(Scanner sc){
-		
+	public List<Endereco> listarEnderecos(Scanner sc) {
+
 		List<Cliente> clientes = this.clienteRepository.findAll();
 		clientes.forEach(c -> System.out.println(c));
-		
-		
+
 		System.out.println("INFORME O ID DO CLIENTE: ");
-//		int id = sc.nextInt();
-		Integer id = Integer.parseInt(sc.nextLine());
+
+		int id = sc.nextInt();
+//		Integer id = Integer.parseInt(sc.nextLine());
 		
 		List<Endereco> enderecos = this.enderecoRepository.findAllByCliente(id);
 		
 		System.out.println("================================================================");
 		enderecos.forEach(end -> System.out.println(end));
 		System.out.println("================================================================");
+//		int id = sc.nextInt();
+
+		return this.enderecoRepository.findAllByCliente(id);
 	}
 
 	
@@ -250,11 +273,20 @@ public class ClienteService {
 	
 	
 	
-	public void alterarCliente(Scanner sc){
+	public void alterarCliente(Scanner sc) {
 		
 	}
+
 	
 	
+	
+	
+//	public void alterarCliente(Scanner sc){
+//		
+//	}
+	
+	
+
 
 	
 	public String criptografar (String senha) {
