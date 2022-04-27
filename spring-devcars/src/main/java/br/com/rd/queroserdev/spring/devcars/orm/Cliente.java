@@ -73,7 +73,8 @@ public class Cliente {
 	private List<Pedido> pedidos;
 	
 	
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany((fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="codCartao",referencedColumnName="cod_cartao")
 	private List<Cartao> cartoes;
 	
 	

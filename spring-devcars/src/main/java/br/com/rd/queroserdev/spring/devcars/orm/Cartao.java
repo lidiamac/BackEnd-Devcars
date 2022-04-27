@@ -20,6 +20,7 @@ public class Cartao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column (name="cod_cartao", nullable = false)
 	private Integer codCartao;
 
 	@Column(name="nome_titular", nullable = false)
@@ -40,15 +41,29 @@ public class Cartao {
 	private ModalidadeCartao codModalidade;
 	
 	@ManyToOne
-	@JoinColumn(name = "cod_cliente", nullable = false)
-	private Integer codCliente;
+	@JoinColumn(name = "cod_cliente", nullable = false )
+	private Cliente cliente;
 	
-	@ManyToMany(mappedBy="cartoes",fetch = FetchType.EAGER)
-	private List<Cliente> clientes;
+//	@ManyToMany(mappedBy="cartoes",fetch = FetchType.EAGER)
+//	private List<Cliente> clientes;
 	
+	public Cliente getCodCliente() {
+		return cliente;
+	}
+
+
+
+
+	public void setCodCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+
+
+
 	public Cartao() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	
@@ -136,14 +151,14 @@ public class Cartao {
 	}
 
 
-	public List<Cliente> getClientes() {
-		return clientes;
-	}
-
-
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
-	}
+//	public List<Cliente> getClientes() {
+//		return clientes;
+//	}
+//
+//
+//	public void setClientes(List<Cliente> clientes) {
+//		this.clientes = clientes;
+//	}
 
 
 
@@ -152,7 +167,7 @@ public class Cartao {
 	public String toString() {
 		return "Cartao [codCartao=" + codCartao + ", nomeTitular=" + nomeTitular + ", numeroCartao=" + numeroCartao
 				+ ", validadeCartao=" + validadeCartao + ", cvv=" + cvv + ", codModalidade=" + codModalidade
-				+ ", clientes=" + clientes + "]";
+				+ "]";
 	}
 
 
