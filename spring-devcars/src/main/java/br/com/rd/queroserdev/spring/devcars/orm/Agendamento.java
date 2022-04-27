@@ -55,8 +55,6 @@ public class Agendamento {
 	private Pix pix;
 	
 	
-	
-	
 	public Agendamento() {
 		super();
 	}
