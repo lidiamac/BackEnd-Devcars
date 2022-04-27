@@ -72,8 +72,14 @@ public class Veiculo {
 	private String descricao;
 	
 	
+	public Veiculo() {
+		
+	}
+	
+	
 	//MÉTODOS GETTERS AND SETTERS:
 	
+
 	public Integer getCodVeiculo() {
 		return codVeiculo;
 	}
