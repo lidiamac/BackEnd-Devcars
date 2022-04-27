@@ -71,10 +71,29 @@ public class Veiculo {
 	@Column(nullable = false)
 	private String descricao;
 	
-	
-	public Veiculo() {}
-	
-	
+
+	public Veiculo(String modeloVeiculo, Marca marca, String numeroChassi, Integer anoVeiculo, BigDecimal precoVeiculo,
+			Cor cor, Motor motor, Combustivel combustivel, Cambio cambio, Fornecedor fornecedor, Boolean estoque,
+			Boolean destaque, Boolean seAtivo, String imagem, String descricao) {
+		super();
+		this.modeloVeiculo = modeloVeiculo;
+		this.marca = marca;
+		this.numeroChassi = numeroChassi;
+		this.anoVeiculo = anoVeiculo;
+		this.precoVeiculo = precoVeiculo;
+		this.cor = cor;
+		this.motor = motor;
+		this.combustivel = combustivel;
+		this.cambio = cambio;
+		this.fornecedor = fornecedor;
+		this.estoque = estoque;
+		this.destaque = destaque;
+		this.seAtivo = seAtivo;
+		this.imagem = imagem;
+		this.descricao = descricao;
+	}
+
+
 	//MÉTODOS GETTERS AND SETTERS:
 	
 	public Integer getCodVeiculo() {

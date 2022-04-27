@@ -1,5 +1,6 @@
 package br.com.rd.queroserdev.spring.devcars.repository;
 
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,15 +14,13 @@ import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>,
 											CrudRepository<Cliente, Integer>{
-	
-	
-	
-	
-	
+
 	List<Cliente> findAll();
 	
+//		
+//	@Query("select e from Endereco e join e.clientes c where c.idCliente = e.clientes.codCliente")
+//	List<Endereco> findAllByCliente(String Cliente);
+
 	
-	@Query("select e from Endereco e join e.clientes c where c.codCliente = :id")
-	List<Endereco> findAllByCliente(Integer id);
 
 }

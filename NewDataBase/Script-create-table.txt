@@ -100,14 +100,14 @@ create table tb_veiculo
 
 create table tb_cliente
 (
-	cod_cliente int not null,
+	cod_cliente int not null AUTO_INCREMENT,
 	tipo_documento varchar(4) not null,
 	numero_documento varchar(21) not null,
 	nome_cliente varchar(50) null,
 	data_nascimento date null,
 	email_cliente varchar(50) not null,
 	telefone_cliente varchar(20) not null,
-	senha_cliente varchar(40) not null,
+	senha_cliente varchar(500) not null,
 	inscricao_estadual varchar(15) null,
 	razao_social varchar(50) null,
 
@@ -121,7 +121,7 @@ create table tb_cliente
 
 create table tb_endereco
 (
-	cod_endereco int not null,
+	cod_endereco int not null AUTO_INCREMENT,
 	cep_endereco varchar(10) not null,
 	rua_endereco varchar(50) not null,
 	complemento varchar(30)  null,

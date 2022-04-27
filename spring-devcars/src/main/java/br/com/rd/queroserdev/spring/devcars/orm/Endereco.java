@@ -49,8 +49,22 @@ public class Endereco {
 		
 	}
 
-
 	
+	public Endereco(String cepEndereco, String ruaEndereco, String numeroEndereco, String bairro, String cidade,
+			String uf) {
+		super();
+		this.cepEndereco = cepEndereco;
+		this.ruaEndereco = ruaEndereco;
+		this.numeroEndereco = numeroEndereco;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.uf = uf;
+	}
+
+
+
+
+
 	public Integer getCodEndereco() {
 		return codEndereco;
 	}
@@ -153,9 +167,11 @@ public class Endereco {
 
 	@Override
 	public String toString() {
-		return "Endereco [codEndereco=" + codEndereco + ", cepEndereco=" + cepEndereco + ", ruaEndereco=" + ruaEndereco
-				+ ", complemento=" + complemento + ", numeroEndereco=" + numeroEndereco + ", bairro=" + bairro
-				+ ", cidade=" + cidade + ", uf=" + uf + ", clientes=" + clientes + "]";
+		return "\n==========================================================================================\n"
+				+ "Endereço [ " + "Rua: " + this.ruaEndereco + ", " + this.numeroEndereco 
+				+ ". Bairro: " + this.bairro + " - " + this.cidade + "/"+ this.uf
+				+ "]"
+				+ "\n==========================================================================================\n";
 	}
 	
 

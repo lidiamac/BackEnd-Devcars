@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
 
-import antlr.collections.List;
-import br.com.rd.queroserdev.spring.devcars.orm.Marca;
-import br.com.rd.queroserdev.spring.devcars.orm.Veiculo;
+import br.com.queroserdev.spring.devcars.orm.Veiculo;
 import br.com.rd.queroserdev.spring.devcars.repository.CambioRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.MarcaRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.MotorRepository;
@@ -17,21 +15,13 @@ public class VeiculoService {
 	
 	private Boolean sistema = true;
 	
-	
 	private final VeiculoRepository veiculoRepository;
-	private final CambioRepository cambioRepository;
-	private final MotorRepository motorRepository;
-	private final MarcaRepository marcaRepository;
+
 	
-	
-	
-	public VeiculoService(VeiculoRepository veiculoRepository, CambioRepository cambioRepository,
-		MotorRepository motorRepository, MarcaRepository marcaRepository) {
-	this.veiculoRepository = veiculoRepository;
-	this.cambioRepository = cambioRepository;
-	this.motorRepository = motorRepository;
-	this.marcaRepository = marcaRepository;
-}
+	public VeiculoService(VeiculoRepository veiculoRepository) {
+		this.veiculoRepository = veiculoRepository;
+
+	}
 
 
 	public void iniciar(Scanner sc) {
@@ -89,21 +79,18 @@ public class VeiculoService {
 //		System.out.println("Total de páginas: " + veiculos.getTotalElements());
 //		
 //		veiculos.forEach(veiculo -> System.out.println(veiculo));
-		
+
 		Iterable<Veiculo> veiculos = veiculoRepository.findAll();
 		veiculos.forEach(veiculo -> System.out.println(veiculo));
 		
 	}
 	
-//	private void buscarPorMarca(Scanner sc) {
-//		// TODO Auto-generated method stub
-//	
-//	}
 	
 	private void buscarPorMarca(Scanner sc) {	
 		
 	}
 	
+			
 	private void buscarPorModelo(Scanner sc) {
 		// TODO Auto-generated method stub
 		
