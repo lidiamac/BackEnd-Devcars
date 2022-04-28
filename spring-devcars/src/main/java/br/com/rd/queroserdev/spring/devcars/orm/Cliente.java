@@ -66,7 +66,7 @@ public class Cliente {
 	
 	
 	@OneToMany(mappedBy = "cliente")
-	private List<Agendamento> cliente;
+	private List<Agendamento> agendamentos;
 	
 	
 	@OneToMany(mappedBy = "cliente")

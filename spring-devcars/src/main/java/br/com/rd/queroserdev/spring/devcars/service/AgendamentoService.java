@@ -14,6 +14,7 @@ import br.com.queroserdev.spring.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.spring.devcars.orm.Agendamento;
 import br.com.rd.queroserdev.spring.devcars.orm.Cartao;
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
+import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 import br.com.rd.queroserdev.spring.devcars.orm.ModalidadeCartao;
 import br.com.rd.queroserdev.spring.devcars.repository.AgendamentoRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.CartaoRepository;
@@ -186,41 +187,22 @@ public class AgendamentoService {
 					cartao.setCvv(cvv);
 					Optional<ModalidadeCartao> modalidade = modalidadeCartaoRepository.findById(escolhaCadastro);
 					cartao.setCodModalidade(modalidade.get());
-
+ 
 				}
 
 			} else if (escolhaP == 2) {
-
-//				cartaoRepository.findByCliente(idCliente);
-//				System.out.println("Digite o código do cartão que deseja utilizar: ");
-//				int codCartao = sc.nextInt();
 				
-				Optional<Cliente> cliente = clienteRepository.findById(idCliente);
+				Optional<Cliente> cliente = this.clienteRepository.findById(idCliente);
 				
-				List<Cartao> cartoes = new ArrayList<>();
-				
-				cartoes.forEach(c -> System.out::println(f))
-				
+				List<Cartao> cartoes = this.cartaoRepository.findByCliente(idCliente);
+				cartoes.forEach(c -> System.out.println(c));
 				
 			}
 		}
-
-//		System.out.println("Digite a senha do cliente");
-//		String senha = sc.nextLine();
-//
-//		cliente.setNomeCliente(nome);
-//		cliente.setNumeroDocumento(cpf);
-//		cliente.setDataNascimento(dataNasc);
-//		cliente.setEmailCliente(email);
-//		cliente.setTelefoneCliente(telefone);
-//		cliente.setSenhaCliente(senha);
-//
-//		this.clienteRepository.save(cliente);
 		
 		Optional<Cliente> cliente = clienteRepository.findById(idCliente);
 		agendamento.setCliente(cliente.get()); 
 		
-		agendamento.setCliente(nome);
 		agendamento.setVeiculo();
 		agendamento.setDataReserva(data);
 		agendamento.setTaxaAgendamento();

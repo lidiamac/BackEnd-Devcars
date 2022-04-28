@@ -13,5 +13,7 @@ public interface EnderecoRepository extends JpaRepository<Endereco, Integer>{
 
 	@Query("select e from Endereco e inner join e.clientes c where c.codCliente = :cod_cliente")
 	List<Endereco> findAllByCliente(Integer cod_cliente);
+	
+
 }
 

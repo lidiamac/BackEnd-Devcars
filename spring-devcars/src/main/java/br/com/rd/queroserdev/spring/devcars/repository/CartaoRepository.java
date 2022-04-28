@@ -19,7 +19,7 @@ public interface CartaoRepository extends JpaRepository<Cartao,Long>,
 			+ "tc2.numero_cartao, tc2.validade_cartao\n"
 			+ "FROM tb_cliente tc INNER JOIN tb_cartao tc2 "
 			+ "ON tc.cod_cliente = tc2.cod_cartao ;", nativeQuery = true)
-	List<Cartao> findByCliente(@Param("cod_cliente")String cliente);
+	List<Cartao> findByCliente(@Param("cod_cliente")Integer cliente);
 	
 	
 //	@Query(value="select Cartao where ",)
