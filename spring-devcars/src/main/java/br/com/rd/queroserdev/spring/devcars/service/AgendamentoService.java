@@ -2,7 +2,6 @@ package br.com.rd.queroserdev.spring.devcars.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -10,14 +9,13 @@ import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
 
-import br.com.queroserdev.spring.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.spring.devcars.orm.Agendamento;
 import br.com.rd.queroserdev.spring.devcars.orm.Cartao;
 import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
-import br.com.rd.queroserdev.spring.devcars.orm.Endereco;
 import br.com.rd.queroserdev.spring.devcars.orm.ModalidadeCartao;
 import br.com.rd.queroserdev.spring.devcars.repository.AgendamentoRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.CartaoRepository;
+import br.com.rd.queroserdev.spring.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.ModalidadeCartaoRepository;
 
 @Service

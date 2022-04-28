@@ -49,8 +49,22 @@ public class Endereco {
 		
 	}
 
-
 	
+	public Endereco(String cepEndereco, String ruaEndereco, String numeroEndereco, String bairro, String cidade,
+			String uf) {
+		super();
+		this.cepEndereco = cepEndereco;
+		this.ruaEndereco = ruaEndereco;
+		this.numeroEndereco = numeroEndereco;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.uf = uf;
+	}
+
+
+
+
+
 	public Integer getCodEndereco() {
 		return codEndereco;
 	}

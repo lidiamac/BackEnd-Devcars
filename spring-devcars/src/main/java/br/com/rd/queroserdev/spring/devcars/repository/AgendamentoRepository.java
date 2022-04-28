@@ -8,8 +8,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import br.com.rd.queroserdev.spring.devcars.orm.Agendamento;
-import br.com.rd.queroserdev.spring.devcars.orm.Cliente;
-import br.com.rd.queroserdev.spring.devcars.orm.Veiculo;
 
 @Repository
 public interface AgendamentoRepository extends CrudRepository<Agendamento, Integer> {
