@@ -1,7 +1,6 @@
-package br.com.rd.queroserdev.spring.devcars.orm;
+package br.com.rd.queroserdev.devcars.model;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -70,10 +69,7 @@ public class Veiculo {
 	
 	@Column(nullable = false)
 	private String descricao;
-	
 
-	//MÉTODOS GETTERS AND SETTERS:
-	
 	public Integer getCodVeiculo() {
 		return codVeiculo;
 	}
@@ -201,23 +197,5 @@ public class Veiculo {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
-	
-	//MÉTODO TOSTRING:
-
-	@Override
-	public String toString() {
-		return "Veiculo [codVeiculo=" + this.codVeiculo + 
-						", modeloVeiculo=" + this.modeloVeiculo + 
-						", numeroChassi=" + this.numeroChassi + 
-						", anoVeiculo=" + this.anoVeiculo + 
-						", precoVeiculo=" + this.precoVeiculo + 
-						", estoque=" + this.estoque + 
-						", destaque=" + this.destaque + 
-						", seAtivo=" + this.seAtivo + 
-						", imagem=" + this.imagem + 
-						", descricao=" + this.descricao + "]";
-	}
-		
 	
 }

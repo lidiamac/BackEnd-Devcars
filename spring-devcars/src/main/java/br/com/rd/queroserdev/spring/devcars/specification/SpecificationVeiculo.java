@@ -11,5 +11,7 @@ public class SpecificationVeiculo {
 		criteriaBuilder.like(root.get("marca_veiculo"), "%" + marca + "%");
 	}
 	
+
+	
 	
 }
