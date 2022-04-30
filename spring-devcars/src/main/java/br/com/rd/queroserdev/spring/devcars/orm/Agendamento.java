@@ -1,6 +1,7 @@
 package br.com.rd.queroserdev.spring.devcars.orm;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class Agendamento {
 	private Cliente cliente;
 	
 	@Column(name="data_reserva", nullable = false)
-	private Date dataReserva;
+	private LocalDate dataReserva;
 	
 	@Column(name="taxa_agendamento" , nullable = false)
 	private BigDecimal taxaAgendamento;
@@ -84,11 +85,11 @@ public class Agendamento {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public Date getDataReserva() {
+	public LocalDate getDataReserva() {
 		return dataReserva;
 	}
 	
-	public void setDataReserva(Date dataReserva) {
+	public void setDataReserva(LocalDate dataReserva) {
 		this.dataReserva = dataReserva;
 	}
 	
