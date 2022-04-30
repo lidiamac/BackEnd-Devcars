@@ -1,17 +1,11 @@
 package br.com.rd.queroserdev.spring.devcars.service;
 
-import java.util.List;
 import java.util.Scanner;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import br.com.rd.queroserdev.spring.devcars.orm.Cambio;
+import antlr.collections.List;
 import br.com.rd.queroserdev.spring.devcars.orm.Marca;
-import br.com.rd.queroserdev.spring.devcars.orm.Motor;
 import br.com.rd.queroserdev.spring.devcars.orm.Veiculo;
 import br.com.rd.queroserdev.spring.devcars.repository.CambioRepository;
 import br.com.rd.queroserdev.spring.devcars.repository.MarcaRepository;
@@ -23,10 +17,13 @@ public class VeiculoService {
 	
 	private Boolean sistema = true;
 	
+	
 	private final VeiculoRepository veiculoRepository;
 	private final CambioRepository cambioRepository;
 	private final MotorRepository motorRepository;
 	private final MarcaRepository marcaRepository;
+	
+	
 	
 	public VeiculoService(VeiculoRepository veiculoRepository, CambioRepository cambioRepository,
 		MotorRepository motorRepository, MarcaRepository marcaRepository) {
@@ -50,8 +47,6 @@ public class VeiculoService {
 			System.out.println("|           2 = Buscar por Marca    |");
 			System.out.println("|           3 = Buscar por Modelo   |");
 			System.out.println("|           4 = Buscar por Ano      |");
-			System.out.println("|           5 = Buscar por Motor    |");
-			System.out.println("|           6 = Buscar por Câmbio   |");
 			System.out.println("+ --------------------------------- +");
 			System.out.println("");
 			System.out.println("+ --------------------------------- +");
@@ -63,7 +58,7 @@ public class VeiculoService {
 			
 			switch(acao) {
 				case 1:
-					visualizarVeiculo(sc);
+					visualizarVeiculo();
 					break;
 				case 2:
 					buscarPorMarca(sc);
@@ -74,12 +69,6 @@ public class VeiculoService {
 				case 4:
 					buscarPorAno(sc);
 					break;
-//				case 5:
-//					buscarPorMotor(sc);
-//					break;
-//				case 6:
-//					buscarPorCambio(sc);
-//					break;
 				default:
 					sistema = false;
 					break;
@@ -90,7 +79,7 @@ public class VeiculoService {
 	}
 
 
-	private void visualizarVeiculo(Scanner sc) {
+	private void visualizarVeiculo() {
 //		System.out.println("Qual a página deseja visualizar?");
 //		Integer page = Integer.parseInt(sc.nextLine());
 //		
@@ -112,30 +101,9 @@ public class VeiculoService {
 //	}
 	
 	private void buscarPorMarca(Scanner sc) {	
-		System.out.println("Qual a marca que deseja encontrar?");
-		String brand = sc.nextLine();
-		
-		List<Marca> marcas = marcaRepository.getByBrand(brand);
-		marcas.forEach(System.out::println);	
 		
 	}
 	
-//	private void buscarPorMotor(Scanner sc) {
-//		System.out.println("Qual o motor que deseja encontrar?");
-//		String motor = sc.nextLine();
-//		
-//		List<Motor> motores = motorRepository.getByMotor(motor);
-//		motores.forEach(System.out::println);
-//	}
-//	
-//	private void buscarPorCambio(Scanner sc) {
-//		System.out.println("Qual o câmbio que deseja encontrar?");
-//		String cambio = sc.nextLine();
-//		
-//		List<Cambio> cambios = cambioRepository.getByCambio(cambio);
-//		cambios.forEach(System.out::println);
-//	}
-			
 	private void buscarPorModelo(Scanner sc) {
 		// TODO Auto-generated method stub
 		
