@@ -2,15 +2,16 @@ package br.com.rd.queroserdev.spring.devcars.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.data.domain.Page;
 
-import br.com.rd.queroserdev.spring.devcars.orm.Agendamento;
+import br.com.rd.queroserdev.devcars.model.Agendamento;
 
 public class AgendamentoDTO {
 
 	private Integer id;
-	private LocalDate dataReserva;
+	private Date dataReserva;
 	private BigDecimal taxaReserva; 
 	private String formaPagamento;
 	
@@ -40,7 +41,7 @@ public class AgendamentoDTO {
 		return cliente;
 	}
 
-	public LocalDate getDataReserva() {
+	public Date getDataReserva() {
 		return dataReserva;
 	}
 
