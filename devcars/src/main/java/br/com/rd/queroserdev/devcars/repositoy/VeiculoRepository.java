@@ -13,7 +13,7 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	@Query("SELECT v FROM Veiculo v WHERE v.marca.marca_veiculo = :nomeMarca")
 	List<Veiculo> getByNomeMarca(@Param("nomeMarca") String nomeMarca);
 
-	@Query("SELECT a FROM Veiculo a join a.marca.marca_veiculo = :nomeMarca AND " +
+	@Query("SELECT a FROM Veiculo a WHERE a.marca.marca_veiculo = :nomeMarca AND " +
 										"a.cor.nome_cor = :nomeCor AND " +
 										"a.motor.motorVeiculo = :nomeMotor AND " +
 										"a.motor.potenciaCv = :potencia AND " +
