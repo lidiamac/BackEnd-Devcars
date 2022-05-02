@@ -21,7 +21,7 @@ public class VeiculoController {
 
 
 	@GetMapping("/marcas")
-	public List<VeiculoCardDto> lista(String nomeMarca) {
+	public List<VeiculoCardDto> listaMarca(String nomeMarca) {
 		List<Veiculo> marcas = veiculoRepository.getByNomeMarca(nomeMarca);
 		return VeiculoCardDto.converter(marcas);
 	}
@@ -33,8 +33,23 @@ public class VeiculoController {
 		return VeiculoModalDto.converter(veiculos);
 	}
 	
+	@GetMapping("/modelos")
+	public List<VeiculoCardDto> listaModelo(String modelo) {
+		List<Veiculo> modelos = veiculoRepository.findByModeloVeiculo(modelo);
+		return VeiculoCardDto.converter(modelos);
+	}
 	
+	@GetMapping("/ano")
+	public List<VeiculoCardDto> listaAno(Integer ano) {
+		List <Veiculo> anoFabricacao = veiculoRepository.findByAnoVeiculo(ano);
+		return VeiculoCardDto.converter(anoFabricacao);
+	}
 	
+	@GetMapping("/marcamodelo")
+	public List<VeiculoCardDto> listarPorMarcaModelo(String nomeMarca, String nomeModelo) {
+		List<Veiculo> marcaModelo = veiculoRepository.getByMarcaModelo(nomeMarca, nomeModelo);
+		return VeiculoCardDto.converter(marcaModelo);
+	}
 	
 
 	
