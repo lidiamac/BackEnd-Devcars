@@ -8,7 +8,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+<<<<<<< HEAD
+=======
+//import br.com.rd.queroserdev.spring.devcars.service.AgendamentoService;
+>>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 import br.com.rd.queroserdev.spring.devcars.service.ClienteService;
+import br.com.rd.queroserdev.spring.devcars.service.PedidoService;
 import br.com.rd.queroserdev.spring.devcars.service.VeiculoService;
 
 @EnableJpaRepositories("br.com.rd.queroserdev.spring.devcars.repository")
@@ -25,8 +30,15 @@ public class SpringDevcarsApplication implements CommandLineRunner {
 	private ClienteService clienteService;
 	
 	@Autowired
+<<<<<<< HEAD
 //	private AgendamentoService agendamentoService;
+=======
+	private PedidoService pedidoService;
+>>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 	
+//	@Autowired
+//	private AgendamentoService agendamentoService;
+//	
 	
 //	private final VeiculoService veiculoService;
 //	private final ClienteService clienteService;
@@ -55,7 +67,7 @@ public class SpringDevcarsApplication implements CommandLineRunner {
 			System.out.println("|      0 - Sair                     |");
 			System.out.println("|      1 - Veículos                 |");
 			System.out.println("|      2 - Cliente                  |");
-			System.out.println("|      3 - Agendamento              |");
+			System.out.println("|      3 - Pedido                   |");
 			System.out.println("+ --------------------------------- +");
 			System.out.println("");
 			System.out.println("+ --------------------------------- +");
@@ -69,7 +81,11 @@ public class SpringDevcarsApplication implements CommandLineRunner {
 			} else if (acao == 2) {
 				this.clienteService.iniciar(sc);
 			} else if (acao == 3) {
+<<<<<<< HEAD
 //				this.agendamentoService.iniciar(sc);
+=======
+				this.pedidoService.iniciar(sc);
+>>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 			} else {
 				sistema = false;
 				System.out.println("+ --------------------------------- +");

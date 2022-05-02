@@ -16,6 +16,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>,
 											CrudRepository<Cliente, Integer>{
 
 	List<Cliente> findAll();
+<<<<<<< HEAD
 
 	
 	
@@ -26,5 +27,13 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>,
 		
 //	@Query("select e from Endereco e join e.clientes c where c.codCliente = :id")
 //	List<Endereco> findAllByCliente(Integer id);
+=======
+	
+//		
+//	@Query("select e from Endereco e join e.clientes c where c.idCliente = e.clientes.codCliente")
+//	List<Endereco> findAllByCliente(String Cliente);
+
+	
+>>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 
 }

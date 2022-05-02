@@ -55,7 +55,7 @@ public class Cliente {
 	private String razaoSocial;
 	
 	@Fetch(FetchMode.SELECT)
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinTable(name = "tb_endereco_cliente", joinColumns = {
 			@JoinColumn(name = "cod_cliente") }, inverseJoinColumns = { @JoinColumn(name = "cod_endereco") })
 	private List<Endereco> enderecos;
@@ -171,8 +171,18 @@ public class Cliente {
 	}
 	
 	
+	public List<Endereco> getEnderecos() {
+		return enderecos;
+	}
+
+
+	public void setEnderecos(List<Endereco> enderecos) {
+		this.enderecos = enderecos;
+	}
+
 	
-	
+
+
 	@Override
 	public String toString() {
 		return "Cliente [Id: " + codCliente + ", / Nome: " + nomeCliente + "]";
