@@ -38,6 +38,20 @@ public class Cartao {
 	
 	@Column(name="cvv", nullable = false)
 	private String cvv;
+	
+	
+
+	public Cartao(Cliente cliente, ModalidadeCartao codModalidade, String nomeTitular, String numeroCartao,
+			String validadeCartao, String cvv) {
+		
+		this.cliente = cliente;
+		this.codModalidade = codModalidade;
+		this.nomeTitular = nomeTitular;
+		this.numeroCartao = numeroCartao;
+		this.validadeCartao = validadeCartao;
+		this.cvv = cvv;
+		
+	}
 
 	public Integer getCodCartao() {
 		return codCartao;
