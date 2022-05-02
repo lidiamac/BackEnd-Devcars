@@ -40,6 +40,9 @@ public class Cartao {
 	private String cvv;
 	
 	
+	public Cartao() {}
+	
+	
 
 	public Cartao(Cliente cliente, ModalidadeCartao codModalidade, String nomeTitular, String numeroCartao,
 			String validadeCartao, String cvv) {
