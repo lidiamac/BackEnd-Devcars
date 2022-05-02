@@ -73,7 +73,7 @@ public class Cliente {
 	private List<Pedido> pedidos;
 	
 	
-	@OneToMany((fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@OneToMany((fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="codCartao",referencedColumnName="cod_cartao")
 	private List<Cartao> cartoes;
 	

@@ -304,14 +304,14 @@ public class ClienteService {
 				listarCartoes(sc);
 				break;
 			case 3:
-				listarEnderecos(sc);
+//				listarEnderecos(sc);
 				break;
 
 			case 4:
 
 			case 5:
 
-				alterarCliente(sc);
+//				alterarCliente(sc);
 				break;
 			case 6:
 //				salvarEndereco(sc);
@@ -370,7 +370,7 @@ public class ClienteService {
 
 			this.clienteRepository.save(cliente);
 
-			cliente.setSenhaCliente(criptografar(senha));
+//			cliente.setSenhaCliente(criptografar(senha));
 			
 			
 			this.clienteRepository.save(cliente);
@@ -409,7 +409,7 @@ public class ClienteService {
 			cliente.setNumeroDocumento(cnpj);
 			cliente.setEmailCliente(email);
 			cliente.setTelefoneCliente(telefone);
-			cliente.setSenhaCliente(criptografar(senha));
+//			cliente.setSenhaCliente(criptografar(senha));
 			cliente.setInscricaoEstadual(inscEstadual);
 			
 			
@@ -446,7 +446,7 @@ public class ClienteService {
 			}
 			
 			
-			cliente.setEnderecos(endereco());
+//			cliente.setEnderecos(endereco());
 			
 			this.clienteRepository.save(cliente);
 			sc.next();
@@ -465,60 +465,56 @@ public class ClienteService {
 
 
 
-	
-<<<<<<< HEAD
 	public void listarCartoes(Scanner sc){
 	
 		List<Cliente> clientes = this.clienteRepository.findAll();
 		clientes.forEach(c -> System.out.println(c));
 		
-=======
 
 
-	public List<Cartao> listarCartoes(Scanner sc) {
-
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
-		System.out.println("INFORME O ID DO CLIENTE, PARA LISTARMOS OS CARTOES CADASTRADOS POR ELE : ");
-		int id = sc.nextInt();
-		
-		List<Cartao> cartoes = this.cartaoRepository.findAllByCartao(id);
-		cartoes.forEach(end -> System.out.println(end));
-		
-	}
-
-
-
-	
-	
-
-	public List<Endereco> listarEnderecos(Scanner sc) {
-
-		List<Cliente> clientes = this.clienteRepository.findAll();
-		clientes.forEach(c -> System.out.println(c));
-
-		System.out.println("INFORME O ID DO CLIENTE: ");
-
-		int id = sc.nextInt();
-//		Integer id = Integer.parseInt(sc.nextLine());
-		
-		List<Endereco> enderecos = this.enderecoRepository.findAllByCliente(id);
-		
-		System.out.println("================================================================");
-		enderecos.forEach(end -> System.out.println(end));
-		System.out.println("================================================================");
+//	public List<Cartao> listarCartoes(Scanner sc) {
+//
+//		System.out.println("INFORME O ID DO CLIENTE, PARA LISTARMOS OS CARTOES CADASTRADOS POR ELE : ");
 //		int id = sc.nextInt();
+//		
+//		List<Cartao> cartoes = this.cartaoRepository.findAllByCartao(id);
+//		cartoes.forEach(end -> System.out.println(end));
+//		
+//	}
 
-		return this.enderecoRepository.findAllByCliente(id);
-	}
+
+
+	
+	
+
+//	public List<Endereco> listarEnderecos(Scanner sc) {
+//
+//		List<Cliente> clientes = this.clienteRepository.findAll();
+//		clientes.forEach(c -> System.out.println(c));
+//
+//		System.out.println("INFORME O ID DO CLIENTE: ");
+//
+//		int id = sc.nextInt();
+//		Integer id = Integer.parseInt(sc.nextLine());
+//		
+//		List<Endereco> enderecos = this.enderecoRepository.findAllByCliente(id);
+//		
+//		System.out.println("================================================================");
+//		enderecos.forEach(end -> System.out.println(end));
+//		System.out.println("================================================================");
+//		int id = sc.nextInt();
+//
+//		return this.enderecoRepository.findAllByCliente(id);
+//	}
 
 	
 	
 	
 	
 	
-	public void alterarCliente(Scanner sc) {
-		
-	}
+//	public void alterarCliente(Scanner sc) {
+//		
+//	}
 
 	
 	
@@ -532,10 +528,10 @@ public class ClienteService {
 
 
 	
-	public String criptografar (String senha) {
-		String criptografada = BCrypt.withDefaults().hashToString(10, senha.toCharArray());
-		return criptografada;
-	}
+//	public String criptografar (String senha) {
+//		String criptografada = BCrypt.withDefaults().hashToString(10, senha.toCharArray());
+//		return criptografada;
+//	}
 	
 	
 	
@@ -558,54 +554,54 @@ public class ClienteService {
 //	}
 	
 
-	public void addEndereco() {
-		
-	}
+//	public void addEndereco() {
+//		
+//	}
 	
 	
 	
-	public List<Endereco> endereco(){
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("DESEJA CADASTRAR ENDEREÇO? ");
-		System.out.println("1 - SIM ");
-		System.out.println("2 - NÃO ");
-		Integer cadastrar = Integer.parseInt(sc.nextLine());
-		Endereco endereco = null;
-		Cliente cliente = new Cliente();
-		List<Endereco> e = cliente.getEnderecos();
-		
-		if(cadastrar == 1) {
-			System.out.println("Informe o CEP: ");
-			String cep = sc.next();
-			
-			System.out.println("Informe a rua: ");
-			String rua = sc.next();
-			
-			System.out.println("Informe o numero: ");
-			String numero = sc.next();
-			
-			System.out.println("Informe o bairro: ");
-			String bairro = sc.next();
-			
-			System.out.println("Informe a cidade: ");
-			String cidade = sc.next();
-			
-			System.out.println("Informe a UF: ");
-			String uf = sc.next();
-			
-			endereco = new Endereco(cep, rua, numero, bairro, cidade, uf);
-			
-			e.add(endereco);
+//	public List<Endereco> endereco(){
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.println("DESEJA CADASTRAR ENDEREÇO? ");
+//		System.out.println("1 - SIM ");
+//		System.out.println("2 - NÃO ");
+//		Integer cadastrar = Integer.parseInt(sc.nextLine());
+//		Endereco endereco = null;
+//		Cliente cliente = new Cliente();
+//		List<Endereco> e = cliente.getEnderecos();
+//		
+//		if(cadastrar == 1) {
+//			System.out.println("Informe o CEP: ");
+//			String cep = sc.next();
+//			
+//			System.out.println("Informe a rua: ");
+//			String rua = sc.next();
+//			
+//			System.out.println("Informe o numero: ");
+//			String numero = sc.next();
+//			
+//			System.out.println("Informe o bairro: ");
+//			String bairro = sc.next();
+//			
+//			System.out.println("Informe a cidade: ");
+//			String cidade = sc.next();
+//			
+//			System.out.println("Informe a UF: ");
+//			String uf = sc.next();
+//			
+//			endereco = new Endereco(cep, rua, numero, bairro, cidade, uf);
+//			
+//			e.add(endereco);
 			
 	//		List <Endereco> enderecos = this.endereco(sc);
 			
 			
 //			this.enderecoRepository.save(endereco);
-			sc.close();
-		}
+//			sc.close();
+//		}
 		
-		return e;
+//		return e;
 		
 	}
 	

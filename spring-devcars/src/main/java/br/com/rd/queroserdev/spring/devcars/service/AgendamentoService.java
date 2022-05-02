@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 //package br.com.rd.queroserdev.spring.devcars.service;
 //
@@ -146,8 +146,6 @@
 //		
 //		
 
-=======
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 //package br.com.rd.queroserdev.spring.devcars.service;
 //
 //import java.text.ParseException;
@@ -231,13 +229,10 @@
 //	}
 //
 //	private void buscarPorNome(Scanner sc) {
-<<<<<<< HEAD
 		// TODO Auto-generated method stub
 
-=======
 //		// TODO Auto-generated method stub
 //
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 //	}
 	
 //	public List<Agendamento> buscarPorNome(Scanner sc) {
@@ -265,11 +260,8 @@
 //		String data = sc.nextLine();
 //
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-<<<<<<< HEAD
 //		Date dataReserva = sdf.parse(data);
-=======
 ////		Date dataReserva = sdf.parse(data);
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 //
 //		System.out.println("Digite o valor da taxa de agendamento: ");
 //		String taxa = sc.nextLine();
@@ -358,11 +350,8 @@
 //				
 //				List<Cartao> cartoes = new ArrayList<>();
 //				
-<<<<<<< HEAD
 //				cartoes.forEach(c -> System.out::println(f))
-=======
 //			//	cartoes.forEach(c -> System.out::println(f))
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 //				
 //				
 //			}
@@ -371,17 +360,13 @@
 ////		System.out.println("Digite a senha do cliente");
 ////		String senha = sc.nextLine();
 ////
-<<<<<<< HEAD
 //>>>>>>> 3c4050012b534f7d58700d69bfea9e0d81998bb7
-=======
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 ////		cliente.setNomeCliente(nome);
 ////		cliente.setNumeroDocumento(cpf);
 ////		cliente.setDataNascimento(dataNasc);
 ////		cliente.setEmailCliente(email);
 ////		cliente.setTelefoneCliente(telefone);
 ////		cliente.setSenhaCliente(senha);
-<<<<<<< HEAD
 //<<<<<<< HEAD
 ////		
 ////		
@@ -391,34 +376,25 @@
 ////
 ////}
 
-=======
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 ////
 ////		this.clienteRepository.save(cliente);
 //		
 //		Optional<Cliente> cliente = clienteRepository.findById(idCliente);
 //		agendamento.setCliente(cliente.get()); 
 //		
-<<<<<<< HEAD
 //		agendamento.setCliente(nome);
 //		agendamento.setVeiculo();
 //		agendamento.setDataReserva(data);
 //		agendamento.setTaxaAgendamento();
 //		agendamento.setFormaPagamento();
-=======
 ////		agendamento.setCliente(nome);
 ////		agendamento.setVeiculo();
 ////		agendamento.setDataReserva(data);
 ////		agendamento.setTaxaAgendamento();
 ////		agendamento.setFormaPagamento();
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
 //		
 //		this.agendamentoRepository.save(agendamento);
 //
 //	}
 //
 //}
-<<<<<<< HEAD
-
-=======
->>>>>>> e1938c8230813a1e8d1eb3774f52d62c4baff1df
