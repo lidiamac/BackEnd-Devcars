@@ -50,7 +50,7 @@ public class CartaoDTO {
 	}
 	
 	
-	public static List<CartaoDTO> converter(List<Cartao> topicos) {
+	public List<CartaoDTO> converter(List<Cartao> topicos) {
 		return topicos.stream().map(CartaoDTO::new).collect(Collectors.toList());
 	}
 }

@@ -1,4 +1,4 @@
-package br.com.rd.queroserdev.spring.devcars.dto;
+package br.com.rd.queroserdev.devcars.repository;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

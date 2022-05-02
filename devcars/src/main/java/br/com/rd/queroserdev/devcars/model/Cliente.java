@@ -88,9 +88,10 @@ public class Cliente {
 		
 	
 	
-	public Cliente(String numeroDocumento, String emailCliente, String telefoneCliente, String senhaCliente,
+	public Cliente(String tipoDocumento, String numeroDocumento, String emailCliente, String telefoneCliente, String senhaCliente,
 			String inscricaoEstadual, String razaoSocial) {
 		super();
+		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
 		this.emailCliente = emailCliente;
 		this.telefoneCliente = telefoneCliente;
@@ -102,9 +103,10 @@ public class Cliente {
 
 
 
-	public Cliente(String numeroDocumento, String nomeCliente, Date dataNascimento, String emailCliente,
+	public Cliente(String tipoDocumento, String numeroDocumento, String nomeCliente, Date dataNascimento, String emailCliente,
 			String telefoneCliente, String senhaCliente) {
 		super();
+		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
 		this.nomeCliente = nomeCliente;
 		this.dataNascimento = dataNascimento;
