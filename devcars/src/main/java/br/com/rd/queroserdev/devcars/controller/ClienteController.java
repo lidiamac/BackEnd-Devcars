@@ -1,7 +1,9 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
+import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,10 @@ public class ClienteController {
 	@Autowired
 	private ModalidadeCartaoRepository modalidadeCartaoRepository;
 
+	
+	CartaoDTO cartaoDTO;
+	
+	
 	@GetMapping("/{id}")
 	public ClienteDTO dadosCliente(@PathVariable("id") Integer id) {
 		Cliente cliente = clienteRepository.getById(id);
@@ -44,6 +50,7 @@ public class ClienteController {
 
 	}
 
+	@Transactional
 	@PostMapping("/cartao")
 	public ResponseEntity<CartaoDTO> cadastrar(@RequestBody @Valid CartaoForm form, UriComponentsBuilder uriBuilder) {
 		Cartao cartao = form.converter(clienteRepository, modalidadeCartaoRepository);
@@ -52,5 +59,14 @@ public class ClienteController {
 		URI uri = uriBuilder.path("/cartao/{id}").buildAndExpand(cartao.getCodCartao()).toUri();
 		return ResponseEntity.created(uri).body(new CartaoDTO(cartao));
 	}
+	
+	
+	@GetMapping("/cartao/{id}")
+	public List<CartaoDTO> cartoes(@PathVariable Integer id){
+		List<Cartao> cartao = cartaoRepository.findByCliente_CodCliente(id);
+		return cartaoDTO.converter(cartao);
+	}
+	
+	
 
 }

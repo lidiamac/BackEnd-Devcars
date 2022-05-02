@@ -1,5 +1,7 @@
 package br.com.rd.queroserdev.devcars.controller.form;
 
+import javax.validation.constraints.NotNull;
+
 import br.com.rd.queroserdev.devcars.model.Cartao;
 import br.com.rd.queroserdev.devcars.model.Cliente;
 import br.com.rd.queroserdev.devcars.model.ModalidadeCartao;
@@ -10,13 +12,26 @@ public class CartaoForm {
 
 //	private String nomeCliente;
 
+	@NotNull
 	private Cliente cliente;
 	private Integer codCliente;
-
+	
+	@NotNull
+	private ModalidadeCartao modalidadeCartao;
+	private Integer codModalidade;
+	
 	private String descricaoModalidade;
+	
+	@NotNull
 	private String nomeTitular;
+	
+	@NotNull
 	private String numeroCartao;
+	
+	@NotNull
 	private String validadeCartao;
+	
+	@NotNull
 	private String cvv;
 
 //	public String getNomeCliente() {
@@ -73,10 +88,37 @@ public class CartaoForm {
 		this.cvv = cvv;
 	}
 
+	
+	
+//
+//	public CartaoForm(Cliente cliente, Integer codCliente, ModalidadeCartao modalidadeCartao, String nomeTitular,
+//			String numeroCartao, String validadeCartao, String cvv) {
+//		super();
+//		this.cliente = cliente;
+//		this.codCliente = codCliente;
+//		this.modalidadeCartao = modalidadeCartao;
+//		this.nomeTitular = nomeTitular;
+//		this.numeroCartao = numeroCartao;
+//		this.validadeCartao = validadeCartao;
+//		this.cvv = cvv;
+//	}
+	
+	
+	
+
 	public Cartao converter(ClienteRepository clienteRepository, ModalidadeCartaoRepository modalidadeCartaoRepository) {
+		
 		Cliente cliente = clienteRepository.getById(getCodCliente());
 		ModalidadeCartao modalidadeCartao = modalidadeCartaoRepository.findByDescricaoModalidadeCartao(descricaoModalidade);
 
-		return new Cartao(cliente, modalidadeCartao, nomeTitular, numeroCartao, validadeCartao, cvv);
+		return new Cartao(cliente, modalidadeCartao, cvv, nomeTitular, numeroCartao, validadeCartao);
 	}
+	
+	
+//	public Cartao converter(CartaoRepository cartaoRepository) {
+//		Cartao cartao = cartaoRepository.findByNumeroCartao(this.getNumeroCartao());
+//		
+//		return cartao;
+//	}
+	
 }

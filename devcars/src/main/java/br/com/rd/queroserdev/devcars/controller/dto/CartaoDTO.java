@@ -1,10 +1,13 @@
 package br.com.rd.queroserdev.devcars.controller.dto;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import br.com.rd.queroserdev.devcars.model.Cartao;
 
 public class CartaoDTO {
 	
-	private String nomeCliente;
+//	private String nomeCliente;
 	
 	private String modalidadeCartao;
 	private String nomeTitular;
@@ -14,7 +17,7 @@ public class CartaoDTO {
 	
 	public CartaoDTO(Cartao cartao) {
 		
-		this.nomeCliente = cartao.getCliente().getNomeCliente();
+//		this.nomeCliente = cartao.getCliente().getNomeCliente();
 		this.modalidadeCartao = cartao.getCodModalidade().getDescricaoModalidadeCartao();
 		this.nomeTitular = cartao.getNomeTitular();
 		this.numeroCartao = cartao.getNumeroCartao();
@@ -22,9 +25,9 @@ public class CartaoDTO {
 		this.cvv = cartao.getCvv();
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
+//	public String getNomeCliente() {
+//		return nomeCliente;
+//	}
 
 	public String getModalidadeCartao() {
 		return modalidadeCartao;
@@ -47,5 +50,7 @@ public class CartaoDTO {
 	}
 	
 	
-
+	public static List<CartaoDTO> converter(List<Cartao> topicos) {
+		return topicos.stream().map(CartaoDTO::new).collect(Collectors.toList());
+	}
 }
