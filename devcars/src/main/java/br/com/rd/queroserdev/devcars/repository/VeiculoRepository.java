@@ -1,4 +1,4 @@
-package br.com.rd.queroserdev.devcars.repositoy;
+package br.com.rd.queroserdev.devcars.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

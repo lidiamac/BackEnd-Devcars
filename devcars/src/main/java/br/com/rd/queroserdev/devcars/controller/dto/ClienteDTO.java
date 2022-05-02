@@ -19,9 +19,8 @@ public class ClienteDTO {
 	private String senhaCliente;
 
 	public ClienteDTO(Cliente cliente) {
-		
+
 		if (cliente.getNumeroDocumento().length() == 11) {
-			
 			this.nomeCliente = cliente.getNomeCliente();
 			this.dataNascimento = cliente.getDataNascimento();
 //			this.tipoDocumento = cliente.getTipoDocumento();
@@ -31,7 +30,6 @@ public class ClienteDTO {
 			this.senhaCliente = cliente.getSenhaCliente();
 			System.out.println("Cliente Físico OK");
 		} else {
-			
 			this.inscricaoEstadual = cliente.getInscricaoEstadual();
 			this.razaoSocial = cliente.getRazaoSocial();
 //			this.tipoDocumento = cliente.getTipoDocumento();
@@ -44,19 +42,21 @@ public class ClienteDTO {
 
 	}
 
-	public Cliente toCliente() {
-
-		if (this.getNumeroDocumento().length() == 11) {
-			
-			return new Cliente(getNumeroDocumento(), getNomeCliente(), getDataNascimento(), getEmailCliente(),
-					getTelefoneCliente(), getSenhaCliente());
-			
-		} else {
-			return new Cliente(getNumeroDocumento(), getRazaoSocial(), getInscricaoEstadual(), getEmailCliente(),
-				getTelefoneCliente(), getSenhaCliente());
-		}
-
-	}
+//	public Cliente toCliente() {
+//
+//		if (this.getNumeroDocumento().length() == 11) {
+//			
+//			System.out.println("Método PF");
+//			return new Cliente(getNumeroDocumento(), getNomeCliente(), getDataNascimento(), getEmailCliente(),
+//					getTelefoneCliente(), getSenhaCliente());
+//			
+//		} else {
+//			System.out.println("Método PJ");
+//			return new Cliente(getNumeroDocumento(), getRazaoSocial(), getInscricaoEstadual(), getEmailCliente(),
+//				getTelefoneCliente(), getSenhaCliente());
+//		}
+//
+//	}
 
 	public String getNomeCliente() {
 		return nomeCliente;
