@@ -18,7 +18,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.rd.queroserdev.devcars.controller.dto.CartaoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteFisicoDTO;
-import br.com.rd.queroserdev.devcars.controller.form.CartaoForm;
 import br.com.rd.queroserdev.devcars.controller.form.ClienteFisicoForm;
 import br.com.rd.queroserdev.devcars.model.Cartao;
 import br.com.rd.queroserdev.devcars.model.Cliente;
@@ -61,7 +60,7 @@ public class ClienteController {
 //	}
 	
 	
-	
+	@Transactional
 	@PostMapping("/f")
 	public ResponseEntity<ClienteFisicoDTO> cadastrarClienteFisico(@RequestBody @Valid ClienteFisicoForm form, UriComponentsBuilder uriBuilder){
 		Cliente cliente = form.converter();
