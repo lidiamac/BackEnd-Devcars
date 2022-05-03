@@ -40,7 +40,6 @@ public class ClienteController {
 	private ModalidadeCartaoRepository modalidadeCartaoRepository;
 
 	
-	CartaoDTO cartaoDTO;
 	
 	
 	@GetMapping("/{id}")
@@ -50,18 +49,16 @@ public class ClienteController {
 		return new ClienteFisicoDTO(cliente);
 
 	}
-	
-	
 
-//	@Transactional
-//	@PostMapping("/cartao")
-//	public ResponseEntity<CartaoDTO> cadastrar(@RequestBody @Valid CartaoForm form, UriComponentsBuilder uriBuilder) {
-//		Cartao cartao = form.converter(clienteRepository, modalidadeCartaoRepository);
-//		
-//		cartaoRepository.save(cartao);
-//		URI uri = uriBuilder.path("/cartao/{id}").buildAndExpand(cartao.getCodCartao()).toUri();
-//		return ResponseEntity.created(uri).body(new CartaoDTO(cartao));
-//	}
+	@Transactional
+	@PostMapping("/cartao")
+	public ResponseEntity<CartaoDTO> cadastrar(@RequestBody @Valid CartaoForm form, UriComponentsBuilder uriBuilder) {
+		Cartao cartao = form.converter(clienteRepository, modalidadeCartaoRepository);
+		
+		cartaoRepository.save(cartao);
+		URI uri = uriBuilder.path("/cartao/{id}").buildAndExpand(cartao.getCodCartao()).toUri();
+		return ResponseEntity.created(uri).body(new CartaoDTO(cartao));
+	}
 	
 	
 	
@@ -77,19 +74,20 @@ public class ClienteController {
 	
 	
 	
-	
-	@Transactional
-	@PostMapping("/cartao")
-	public void cadastrar(CartaoForm cartaoForm){
-		Cartao cartao = cartaoForm.converter(clienteRepository, modalidadeCartaoRepository);
-		cartaoRepository.save(cartao);
-	}
+//	
+//	@Transactional
+//	@PostMapping("/cartao")
+//	public void cadastrar(CartaoForm cartaoForm){
+//		Cartao cartao = cartaoForm.converter(clienteRepository, modalidadeCartaoRepository);
+//		cartaoRepository.save(cartao);
+//	}
 	
 	
 	
 	@GetMapping("/cartao/{id}")
 	public List<CartaoDTO> cartoes(@PathVariable @Valid Integer id){
 		List<Cartao> cartao = cartaoRepository.findByCliente_CodCliente(id);
+		CartaoDTO cartaoDTO = new CartaoDTO();
 		return cartaoDTO.converter(cartao);
 	}
 	
