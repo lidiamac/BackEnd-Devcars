@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.rd.queroserdev.devcars.controller.dto.VeiculoCardDto;
 import br.com.rd.queroserdev.devcars.controller.dto.VeiculoModalDto;
 import br.com.rd.queroserdev.devcars.model.Veiculo;
-import br.com.rd.queroserdev.devcars.repositoy.VeiculoRepository;
+import br.com.rd.queroserdev.devcars.repository.VeiculoRepository;
 
 @RestController
 @RequestMapping("/veiculos")
