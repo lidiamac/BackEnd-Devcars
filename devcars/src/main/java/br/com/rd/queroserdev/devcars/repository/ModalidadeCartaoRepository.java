@@ -10,7 +10,7 @@ public interface ModalidadeCartaoRepository extends CrudRepository<ModalidadeCar
 
 //	List<ModalidadeCartao> findByCodModalidadeCartao(Integer codModalidadeCartao);
 
-	ModalidadeCartao findByDescricaoModalidadeCartao(String modalidadeCartao);
+//	ModalidadeCartao findByDescricaoModalidadeCartao(String modalidadeCartao);
 	
-	ModalidadeCartao findByCodModalidadeCartao(Integer codModalidadeCartao);
+//	ModalidadeCartao findByCodModalidadeCartao(Integer codModalidadeCartao);
 }

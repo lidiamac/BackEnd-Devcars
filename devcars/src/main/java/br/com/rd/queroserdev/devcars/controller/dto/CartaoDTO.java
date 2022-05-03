@@ -8,9 +8,10 @@ import br.com.rd.queroserdev.devcars.model.ModalidadeCartao;
 
 public class CartaoDTO {
 	
-//	private String nomeCliente;
+	private String nomeCliente;
 	
-	private Integer modalidadeCartao;
+//	private Integer modalidadeCartao;
+	private String modalidadeCartao;
 	private String nomeTitular;
 	private String numeroCartao;
 	private String validadeCartao;
@@ -22,8 +23,8 @@ public class CartaoDTO {
 	
 	public CartaoDTO(Cartao cartao) {
 		
-//		this.nomeCliente = cartao.getCliente().getNomeCliente();
-		this.modalidadeCartao = cartao.getCodModalidade().getCodModalidadeCartao();
+		this.nomeCliente = cartao.getCliente().getNomeCliente();
+		this.modalidadeCartao = cartao.getCodModalidade().getDescricaoModalidadeCartao();
 		this.nomeTitular = cartao.getNomeTitular();
 		this.numeroCartao = cartao.getNumeroCartao();
 		this.validadeCartao = cartao.getValidadeCartao();
@@ -34,7 +35,7 @@ public class CartaoDTO {
 //		return nomeCliente;
 //	}
 
-	public Integer getModalidadeCartao() {
+	public String getModalidadeCartao() {
 		return modalidadeCartao;
 	}
 
