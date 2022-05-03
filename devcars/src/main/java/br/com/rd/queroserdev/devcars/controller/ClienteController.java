@@ -3,7 +3,6 @@ package br.com.rd.queroserdev.devcars.controller;
 import java.net.URI;
 import java.util.List;
 
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +17,16 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.rd.queroserdev.devcars.controller.dto.CartaoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteFisicoDTO;
-import br.com.rd.queroserdev.devcars.controller.form.CartaoForm;
+import br.com.rd.queroserdev.devcars.controller.dto.ClienteJuridicoDTO;
+import br.com.rd.queroserdev.devcars.controller.dto.EnderecoDTO;
 import br.com.rd.queroserdev.devcars.controller.form.ClienteFisicoForm;
+import br.com.rd.queroserdev.devcars.controller.form.ClienteJuridicoForm;
 import br.com.rd.queroserdev.devcars.model.Cartao;
 import br.com.rd.queroserdev.devcars.model.Cliente;
+import br.com.rd.queroserdev.devcars.model.Endereco;
 import br.com.rd.queroserdev.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
-import br.com.rd.queroserdev.devcars.repository.ModalidadeCartaoRepository;
+import br.com.rd.queroserdev.devcars.repository.EnderecoRepository;
 
 @RestController
 @RequestMapping("/cliente")
@@ -36,8 +38,8 @@ public class ClienteController {
 	@Autowired
 	private CartaoRepository cartaoRepository;
 	
-	@Autowired
-	private ModalidadeCartaoRepository modalidadeCartaoRepository;
+//	@Autowired
+//	private EnderecoRepository enderecoRepository;
 
 	
 	
@@ -72,6 +74,16 @@ public class ClienteController {
 		return ResponseEntity.created(uri).body(new ClienteFisicoDTO(cliente));
 	}
 	
+	@PostMapping("/j")
+	public ResponseEntity<ClienteJuridicoDTO> cadastrarClienteJuridico(@RequestBody @Valid ClienteJuridicoForm form, UriComponentsBuilder uriBuilder){
+		Cliente cliente = form.converter();
+		
+		clienteRepository.save(cliente);
+		
+		URI uri = uriBuilder.path("/cliente/{id}").buildAndExpand(cliente.getCodCliente()).toUri();
+		return ResponseEntity.created(uri).body(new ClienteJuridicoDTO(cliente));
+	}
+	
 	
 	
 //	
@@ -90,6 +102,13 @@ public class ClienteController {
 		CartaoDTO cartaoDTO = new CartaoDTO();
 		return cartaoDTO.converter(cartao);
 	}
+	
+//	@GetMapping("/endereco/{id}")
+//	public List<EnderecoDTO> enderecos(@PathVariable @Valid Integer id) {
+//		List<Endereco> endereco = enderecoRepository.findAllByCliente(id);
+//		EnderecoDTO enderecoDTO = new EnderecoDTO();
+//		return enderecoDTO.converter(endereco);
+//	}
 	
 	
 	
