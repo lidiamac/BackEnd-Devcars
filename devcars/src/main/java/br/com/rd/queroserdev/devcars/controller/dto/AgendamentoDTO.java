@@ -1,10 +1,9 @@
-package br.com.rd.queroserdev.devcars.repository;
+package br.com.rd.queroserdev.devcars.controller.dto;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Date;
-
-import org.springframework.data.domain.Page;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import br.com.rd.queroserdev.devcars.model.Agendamento;
 
@@ -18,6 +17,8 @@ public class AgendamentoDTO {
 	private String veiculo;
 	private String cliente;
 	
+	
+	public AgendamentoDTO() {}
 
 	public AgendamentoDTO(Agendamento agendamento) {
 		this.id = agendamento.getCodAgendamento();
@@ -53,10 +54,7 @@ public class AgendamentoDTO {
 		return formaPagamento;
 	}
 	
-	public static Page<AgendamentoDTO> converter(Page<Agendamento> agendamentos) {
-		
-		return agendamentos.map(AgendamentoDTO::new);
+	public List<AgendamentoDTO> converter(List<Agendamento> agendamentos) {
+		return agendamentos.stream().map(AgendamentoDTO::new).collect(Collectors.toList());
 	}
-
-	
 }
