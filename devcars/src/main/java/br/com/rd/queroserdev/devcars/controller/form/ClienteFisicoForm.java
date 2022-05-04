@@ -1,6 +1,7 @@
 package br.com.rd.queroserdev.devcars.controller.form;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import br.com.rd.queroserdev.devcars.model.Cliente;
@@ -9,12 +10,13 @@ import br.com.rd.queroserdev.devcars.service.Encriptar;
 public class ClienteFisicoForm {
 	private String numeroDocumento;
 	private String nomeCliente;
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	private String emailCliente;
 	private String telefoneCliente;
 	private String senhaCliente;
 	private Encriptar encriptar;
-	
+	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
 	
 	public String getNumeroDocumento() {
 		return numeroDocumento;
@@ -28,11 +30,11 @@ public class ClienteFisicoForm {
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = LocalDate.parse(dataNascimento, formatter);
 	}
 	public String getEmailCliente() {
 		return emailCliente;

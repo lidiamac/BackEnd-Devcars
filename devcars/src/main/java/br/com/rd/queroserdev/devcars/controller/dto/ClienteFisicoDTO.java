@@ -1,18 +1,19 @@
 package br.com.rd.queroserdev.devcars.controller.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import br.com.rd.queroserdev.devcars.model.Cliente;
 
 public class ClienteFisicoDTO {
 
 	private String nomeCliente;
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	private String tipoDocumento;
 	private String numeroDocumento;
 	private String emailCliente;
 	private String telefoneCliente;
-	
+	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	
 	public ClienteFisicoDTO(Cliente cliente) {
@@ -34,11 +35,11 @@ public class ClienteFisicoDTO {
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = LocalDate.parse(dataNascimento, formatter);
 	}
 	public String getTipoDocumento() {
 		return tipoDocumento;
