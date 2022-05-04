@@ -64,7 +64,7 @@ public class ClienteController {
 	@GetMapping("/cartao/{id}")
 	public List<CartaoDTO> cartoes(@PathVariable Integer id){
 		List<Cartao> cartao = cartaoRepository.findByCliente_CodCliente(id);
-		return cartaoDTO.converter(cartao);
+		return CartaoDTO.converter(cartao);
 	}
 	
 	

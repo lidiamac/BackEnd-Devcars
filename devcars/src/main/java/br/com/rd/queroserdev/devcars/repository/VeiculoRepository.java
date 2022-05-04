@@ -20,7 +20,7 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	List<Veiculo> findByAnoVeiculo(Integer ano);
 
 	
-	@Query("SELECT mm FROM Veiculo mm WHERE mm.marca.marca_veiculo = :nomeMarca AND" +
+	@Query("SELECT mm FROM Veiculo mm WHERE mm.marca.marca_veiculo = :nomeMarca AND " +
 											"modeloVeiculo = :nomeModelo")
 	List<Veiculo> getByMarcaModelo(@Param("nomeMarca") String nomeMarca, 
 								   @Param("nomeModelo") String nomeModelo);
