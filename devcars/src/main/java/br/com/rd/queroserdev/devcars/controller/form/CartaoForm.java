@@ -13,16 +13,13 @@ import br.com.rd.queroserdev.devcars.repository.ModalidadeCartaoRepository;
 public class CartaoForm {
 
 	
-//	private Cliente cliente;
+
 	@NotNull
 	private Integer codCliente;
 	
-	
-//	private ModalidadeCartao modalidadeCartao;
-//	@NotNull
+
+	@NotNull
 	private Integer codModalidade;
-	private String modalidade;
-	
 	
 	
 	@NotNull
@@ -39,14 +36,7 @@ public class CartaoForm {
 
 	
 	
-	
-//	public Cliente getCliente() {
-//		return cliente;
-//	}
-//
-//	public void setCliente(Cliente cliente) {
-//		this.cliente = cliente;
-//	}
+
 	
 	public Integer getCodCliente() {
 		return codCliente;
@@ -92,14 +82,11 @@ public class CartaoForm {
 	
 	
 
-//	public Cartao converter(ClienteRepository clienteRepository, ModalidadeCartaoRepository modalidadeCartaoRepository) {
-////		Cartao cartao = new Cartao();
-//		Cliente cliente = clienteRepository.getById(codCliente);
-//		ModalidadeCartao modalidadeCartao = modalidadeCartaoRepository.getById(codModalidade);
-//				
-//		
-////		ModalidadeCartao modalidadeCartao = modalidadeCartaoRepository.findByDescricaoModalidadeCartao(modalidade);
-//		return new Cartao(cliente, modalidadeCartao, cvv, nomeTitular, numeroCartao, validadeCartao);
-//	}
+	public Cartao converter(ClienteRepository clienteRepository, ModalidadeCartaoRepository modalidadeCartaoRepository) {
+		Cliente cliente = clienteRepository.getById(codCliente);
+		ModalidadeCartao modalidadeCartao = modalidadeCartaoRepository.getById(codModalidade);
+				
+		return new Cartao(cliente, modalidadeCartao, cvv, nomeTitular, numeroCartao, validadeCartao);
+	}
 	
 }

@@ -46,11 +46,11 @@ public class Cartao {
 	
 	
 
-	public Cartao(Cliente cliente, Optional<ModalidadeCartao> modalidadeCartao, String nomeTitular, String numeroCartao,
+	public Cartao(Cliente cliente, ModalidadeCartao modalidadeCartao, String nomeTitular, String numeroCartao,
 			String validadeCartao, String cvv) {
 		
 		this.cliente = cliente;
-		this.codModalidade = getCodModalidade();
+		this.codModalidade = modalidadeCartao;
 		this.nomeTitular = nomeTitular;
 		this.numeroCartao = numeroCartao;
 		this.validadeCartao = validadeCartao;

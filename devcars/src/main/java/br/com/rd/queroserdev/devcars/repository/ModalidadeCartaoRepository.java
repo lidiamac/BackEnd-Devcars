@@ -1,6 +1,5 @@
 package br.com.rd.queroserdev.devcars.repository;
 
-import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -13,4 +12,8 @@ public interface ModalidadeCartaoRepository extends CrudRepository<ModalidadeCar
 //	ModalidadeCartao findByDescricaoModalidadeCartao(String modalidadeCartao);
 	
 //	ModalidadeCartao findByCodModalidadeCartao(Integer codModalidadeCartao);
+	
+	
+	ModalidadeCartao getById(Integer codModalidadeCartao);
+	
 }
