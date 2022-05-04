@@ -1,5 +1,7 @@
 package br.com.rd.queroserdev.devcars.model;
 
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,11 +46,11 @@ public class Cartao {
 	
 	
 
-	public Cartao(Cliente cliente, ModalidadeCartao codModalidade, String nomeTitular, String numeroCartao,
+	public Cartao(Cliente cliente, Optional<ModalidadeCartao> modalidadeCartao, String nomeTitular, String numeroCartao,
 			String validadeCartao, String cvv) {
 		
 		this.cliente = cliente;
-		this.codModalidade = codModalidade;
+		this.codModalidade = getCodModalidade();
 		this.nomeTitular = nomeTitular;
 		this.numeroCartao = numeroCartao;
 		this.validadeCartao = validadeCartao;

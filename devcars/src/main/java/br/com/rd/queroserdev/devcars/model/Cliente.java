@@ -1,6 +1,6 @@
 package br.com.rd.queroserdev.devcars.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tb_cliente")
@@ -36,8 +37,9 @@ public class Cliente {
 	@Column(name="nome_cliente", nullable = true)
 	private String nomeCliente;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="data_nascimento", nullable = true)
-	private Date dataNascimento;
+	private LocalDate dataNascimento;
 	
 	@Column(name="email_cliente", nullable = false)
 	private String emailCliente;
@@ -88,9 +90,10 @@ public class Cliente {
 		
 	
 	
-	public Cliente(String numeroDocumento, String emailCliente, String telefoneCliente, String senhaCliente,
+	public Cliente(String tipoDocumento, String numeroDocumento, String emailCliente, String telefoneCliente, String senhaCliente,
 			String inscricaoEstadual, String razaoSocial) {
 		super();
+		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
 		this.emailCliente = emailCliente;
 		this.telefoneCliente = telefoneCliente;
@@ -102,9 +105,10 @@ public class Cliente {
 
 
 
-	public Cliente(String numeroDocumento, String nomeCliente, Date dataNascimento, String emailCliente,
+	public Cliente(String tipoDocumento, String numeroDocumento, String nomeCliente, LocalDate dataNascimento, String emailCliente,
 			String telefoneCliente, String senhaCliente) {
 		super();
+		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
 		this.nomeCliente = nomeCliente;
 		this.dataNascimento = dataNascimento;
@@ -152,11 +156,11 @@ public class Cliente {
 		
 	}
 	
-	public Date getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 	
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	
