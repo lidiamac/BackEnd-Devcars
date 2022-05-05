@@ -20,7 +20,7 @@ public class ClienteFisicoDTO {
 		super();
 		this.dataNascimento = cliente.getDataNascimento();
 		this.nomeCliente = cliente.getNomeCliente();
-		this.tipoDocumento = cliente.getTelefoneCliente();
+		this.tipoDocumento = cliente.getTipoDocumento();
 		this.numeroDocumento = cliente.getNumeroDocumento();
 		this.emailCliente = cliente.getEmailCliente();
 		this.telefoneCliente = cliente.getTelefoneCliente();
