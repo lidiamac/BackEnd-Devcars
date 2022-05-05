@@ -23,7 +23,7 @@ create table tb_fornecedor
 	
 create table tb_combustivel
 (
-	cod_combustivel int not null,
+	cod_combustivel int not null auto_increment,
 	tipo_combustivel varchar (50) not null,
 	
 	primary key (cod_combustivel)
@@ -34,7 +34,7 @@ create table tb_combustivel
 
 create table tb_cambio
 (
-	cod_cambio int not null,
+	cod_cambio int not null auto_increment,
 	cambio varchar (50) not null,
 	
 	primary key (cod_cambio)
@@ -43,7 +43,7 @@ create table tb_cambio
 
 create table tb_cor
 (
-	cod_cor int not null,
+	cod_cor int not null auto_increment,
 	nome_cor varchar (50) not null,
 	
 	primary key (cod_cor)
@@ -52,7 +52,7 @@ create table tb_cor
 	
 create table tb_marca
 (
-	cod_marca int not null,
+	cod_marca int not null auto_increment,
 	marca_veiculo varchar (50) not null,
 	
 	primary key (cod_marca)
@@ -61,7 +61,7 @@ create table tb_marca
 
 create table tb_motor
 (
-	cod_motor int not null,
+	cod_motor int not null auto_increment,
 	motor_veiculo varchar (50) not null,
 	potencia_cv varchar (50) not null,
 	
@@ -152,7 +152,7 @@ create table tb_endereco_cliente
 
 create table tb_modalidade_cartao
 (
-	cod_modalidade int not null,
+	cod_modalidade int not null auto_increment,
 	descricao_modalidade varchar(20) not null,
 
 	primary key (cod_modalidade)
@@ -164,7 +164,7 @@ create table tb_modalidade_cartao
 
 create table tb_cartao
 (
-	cod_cartao int not null,
+	cod_cartao int not null auto_increment,
 	nome_titular varchar(50) not null,
 	numero_cartao varchar(16) not null,
 	validade_cartao varchar(5) not null,
@@ -181,7 +181,7 @@ create table tb_cartao
 
 create table tb_boleto
 (
-	cod_boleto int not null,
+	cod_boleto int not null auto_increment,
 	numero_cod_barra varchar (48) not null,
 
 	primary key (cod_boleto)
@@ -191,7 +191,7 @@ create table tb_boleto
 
 create table tb_pix
 (
-	cod_pix int not null,
+	cod_pix int not null auto_increment,
 	id_transacao varchar (32) not null,
 
 	primary key (cod_pix)
@@ -202,7 +202,7 @@ create table tb_pix
 
 create table tb_forma_pagamento
 (
-	cod_forma_pagamento int not null,
+	cod_forma_pagamento int not null auto_increment,
 	descricao_forma_pagamento varchar (50) not null,
 	
 	
@@ -218,7 +218,7 @@ create table tb_forma_pagamento
 
 create table tb_agendamento
 (
-	cod_agendamento int not null,
+	cod_agendamento int not null auto_increment,
 	cod_veiculo int not null,
 	cod_cliente int not null,
 	data_reserva date not null,
@@ -244,7 +244,7 @@ create table tb_agendamento
 
 create table tb_favorito
 (
-	cod_favorito int not null,
+	cod_favorito int not null auto_increment,
 	cod_cliente int not null,
 
 	primary key (cod_favorito),
@@ -268,7 +268,7 @@ create table tb_favorito_veiculo
 
 
 create table tb_loja (
-		cod_loja int not null,
+		cod_loja int not null auto_increment,
 		razao_social_loja varchar (50) not null,
 		cnpj_loja varchar (18)  not null,
 		telefone_loja varchar (20) not null,
@@ -283,7 +283,7 @@ create table tb_loja (
 
 create table tb_natureza_operacao (
 	
-		cod_natureza_operacao int not null,
+		cod_natureza_operacao int not null auto_increment,
 		descricao_natureza_operacao varchar (50) not null,
 
 		primary key (cod_natureza_operacao)
@@ -293,7 +293,7 @@ create table tb_natureza_operacao (
 
 create table tb_frete 
 (
-	cod_frete int not null,
+	cod_frete int not null auto_increment,
 	unidade_federativa varchar (2) not null,
 	valor_frete decimal (10,2) not null,
 
@@ -306,7 +306,7 @@ create table tb_frete
 
 create table tb_status
 (
-	cod_status int not null,
+	cod_status int not null auto_increment,
 	status varchar(10) not null,
 	
 	primary key (cod_status)
@@ -316,7 +316,7 @@ create table tb_status
 
 create table tb_pedido
 (
-	cod_pedido int not null,
+	cod_pedido int not null auto_increment,
 	cod_cliente int not null,
 	cod_veiculo int not null,
 	cod_endereco int not null,
@@ -324,8 +324,8 @@ create table tb_pedido
 	cod_frete int not null,
 	valor_total_pedido decimal (12,2) not null,
 	data_pedido date not null,
-	previsao_entrega int not null,
-	data_envio date not null,
+	previsao_entrega int null,
+	data_envio date null,
 	cod_status int not null,
 
 	primary key (cod_pedido),
@@ -343,7 +343,7 @@ create table tb_pedido
 
 create table tb_cabecalho_nf ( 
 
-		cod_nota int not null,
+		cod_nota int not null auto_increment,
 		cod_cliente int not null,
 		cod_loja int not null,
 		cod_natureza_operacao int not null,
@@ -368,7 +368,7 @@ create table tb_cabecalho_nf (
 
 create table tb_item_nf (
 	
-		cod_iten_nf  int not null,
+		cod_iten_nf  int not null auto_increment,
 		cod_nota int not null,
 		preco_veiculo decimal (12,2) not null,
 		percentual_icms decimal (4,2) not null,

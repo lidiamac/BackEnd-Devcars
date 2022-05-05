@@ -2,6 +2,7 @@ package br.com.rd.queroserdev.devcars.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,17 +46,58 @@ public class Pedido {
 	private BigDecimal valorTotalPedido;
 	
 	@Column(nullable = false)
-	private LocalDate dataPedido;
+	private LocalDateTime dataPedido = LocalDateTime.now();
 	
-	@Column(nullable = false)
+	@Column
 	private Integer previsaoEntrega;
 	
-	@Column(nullable = false)
+	@Column
 	private LocalDate dataEnvio;
 	
 	@ManyToOne
 	@JoinColumn(name="cod_status", nullable = false)
 	private Status status;
+	
+
+	public Pedido() {
+	}
+
+	public Pedido(Cliente cliente, Veiculo veiculo, Endereco endereco, FormaPagamento formaPagamento, Frete frete,
+			BigDecimal valorTotalPedido, Status status) {
+		super();
+		this.cliente = cliente;
+		this.veiculo = veiculo;
+		this.endereco = endereco;
+		this.formaPagamento = formaPagamento;
+		this.frete = frete;
+		this.valorTotalPedido = valorTotalPedido;
+		this.status = status;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codPedido == null) ? 0 : codPedido.hashCode());
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pedido other = (Pedido) obj;
+		if (codPedido == null) {
+			if (other.codPedido != null)
+				return false;
+		} else if (!codPedido.equals(other.codPedido))
+			return false;
+		return true;
+	}
 
 	public Integer getCodPedido() {
 		return codPedido;
@@ -113,11 +155,11 @@ public class Pedido {
 		this.valorTotalPedido = valorTotalPedido;
 	}
 
-	public LocalDate getDataPedido() {
+	public LocalDateTime getDataPedido() {
 		return dataPedido;
 	}
 
-	public void setDataPedido(LocalDate dataPedido) {
+	public void setDataPedido(LocalDateTime dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 

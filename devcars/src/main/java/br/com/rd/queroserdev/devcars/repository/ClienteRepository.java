@@ -13,10 +13,11 @@ import br.com.rd.queroserdev.devcars.model.Cliente;
 import br.com.rd.queroserdev.devcars.model.Endereco;
 
 
-@Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 
 	List<Cliente> findAll();
+
+	Cliente findByCodCliente(Integer idCliente);
 	
 //	List<Cliente> findById();
 	
