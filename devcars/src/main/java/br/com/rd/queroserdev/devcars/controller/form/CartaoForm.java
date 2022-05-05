@@ -52,7 +52,7 @@ public class CartaoForm {
 	}
 
 	public void setNomeTitular(String nomeTitular) {
-		this.nomeTitular = nomeTitular;
+		this.nomeTitular = nomeTitular.toUpperCase();
 	}
 
 	public String getNumeroCartao() {

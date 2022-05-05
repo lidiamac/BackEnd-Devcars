@@ -58,7 +58,7 @@ public class AtualizacaoCartaoForm {
 	
 	public Cartao atualizar(Integer id, CartaoRepository cartaoRepository) {
 		Cartao cartao = cartaoRepository.getById(id);
-		cartao.setNomeTitular(nomeTitular);
+		cartao.setNomeTitular(nomeTitular.toUpperCase());
 		cartao.setNumeroCartao(numeroCartao);
 		cartao.setValidadeCartao(validadeCartao);
 		
