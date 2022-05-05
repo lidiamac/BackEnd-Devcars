@@ -1,19 +1,17 @@
 package br.com.rd.queroserdev.devcars.repository;
 
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import br.com.rd.queroserdev.devcars.model.ModalidadeCartao;
 
-public interface ModalidadeCartaoRepository extends CrudRepository<ModalidadeCartao, Integer> {
 
-//	List<ModalidadeCartao> findByCodModalidadeCartao(Integer codModalidadeCartao);
 
-//	ModalidadeCartao findByDescricaoModalidadeCartao(String modalidadeCartao);
-	
-//	ModalidadeCartao findByCodModalidadeCartao(Integer codModalidadeCartao);
-	
-	
-	ModalidadeCartao getById(Integer codModalidadeCartao);
+public interface ModalidadeCartaoRepository extends JpaRepository<ModalidadeCartao, Integer> {
+
+//	@Query("select m from ModalidadeCartao m where m.codModalidadeCartao = :codModalidadeCartao")
+	ModalidadeCartao findByCodModalidadeCartao(Integer codModalidadeCartao);
+
+
 	
 }
