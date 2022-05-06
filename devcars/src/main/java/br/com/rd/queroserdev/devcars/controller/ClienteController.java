@@ -2,6 +2,7 @@ package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,7 @@ import br.com.rd.queroserdev.devcars.controller.dto.AgendamentoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.CartaoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteFisicoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteJuridicoDTO;
+import br.com.rd.queroserdev.devcars.controller.form.AtualizacaoClienteFisicoForm;
 import br.com.rd.queroserdev.devcars.controller.form.ClienteFisicoForm;
 import br.com.rd.queroserdev.devcars.controller.form.ClienteJuridicoForm;
 import br.com.rd.queroserdev.devcars.model.Agendamento;
@@ -44,7 +47,6 @@ public class ClienteController {
 
 	
 	
-	
 	@GetMapping("/{id}")
 	public ClienteFisicoDTO dadosCliente(@PathVariable("id") Integer id) {
 		Cliente cliente = clienteRepository.getById(id);
@@ -52,16 +54,6 @@ public class ClienteController {
 		return new ClienteFisicoDTO(cliente);
 
 	}
-
-//	@Transactional
-//	@PostMapping("/cartao")
-//	public ResponseEntity<CartaoDTO> cadastrar(@RequestBody @Valid CartaoForm form, UriComponentsBuilder uriBuilder) {
-//		Cartao cartao = form.converter(clienteRepository, modalidadeCartaoRepository);
-//		
-//		cartaoRepository.save(cartao);
-//		URI uri = uriBuilder.path("/cartao/{id}").buildAndExpand(cartao.getCodCartao()).toUri();
-//		return ResponseEntity.created(uri).body(new CartaoDTO(cartao));
-//	}
 	
 	
 	@Transactional
@@ -85,18 +77,6 @@ public class ClienteController {
 		return ResponseEntity.created(uri).body(new ClienteJuridicoDTO(cliente));
 	}
 	
-	
-	
-//	
-//	@Transactional
-//	@PostMapping("/cartao")
-//	public void cadastrar(CartaoForm cartaoForm){
-//		Cartao cartao = cartaoForm.converter(clienteRepository, modalidadeCartaoRepository);
-//		cartaoRepository.save(cartao);
-//	}
-	
-	
-	
 	@GetMapping("/{id}/cartao")
 	public List<CartaoDTO> cartoes(@PathVariable @Valid Integer id){
 		List<Cartao> cartao = cartaoRepository.findByCliente_CodCliente(id);
@@ -118,10 +98,19 @@ public class ClienteController {
 //		return enderecoDTO.converter(endereco);
 //	}
 	
-	
-	
-	
-	
+
+	@Transactional
+	@PutMapping("/f/{id}")
+	public ResponseEntity<ClienteFisicoDTO> atualizar (@PathVariable Integer id, @RequestBody @Valid AtualizacaoClienteFisicoForm form){
+		Optional<Cliente> clienteOPt = clienteRepository.findById(id);
+		
+		if(clienteOPt.isPresent()) {
+			Cliente cliente = form.atualizar(id, clienteRepository);
+			return ResponseEntity.ok(new ClienteFisicoDTO(cliente));
+		}
+
+		return ResponseEntity.notFound().build();
+	}
 	
 
 }
