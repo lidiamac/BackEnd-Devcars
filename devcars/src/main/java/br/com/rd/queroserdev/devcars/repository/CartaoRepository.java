@@ -14,5 +14,8 @@ public interface CartaoRepository extends JpaRepository<Cartao, Integer>{
 	List<Cartao> findByCliente_CodCliente(Integer id);
 
 
+	Cartao findByCodCartao(Integer idCartao);
+
+
 
 }

@@ -1,7 +1,8 @@
 package br.com.rd.queroserdev.devcars.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,7 +32,7 @@ public class Agendamento {
 		private Cliente cliente;
 		
 		@Column(name="data_reserva", nullable = false)
-		private Date dataReserva;
+		private LocalDate dataReserva;
 		
 		@Column(name="taxa_agendamento" , nullable = false)
 		private BigDecimal taxaAgendamento;
@@ -52,6 +53,47 @@ public class Agendamento {
 		@JoinColumn(name = "cod_pix", nullable = true)
 		private Pix pix;
 
+		
+		public Agendamento() {}
+
+		public Agendamento(Veiculo veiculo, Cliente cliente, BigDecimal taxaAgendamento, FormaPagamento formaPagamento,
+				Cartao cartao, Boleto boleto, Pix pix, LocalDate dataReserva) {
+			this.veiculo = veiculo;
+			this.cliente = cliente;
+			this.taxaAgendamento = taxaAgendamento;
+			this.formaPagamento = formaPagamento;
+			this.cartao = cartao;
+			this.boleto = boleto;
+			this.pix = pix;
+			this.dataReserva = dataReserva;
+		}
+
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((codAgendamento == null) ? 0 : codAgendamento.hashCode());
+			return result;
+		}
+		
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Agendamento other = (Agendamento) obj;
+			if (codAgendamento == null) {
+				if (other.codAgendamento != null)
+					return false;
+			} else if (!codAgendamento.equals(other.codAgendamento))
+				return false;
+			return true;
+		}
+		
 		public Integer getCodAgendamento() {
 			return codAgendamento;
 		}
@@ -76,11 +118,11 @@ public class Agendamento {
 			this.cliente = cliente;
 		}
 
-		public Date getDataReserva() {
+		public LocalDate getDataReserva() {
 			return dataReserva;
 		}
 
-		public void setDataReserva(Date dataReserva) {
+		public void setDataReserva(LocalDate dataReserva) {
 			this.dataReserva = dataReserva;
 		}
 
