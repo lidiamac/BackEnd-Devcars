@@ -25,6 +25,9 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	List<Veiculo> getByMarcaModelo(@Param("nomeMarca") String nomeMarca, 
 								   @Param("nomeModelo") String nomeModelo);
 
+
+	Veiculo findByCodVeiculo(Integer idVeiculo);
+
 	
 	
 	
