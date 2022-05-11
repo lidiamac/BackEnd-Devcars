@@ -20,7 +20,7 @@ public class ClienteFisicoForm {
 		return numeroDocumento;
 	}
 	public void setNumeroDocumento(String numeroDocumento) {
-		this.numeroDocumento = numeroDocumento;
+		this.numeroDocumento = numeroDocumento.replace("-", "").replace(".", "");
 	}
 	public String getNomeCliente() {
 		return nomeCliente;
@@ -44,7 +44,7 @@ public class ClienteFisicoForm {
 		return telefoneCliente;
 	}
 	public void setTelefoneCliente(String telefoneCliente) {
-		this.telefoneCliente = telefoneCliente;
+		this.telefoneCliente = telefoneCliente.replace("-", "").replace("(", "").replace(")", "");
 	}
 	public String getSenhaCliente() {
 		return senhaCliente;

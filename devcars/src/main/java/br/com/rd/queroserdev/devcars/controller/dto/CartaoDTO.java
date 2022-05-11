@@ -91,8 +91,6 @@ public class CartaoDTO {
 
 
 
-
-	
 	
 	public List<CartaoDTO> converter(List<Cartao> topicos) {
 		return topicos.stream().map(CartaoDTO::new).collect(Collectors.toList());
