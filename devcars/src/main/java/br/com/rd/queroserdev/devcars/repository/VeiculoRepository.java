@@ -26,7 +26,10 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 								   @Param("nomeModelo") String nomeModelo);
 
 
+	Veiculo findByCodVeiculo(Integer idVeiculo);
+
 	
+	List<Veiculo> findByDestaqueTrue();
 	
 	
 	

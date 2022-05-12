@@ -19,18 +19,23 @@ public class VeiculoController {
 	@Autowired
 	private VeiculoRepository veiculoRepository;
 
+	
+	@GetMapping("")
+	public List<VeiculoModalDto> listarVeiculosModal() {
+		List<Veiculo> veiculos = veiculoRepository.findAll();
+		return VeiculoModalDto.converter(veiculos);
+	}
+	
+	@GetMapping("/cardveiculos")
+	public List<VeiculoCardDto> listarVeiculosCard() {
+		List<Veiculo> veiculosCard = veiculoRepository.findAll();
+		return VeiculoCardDto.converter(veiculosCard);
+	}
 
 	@GetMapping("/marcas")
 	public List<VeiculoCardDto> listaMarca(String nomeMarca) {
 		List<Veiculo> marcas = veiculoRepository.getByNomeMarca(nomeMarca);
 		return VeiculoCardDto.converter(marcas);
-	}
-	
-	
-	@GetMapping("/")
-	public List<VeiculoModalDto> listarVeiculos() {
-		List<Veiculo> veiculos = veiculoRepository.findAll();
-		return VeiculoModalDto.converter(veiculos);
 	}
 	
 	@GetMapping("/modelos")

@@ -1,6 +1,5 @@
 package br.com.rd.queroserdev.devcars.model;
 
-import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +21,7 @@ public class Cartao {
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_modalidade", nullable = false)
-	private ModalidadeCartao codModalidade;
+	private ModalidadeCartao modalidadeCartao;
 	
 	@ManyToOne
 	@JoinColumn(name = "cod_cliente", nullable = false)
@@ -46,17 +45,21 @@ public class Cartao {
 	
 	
 
-	public Cartao(Cliente cliente, Optional<ModalidadeCartao> modalidadeCartao, String nomeTitular, String numeroCartao,
+	public Cartao( Cliente cliente, ModalidadeCartao modalidadeCartao, String nomeTitular, String numeroCartao,
 			String validadeCartao, String cvv) {
-		
+		super();
+		this.modalidadeCartao = modalidadeCartao;
 		this.cliente = cliente;
-		this.codModalidade = getCodModalidade();
 		this.nomeTitular = nomeTitular;
 		this.numeroCartao = numeroCartao;
 		this.validadeCartao = validadeCartao;
 		this.cvv = cvv;
-		
 	}
+
+
+	
+	
+	
 
 	public Integer getCodCartao() {
 		return codCartao;
@@ -67,11 +70,11 @@ public class Cartao {
 	}
 
 	public ModalidadeCartao getCodModalidade() {
-		return codModalidade;
+		return modalidadeCartao;
 	}
 
 	public void setCodModalidade(ModalidadeCartao codModalidade) {
-		this.codModalidade = codModalidade;
+		this.modalidadeCartao = codModalidade;
 	}
 
 	public Cliente getCliente() {
@@ -113,6 +116,36 @@ public class Cartao {
 	public void setCvv(String cvv) {
 		this.cvv = cvv;
 	}
+
+	
+	
+	
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codCartao == null) ? 0 : codCartao.hashCode());
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cartao other = (Cartao) obj;
+		if (codCartao == null) {
+			if (other.codCartao != null)
+				return false;
+		} else if (!codCartao.equals(other.codCartao))
+			return false;
+		return true;
+	}
+	
 	
 	
 }

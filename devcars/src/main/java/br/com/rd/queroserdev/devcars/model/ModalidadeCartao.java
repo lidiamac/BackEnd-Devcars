@@ -1,5 +1,7 @@
 package br.com.rd.queroserdev.devcars.model;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,5 +36,28 @@ public class ModalidadeCartao {
 	public void setDescricaoModalidadeCartao(String descricaoModalidadeCartao) {
 		this.descricaoModalidadeCartao = descricaoModalidadeCartao;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codModalidadeCartao, descricaoModalidadeCartao);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ModalidadeCartao other = (ModalidadeCartao) obj;
+		return Objects.equals(codModalidadeCartao, other.codModalidadeCartao)
+				&& Objects.equals(descricaoModalidadeCartao, other.descricaoModalidadeCartao);
+	}
+	
+	
+	
+	
+	
 	
 }

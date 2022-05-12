@@ -1,7 +1,5 @@
 package br.com.rd.queroserdev.devcars.controller.form;
 
-import java.util.Optional;
-
 import javax.validation.constraints.NotNull;
 
 import br.com.rd.queroserdev.devcars.model.Cartao;
@@ -13,45 +11,38 @@ import br.com.rd.queroserdev.devcars.repository.ModalidadeCartaoRepository;
 public class CartaoForm {
 
 	
-//	private Cliente cliente;
+	@NotNull
+	private Integer codModalidadeCartao;
+
 	@NotNull
 	private Integer codCliente;
-	
-	
-//	private ModalidadeCartao modalidadeCartao;
-//	@NotNull
-	private Integer codModalidade;
-	private String modalidade;
-	
-	
-	
+
 	@NotNull
 	private String nomeTitular;
 	
 	@NotNull
 	private String numeroCartao;
-	
+
 	@NotNull
 	private String validadeCartao;
 	
 	@NotNull
 	private String cvv;
+	
+	
 
-	
-	
-	
-//	public Cliente getCliente() {
-//		return cliente;
-//	}
-//
-//	public void setCliente(Cliente cliente) {
-//		this.cliente = cliente;
-//	}
+	public Integer getCodModalidadeCartao() {
+		return codModalidadeCartao;
+	}
+
+	public void setCodModalidadeCartao(Integer codModalidadeCartao) {
+		this.codModalidadeCartao = codModalidadeCartao;
+	}
 	
 	public Integer getCodCliente() {
 		return codCliente;
 	}
-	
+
 	public void setCodCliente(Integer codCliente) {
 		this.codCliente = codCliente;
 	}
@@ -61,7 +52,7 @@ public class CartaoForm {
 	}
 
 	public void setNomeTitular(String nomeTitular) {
-		this.nomeTitular = nomeTitular;
+		this.nomeTitular = nomeTitular.toUpperCase();
 	}
 
 	public String getNumeroCartao() {
@@ -88,18 +79,17 @@ public class CartaoForm {
 		this.cvv = cvv;
 	}
 
-	
-	
+
+
+
+
+	public Cartao converter(ClienteRepository clienteRepository, ModalidadeCartaoRepository modalidadeRepository) {
+		Cliente cliente = clienteRepository.findByCodCliente(codCliente);
+		ModalidadeCartao modalidade = modalidadeRepository.findByCodModalidadeCartao(codModalidadeCartao);
+		
+		return new Cartao(cliente, modalidade, nomeTitular, numeroCartao, validadeCartao, cvv);
+	}
 	
 
-//	public Cartao converter(ClienteRepository clienteRepository, ModalidadeCartaoRepository modalidadeCartaoRepository) {
-////		Cartao cartao = new Cartao();
-//		Cliente cliente = clienteRepository.getById(codCliente);
-//		ModalidadeCartao modalidadeCartao = modalidadeCartaoRepository.getById(codModalidade);
-//				
-//		
-////		ModalidadeCartao modalidadeCartao = modalidadeCartaoRepository.findByDescricaoModalidadeCartao(modalidade);
-//		return new Cartao(cliente, modalidadeCartao, cvv, nomeTitular, numeroCartao, validadeCartao);
-//	}
 	
 }
