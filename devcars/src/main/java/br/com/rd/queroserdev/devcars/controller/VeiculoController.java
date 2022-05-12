@@ -1,12 +1,15 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +32,20 @@ public class VeiculoController {
 		List<Veiculo> veiculos = veiculoRepository.findAll();
 		return VeiculoModalDto.converter(veiculos);
 	}
+	
+	
+	@GetMapping("veiculo/{id}")
+	public ResponseEntity<VeiculoModalDto> detalhar(@PathVariable Integer id) {
+		
+		Optional<Veiculo> v = veiculoRepository.findById(id);
+		
+		if(v.isPresent()) {
+			return ResponseEntity.ok(new VeiculoModalDto(v.get()));
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
 	
 	@GetMapping("/cardveiculos")
 	public Page<VeiculoCardDto> listarVeiculosCard(@RequestParam int pagina, @RequestParam int qtd) {
@@ -63,6 +80,17 @@ public class VeiculoController {
 		return VeiculoCardDto.converter(marcaModelo);
 	}
 	
+	@GetMapping("/modeloano")
+	public List<VeiculoCardDto> listarPorModeloAno(String modelo, Integer ano) {	
+		List<Veiculo> modeloAno = veiculoRepository.getByModeloAno(modelo, ano);
+		return VeiculoCardDto.converter(modeloAno);
+	}
+	
+	@GetMapping("/marcaano")
+	public List<VeiculoCardDto> listarPorMarcaAno(String nomeMarca, Integer ano) {
+		List<Veiculo> marcaAno = veiculoRepository.getByMarcaAno(nomeMarca, ano);
+		return VeiculoCardDto.converter(marcaAno);
+	}
 
 	
 }	

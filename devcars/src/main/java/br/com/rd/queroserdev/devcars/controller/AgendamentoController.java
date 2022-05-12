@@ -1,11 +1,14 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.rd.queroserdev.devcars.controller.dto.AgendamentoDto;
+import br.com.rd.queroserdev.devcars.controller.dto.ResumoAgendamentoDto;
 import br.com.rd.queroserdev.devcars.controller.form.AgendamentoForm;
 import br.com.rd.queroserdev.devcars.model.Agendamento;
 import br.com.rd.queroserdev.devcars.repository.AgendamentoRepository;
@@ -59,6 +63,21 @@ public class AgendamentoController {
 		
 		URI uri = uriBuilder.path("/schedule/{id}").buildAndExpand(agendamento.getCodAgendamento()).toUri();
 		return ResponseEntity.created(uri).body(new AgendamentoDto(agendamento));
+	}
+	
+	
+	//RESUMO DO AGENDAMENTO:
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<ResumoAgendamentoDto> detalhar(@PathVariable Integer id) {
+		
+		Optional<Agendamento> resumo = agendamentoRepository.findById(id);
+		
+		if (resumo.isPresent()) {
+			return ResponseEntity.ok(new ResumoAgendamentoDto(resumo.get()));
+		}
+		
+		return ResponseEntity.notFound().build();
 	}
 	
 }
