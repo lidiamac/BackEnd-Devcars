@@ -4,7 +4,8 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.rd.queroserdev.devcars.model.Marca;
+import org.springframework.data.domain.Page;
+
 import br.com.rd.queroserdev.devcars.model.Veiculo;
 
 public class VeiculoCardDto {
@@ -47,6 +48,10 @@ public class VeiculoCardDto {
 
 	public static List<VeiculoCardDto> converter(List<Veiculo> marcas) {
 		return marcas.stream().map(VeiculoCardDto::new).collect(Collectors.toList());
+	}
+	
+	public static Page<VeiculoCardDto> convert(Page<Veiculo> veiculos) {
+		return veiculos.map(VeiculoCardDto::new);
 	}
 	
 	

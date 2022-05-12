@@ -3,8 +3,12 @@ package br.com.rd.queroserdev.devcars.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.rd.queroserdev.devcars.controller.dto.VeiculoCardDto;
@@ -27,9 +31,12 @@ public class VeiculoController {
 	}
 	
 	@GetMapping("/cardveiculos")
-	public List<VeiculoCardDto> listarVeiculosCard() {
-		List<Veiculo> veiculosCard = veiculoRepository.findAll();
-		return VeiculoCardDto.converter(veiculosCard);
+	public Page<VeiculoCardDto> listarVeiculosCard(@RequestParam int pagina, @RequestParam int qtd) {
+		
+		Pageable paginacao = PageRequest.of(pagina, qtd);
+		
+		Page<Veiculo> veiculosCard = veiculoRepository.findAll(paginacao);
+		return VeiculoCardDto.convert(veiculosCard);
 	}
 
 	@GetMapping("/marcas")

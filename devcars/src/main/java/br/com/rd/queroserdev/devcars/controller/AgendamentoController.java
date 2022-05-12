@@ -2,6 +2,8 @@ package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +50,7 @@ public class AgendamentoController {
 	
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity<AgendamentoDto> cadastrar(@RequestBody AgendamentoForm form, UriComponentsBuilder uriBuilder) {
 		Agendamento agendamento = form.converter(veiculoRepository, clienteRepository,
 												 formaPagamentoRepository, cartaoRepository,
