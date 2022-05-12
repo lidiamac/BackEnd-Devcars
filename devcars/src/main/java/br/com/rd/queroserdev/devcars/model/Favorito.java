@@ -36,6 +36,8 @@ public class Favorito {
 	private List<Veiculo> veiculos;
 
 
+
+
 	public Integer getCodFavorito() {
 		return codFavorito;
 	}
@@ -64,6 +66,7 @@ public class Favorito {
 	public void setVeiculos(List<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
+
 	
 	
 	
