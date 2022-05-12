@@ -47,7 +47,6 @@ public class VeiculoController {
 	}
 	
 	
-	
 	@GetMapping("/cardveiculos")
 	public Page<VeiculoCardDto> listarVeiculosCard(@RequestParam int pagina, @RequestParam int qtd) {
 		
@@ -81,6 +80,17 @@ public class VeiculoController {
 		return VeiculoCardDto.converter(marcaModelo);
 	}
 	
+	@GetMapping("/modeloano")
+	public List<VeiculoCardDto> listarPorModeloAno(String modelo, Integer ano) {	
+		List<Veiculo> modeloAno = veiculoRepository.getByModeloAno(modelo, ano);
+		return VeiculoCardDto.converter(modeloAno);
+	}
+	
+	@GetMapping("/marcaano")
+	public List<VeiculoCardDto> listarPorMarcaAno(String nomeMarca, Integer ano) {
+		List<Veiculo> marcaAno = veiculoRepository.getByMarcaAno(nomeMarca, ano);
+		return VeiculoCardDto.converter(marcaAno);
+	}
 
 	
 }	
