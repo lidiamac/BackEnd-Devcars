@@ -29,7 +29,7 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	Veiculo findByCodVeiculo(Integer idVeiculo);
 
 	
-	
+	List<Veiculo> findByDestaqueTrue();
 	
 	
 	
