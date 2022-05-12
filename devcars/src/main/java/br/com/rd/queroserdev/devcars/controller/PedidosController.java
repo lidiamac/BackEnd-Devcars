@@ -2,6 +2,8 @@ package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -47,6 +49,7 @@ public class PedidosController {
 	private ClienteRepository clienteRepository;
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity<PedidoDto> placeorder(@RequestBody PedidoForm form, UriComponentsBuilder uriBuilder) {
 		Pedido pedido = form.converter(clienteRepository, veiculoRepository, enderecoRepository, formaPagamentoRepository, freteRepository, statusRepository);
 		pedidoRepository.save(pedido);
