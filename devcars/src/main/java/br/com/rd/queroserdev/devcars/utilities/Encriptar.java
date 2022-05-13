@@ -1,4 +1,4 @@
-package br.com.rd.queroserdev.devcars.service;
+package br.com.rd.queroserdev.devcars.utilities;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.rd.queroserdev.devcars.controller.dto.AgendamentoDTO;
+import br.com.rd.queroserdev.devcars.controller.dto.AgendamentoDto;
 import br.com.rd.queroserdev.devcars.controller.dto.CartaoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteFisicoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteJuridicoDTO;
@@ -68,6 +68,7 @@ public class ClienteController {
 		return ResponseEntity.created(uri).body(new ClienteFisicoDTO(cliente));
 	}
 	
+	@Transactional
 	@PostMapping("/j")
 	public ResponseEntity<ClienteJuridicoDTO> cadastrarClienteJuridico(@RequestBody @Valid ClienteJuridicoForm form, UriComponentsBuilder uriBuilder){
 		Cliente cliente = form.converter();
@@ -86,10 +87,10 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/{id}/agendamento")
-	public List<AgendamentoDTO> agendamentos(@PathVariable @Valid Integer id){
+	public List<AgendamentoDto> agendamentos(@PathVariable @Valid Integer id){
 		List<Agendamento> agendamento = agendamentoRepository.findByCliente_CodCliente(id);
-		AgendamentoDTO agendamentoDTO = new AgendamentoDTO();
-		return agendamentoDTO.converter(agendamento);
+		AgendamentoDto agendamentoDto = new AgendamentoDto();
+		return agendamentoDto.converter(agendamento);
 	}
 	
 //	@GetMapping("/endereco/{id}")

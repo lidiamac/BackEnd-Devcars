@@ -10,7 +10,7 @@ import br.com.rd.queroserdev.devcars.model.Agendamento;
 public class AgendamentoDTO {
 
 	private Integer id;
-	private Date dataReserva;
+	private LocalDate dataReserva;
 	private BigDecimal taxaReserva; 
 	private String formaPagamento;
 	
@@ -42,7 +42,7 @@ public class AgendamentoDTO {
 		return cliente;
 	}
 
-	public Date getDataReserva() {
+	public LocalDate getDataReserva() {
 		return dataReserva;
 	}
 

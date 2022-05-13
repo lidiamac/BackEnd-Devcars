@@ -42,6 +42,29 @@ public class Endereco {
 	
 	@ManyToMany(mappedBy="enderecos",fetch = FetchType.EAGER)
 	private List<Cliente> clientes;
+	
+	
+	public Endereco() {
+		
+	}
+		
+	
+
+	public Endereco(String cepEndereco, String ruaEndereco, String complemento, String numeroEndereco,
+			String bairro, String cidade, String uf   ) {
+		this.cepEndereco = cepEndereco;
+		this.ruaEndereco = ruaEndereco;
+		this.complemento = complemento;
+		this.numeroEndereco = numeroEndereco;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.uf = uf;
+		
+		
+	}
+
+
+
 
 	public Integer getCodEndereco() {
 		return codEndereco;

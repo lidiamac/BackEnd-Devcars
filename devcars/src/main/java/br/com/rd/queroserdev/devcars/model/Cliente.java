@@ -85,9 +85,7 @@ public class Cliente {
 	
 	
 
-	public Cliente() {
-		
-	}
+	public Cliente() {}
 		
 	
 	
@@ -104,8 +102,6 @@ public class Cliente {
 	}
 
 
-
-
 	public Cliente(String tipoDocumento, String numeroDocumento, String nomeCliente, LocalDate dataNascimento, String emailCliente,
 			String telefoneCliente, String senhaCliente) {
 		super();
@@ -117,11 +113,6 @@ public class Cliente {
 		this.telefoneCliente = telefoneCliente;
 		this.senhaCliente = senhaCliente;
 	}
-
-
-
-
-
 
 
 	public Integer getCodCliente() {

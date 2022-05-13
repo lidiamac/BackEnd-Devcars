@@ -4,6 +4,7 @@ package br.com.rd.queroserdev.devcars.controller.form;
 import br.com.rd.queroserdev.devcars.model.Cliente;
 
 public class ClienteJuridicoForm {
+	
 	private String numeroDocumento;
 	private String razaoSocial;
 	private String inscricaoEstadual;
@@ -38,10 +39,6 @@ public class ClienteJuridicoForm {
 	public void setSenhaCliente(String senhaCliente) {
 		this.senhaCliente = senhaCliente;
 	}
-	
-	
-	
-
 	
 	public Cliente converter() {
 		return new Cliente("CNPJ",numeroDocumento, razaoSocial, inscricaoEstadual, emailCliente, telefoneCliente, senhaCliente);

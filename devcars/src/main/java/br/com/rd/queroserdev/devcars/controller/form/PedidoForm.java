@@ -77,7 +77,7 @@ public class PedidoForm {
 		
 		Cliente cliente = clienteRepository.findByCodCliente(codCliente);
 		Veiculo veiculo = veiculoRepository.findByCodVeiculo(codVeiculo);
-		Endereco endereco = enderecoRepository.findByCodEndereco(codEndereco);
+		Endereco endereco = enderecoRepository.getCodEndereco(codEndereco);
 		FormaPagamento pagamento = formaPagamentoRepository.findByCodFormaPagamento(codPagamento);
 		Frete frete = freteRepository.getCodFrete(codFrete);
 		Status status = statusRepository.findByCodStatus(codStatus);
