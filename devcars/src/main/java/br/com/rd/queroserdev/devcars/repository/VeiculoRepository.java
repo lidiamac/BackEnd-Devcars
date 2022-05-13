@@ -41,7 +41,7 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 								@Param("ano")Integer ano);
 
 	
-	
+	List<Veiculo> findByDestaqueTrue();
 	
 	
 	

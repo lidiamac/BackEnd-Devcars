@@ -12,10 +12,11 @@ import br.com.rd.queroserdev.devcars.model.Endereco;
 
 public interface EnderecoRepository extends JpaRepository<Endereco, Integer>{
 	
-	@Query("SELECT e FROM Endereco e WHERE e.codEndereco = :idEndereco")
-	Endereco getIdEndereco(@Param("idEndereco")Integer idEndereco);
+	@Query("SELECT e FROM Endereco e WHERE e.codEndereco = :codEndereco")
+	Endereco getCodEndereco(@Param("codEndereco")Integer codEndereco);
 	
 	List<Endereco> findByCodEndereco(Integer codEndereco);
 
 
 }
+
