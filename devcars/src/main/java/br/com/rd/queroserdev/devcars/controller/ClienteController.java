@@ -17,13 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import br.com.rd.queroserdev.devcars.controller.dto.AgendamentoDto;
 import br.com.rd.queroserdev.devcars.controller.dto.CartaoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteFisicoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteJuridicoDTO;
 import br.com.rd.queroserdev.devcars.controller.form.AtualizacaoClienteFisicoForm;
-import br.com.rd.queroserdev.devcars.controller.form.AtualizacaoClienteJuridicoForm;
 import br.com.rd.queroserdev.devcars.controller.form.ClienteFisicoForm;
 import br.com.rd.queroserdev.devcars.controller.form.ClienteJuridicoForm;
 import br.com.rd.queroserdev.devcars.model.Agendamento;
@@ -113,17 +111,17 @@ public class ClienteController {
 		return ResponseEntity.notFound().build();
 	}
 	
-	@Transactional
-	@PutMapping("/j/{id}")
-	public ResponseEntity<ClienteJuridicoDTO> atualizarJuridico (@PathVariable Integer id, @RequestBody @Valid AtualizacaoClienteJuridicoForm form){
-		Optional<Cliente> clienteJ = clienteRepository.findById(id);
-		
-		if(clienteJ.isPresent()) {
-			Cliente clienteJuridico = form.atualizar(id, clienteRepository);
-			return ResponseEntity.ok(new ClienteJuridicoDTO(clienteJuridico));
-		}
-		return ResponseEntity.notFound().build();
-	}
-	
+//	@Transactional
+//	@PutMapping("/j/{id}")
+//	public ResponseEntity<ClienteJuridicoDTO> atualizarJuridico (@PathVariable Integer id, @RequestBody @Valid AtualizacaoClienteJuridicoForm form){
+//		Optional<Cliente> clienteJ = clienteRepository.findById(id);
+//		
+//		if(clienteJ.isPresent()) {
+//			Cliente clienteJuridico = form.atualizar(id, clienteRepository);
+//			return ResponseEntity.ok(new ClienteJuridicoDTO(clienteJuridico));
+//		}
+//		return ResponseEntity.notFound().build();
+//	}
+//	
 
 }
