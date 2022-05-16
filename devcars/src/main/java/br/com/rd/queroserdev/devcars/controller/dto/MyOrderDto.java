@@ -104,5 +104,7 @@ public class MyOrderDto {
 	public BigDecimal getTotalPedido() {
 		return totalPedido;
 	}
+	
+	
 
 }
