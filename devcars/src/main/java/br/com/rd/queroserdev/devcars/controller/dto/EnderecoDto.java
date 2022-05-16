@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import br.com.rd.queroserdev.devcars.model.Endereco;
 
-public class EnderecoDto {
+public class EnderecoDTO {
 	
 	private String cep;
 	private String rua;
@@ -15,9 +15,9 @@ public class EnderecoDto {
 	private String cidade;
 	private String uf;
 	
-	public EnderecoDto() {}
+	public EnderecoDTO() {}
 	
-	public EnderecoDto(Endereco endereco) {
+	public EnderecoDTO(Endereco endereco) {
 		this.cep = endereco.getCepEndereco();
 		this.rua = endereco.getRuaEndereco();
 		this.complemento = endereco.getComplemento();
@@ -55,8 +55,8 @@ public class EnderecoDto {
 		return uf;
 	}
 	
-	public static List<EnderecoDto> converter(List<Endereco> enderecos) {
-		return enderecos.stream().map(EnderecoDto::new).collect(Collectors.toList());
+	public static List<EnderecoDTO> converter(List<Endereco> enderecos) {
+		return enderecos.stream().map(EnderecoDTO::new).collect(Collectors.toList());
 	}
 	
 	
