@@ -1,8 +1,13 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
+import java.util.Optional;
 
 import javax.validation.Valid;
+
+import javax.transaction.Transactional;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.rd.queroserdev.devcars.controller.dto.MyOrderDto;
 import br.com.rd.queroserdev.devcars.controller.dto.PedidoDto;
 import br.com.rd.queroserdev.devcars.controller.dto.ResumoPedidoDTO;
 import br.com.rd.queroserdev.devcars.controller.form.PedidoForm;
@@ -52,6 +58,7 @@ public class PedidosController {
 	private ClienteRepository clienteRepository;
 	
 	@PostMapping
+	@Transactional
 	public ResponseEntity<PedidoDto> placeorder(@RequestBody PedidoForm form, UriComponentsBuilder uriBuilder) {
 		Pedido pedido = form.converter(clienteRepository, veiculoRepository, enderecoRepository, formaPagamentoRepository, freteRepository, statusRepository);
 		pedidoRepository.save(pedido);
@@ -68,5 +75,21 @@ public class PedidosController {
 		Pedido pedido = pedidoRepository.findByCodPedido(id);
 		return new ResumoPedidoDTO(pedido);
 	}
+
+
+	@GetMapping("/{id}")
+	public ResponseEntity<MyOrderDto> listarMeusPedidos(@PathVariable Integer id){
+		
+		Optional<Pedido> meusPedidos = pedidoRepository.findById(id);
+		if(meusPedidos.isPresent()) {
+			return ResponseEntity.ok(new MyOrderDto(meusPedidos.get()));
+			
+		}
+		return ResponseEntity.notFound().build();
+		
+	}
 	
+	
+	
+
 }

@@ -2,6 +2,8 @@ package br.com.rd.queroserdev.devcars.controller.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import br.com.rd.queroserdev.devcars.model.Agendamento;
 
@@ -15,6 +17,8 @@ public class AgendamentoDto {
 	private BigDecimal valorVeiculo;
 	private String formaPagamento;
 	private LocalDate dataReserva;
+	
+	public AgendamentoDto() {}
 	
 	public AgendamentoDto(Agendamento agendamento) {
 		this.codAgendamento = agendamento.getCodAgendamento();
@@ -59,4 +63,8 @@ public class AgendamentoDto {
 		return dataReserva;
 	}
 	
+	public List<AgendamentoDto> converter(List<Agendamento> agendamentos) {
+		return agendamentos.stream().map(AgendamentoDto::new).collect(Collectors.toList());
+	}
+
 }

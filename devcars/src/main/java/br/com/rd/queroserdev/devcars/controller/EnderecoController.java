@@ -30,14 +30,14 @@ public class EnderecoController {
 
 	@Autowired
 	private EnderecoRepository enderecoRepository;
-//
-//	@GetMapping("/{id}")
-//	public List<EnderecoDto> enderecos(@PathVariable @Valid Integer id){
-//		List<Endereco> enderecos = enderecoRepository.findByClientesCodCliente(id);
-//		EnderecoDto enderecoDto = new EnderecoDto();
-//		return enderecoDto.converter(enderecos);
-//		
-//	}
+
+	@GetMapping("/{id}")
+	public List<EnderecoDto> enderecos(@PathVariable @Valid Integer id){
+		List<Endereco> enderecos = enderecoRepository.findByClientesCodCliente(id);
+	EnderecoDto enderecoDto = new EnderecoDto();
+	return enderecoDto.converter(enderecos);
+		
+	}
 	
 	
 	
@@ -65,6 +65,19 @@ public class EnderecoController {
 		return ResponseEntity.created(uri).body(new EnderecoDto(endereco));
 		
 	}
+	
+//	@GetMapping("/{id}")
+//	public EnderecoDto detalharEnderecos(@PathVariable Integer id) {
+//	 Endereco endereco = enderecoRepository.getOne(id);
+//		return new EnderecoDto(endereco);
+//		
+//	}
+	
+	
+	
+	
+	
+	
 	
 	@PutMapping("/{id}")
 	@Transactional
