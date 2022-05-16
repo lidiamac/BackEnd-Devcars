@@ -58,6 +58,18 @@ public class Pedido {
 	@JoinColumn(name="cod_status", nullable = false)
 	private Status status;
 	
+	@ManyToOne
+	@JoinColumn(name = "cod_cartao", nullable = true)
+	private Cartao cartao;
+	
+	@ManyToOne
+	@JoinColumn(name = "cod_boleto", nullable = true)
+	private Boleto boleto;
+	
+	@ManyToOne
+	@JoinColumn(name = "cod_pix", nullable = true)
+	private Pix pix;
+	
 
 	public Pedido() {
 	}
@@ -186,5 +198,31 @@ public class Pedido {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+
+	public Cartao getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(Cartao cartao) {
+		this.cartao = cartao;
+	}
+
+	public Boleto getBoleto() {
+		return boleto;
+	}
+
+	public void setBoleto(Boleto boleto) {
+		this.boleto = boleto;
+	}
+
+	public Pix getPix() {
+		return pix;
+	}
+
+	public void setPix(Pix pix) {
+		this.pix = pix;
+	}
+	
+	
 	
 }
