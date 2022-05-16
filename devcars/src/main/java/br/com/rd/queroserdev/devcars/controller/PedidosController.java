@@ -1,19 +1,28 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
+import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity;import org.springframework.scheduling.config.ContextLifecycleScheduledTaskRegistrar;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.rd.queroserdev.devcars.controller.dto.EnderecoDto;
+import br.com.rd.queroserdev.devcars.controller.dto.MyOrderDto;
 import br.com.rd.queroserdev.devcars.controller.dto.PedidoDto;
 import br.com.rd.queroserdev.devcars.controller.form.PedidoForm;
+import br.com.rd.queroserdev.devcars.model.Endereco;
 import br.com.rd.queroserdev.devcars.model.Pedido;
 import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.devcars.repository.EnderecoRepository;
@@ -57,5 +66,24 @@ public class PedidosController {
 		URI uri = uriBuilder.path("/placeorder/{id}").buildAndExpand(pedido.getCodPedido()).toUri();
 		return ResponseEntity.created(uri).body(new PedidoDto(pedido));
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<MyOrderDto> listarMeusPedidos(@PathVariable Integer id){
+		
+		Optional<Pedido> meusPedidos = pedidoRepository.findById(id);
+		if(meusPedidos.isPresent()) {
+			return ResponseEntity.ok(new MyOrderDto(meusPedidos.get()));
+			
+		}
+		return ResponseEntity.notFound().build();
+		
+		
+		
+		
+	}
+	
+	
+	
+	
 	
 }
