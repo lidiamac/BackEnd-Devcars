@@ -19,7 +19,7 @@ public class ClienteJuridicoDTO {
 		super();
 		this.inscricaoEstadual = cliente.getInscricaoEstadual();
 		this.razaoSocial = cliente.getRazaoSocial();
-		this.tipoDocumento = cliente.getTelefoneCliente();
+		this.tipoDocumento = cliente.getTipoDocumento();
 		this.numeroDocumento = cliente.getNumeroDocumento();
 		this.emailCliente = cliente.getEmailCliente();
 		this.telefoneCliente = cliente.getTelefoneCliente();

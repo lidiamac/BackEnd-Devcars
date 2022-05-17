@@ -7,6 +7,7 @@ import br.com.rd.queroserdev.devcars.model.Cliente;
 
 public class ClienteFisicoDTO {
 
+	private Integer codCliente;
 	private String nomeCliente;
 	private LocalDate dataNascimento;
 	private String tipoDocumento;
@@ -17,7 +18,7 @@ public class ClienteFisicoDTO {
 	
 	
 	public ClienteFisicoDTO(Cliente cliente) {
-		super();
+		this.codCliente = cliente.getCodCliente();
 		this.dataNascimento = cliente.getDataNascimento();
 		this.nomeCliente = cliente.getNomeCliente();
 		this.tipoDocumento = cliente.getTipoDocumento();
@@ -64,6 +65,18 @@ public class ClienteFisicoDTO {
 	}
 	public void setTelefoneCliente(String telefoneCliente) {
 		this.telefoneCliente = telefoneCliente;
+	}
+
+	public Integer getCodCliente() {
+		return codCliente;
+	}
+
+	public void setCodCliente(Integer codCliente) {
+		this.codCliente = codCliente;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 
