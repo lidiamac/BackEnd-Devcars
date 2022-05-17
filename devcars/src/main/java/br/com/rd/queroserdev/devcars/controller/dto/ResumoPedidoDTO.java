@@ -27,11 +27,11 @@ public class ResumoPedidoDTO {
 	private String formaPagamento;
 	private BigDecimal valorTotal;
 	private LocalDateTime dataPedido;
-	
-	private String numeroCartao;
-	private String codBarras;
-	private String pix;
-	
+//	
+//	private String numeroCartao;
+//	private String codBarras;
+//	private String pix;
+//	
 	
 
 	
@@ -107,24 +107,24 @@ public class ResumoPedidoDTO {
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
 	}
-	public String getNumeroCartao() {
-		return numeroCartao;
-	}
-	public void setNumeroCartao(String numeroCartao) {
-		this.numeroCartao = numeroCartao;
-	}
-	public String getCodBarras() {
-		return codBarras;
-	}
-	public void setCodBarras(String codBarras) {
-		this.codBarras = codBarras;
-	}
-	public String getPix() {
-		return pix;
-	}
-	public void setPix(String pix) {
-		this.pix = pix;
-	}
+//	public String getNumeroCartao() {
+//		return numeroCartao;
+//	}
+//	public void setNumeroCartao(String numeroCartao) {
+//		this.numeroCartao = numeroCartao;
+//	}
+//	public String getCodBarras() {
+//		return codBarras;
+//	}
+//	public void setCodBarras(String codBarras) {
+//		this.codBarras = codBarras;
+//	}
+//	public String getPix() {
+//		return pix;
+//	}
+//	public void setPix(String pix) {
+//		this.pix = pix;
+//	}
 	public LocalDateTime getDataPedido() {
 		return dataPedido;
 	}
