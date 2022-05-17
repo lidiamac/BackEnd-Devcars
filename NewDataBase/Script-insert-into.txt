@@ -4611,7 +4611,10 @@ insert into tb_pedido
 	previsao_entrega,
 	data_envio, 
 	cod_status,
-	cod_endereco
+	cod_endereco,
+	cod_cartao,
+	cod_boleto,
+	cod_pix
 )
 values
 (
@@ -4625,7 +4628,10 @@ values
 	15,
 	'2021-10-25',
 	1,
-	3
+	3,
+	2,
+	null,
+	null
 	
 );
 
@@ -4644,7 +4650,10 @@ insert into tb_pedido
 	previsao_entrega,
 	data_envio, 
 	cod_status,
-	cod_endereco
+	cod_endereco,
+	cod_cartao,
+	cod_boleto,
+	cod_pix
 )
 values
 (
@@ -4658,7 +4667,10 @@ values
 	15,
 	'2022-01-26',
 	2,
-	2
+	2,
+	null,
+	null,
+	1
 	
 );
 
@@ -4675,7 +4687,10 @@ insert into tb_pedido
 	previsao_entrega,
 	data_envio, 
 	cod_status,
-	cod_endereco
+	cod_endereco,
+	cod_cartao,
+	cod_boleto,
+	cod_pix
 )
 values
 (
@@ -4689,8 +4704,10 @@ values
 	15,
 	'2022-01-26',
 	2,
-	1
-	
+	1,
+	4,
+	null,
+	null
 	
 	
 );

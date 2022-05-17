@@ -1,11 +1,8 @@
 package br.com.rd.queroserdev.devcars.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import br.com.rd.queroserdev.devcars.model.ModalidadeCartao;
-
-
 
 public interface ModalidadeCartaoRepository extends JpaRepository<ModalidadeCartao, Integer> {
 
