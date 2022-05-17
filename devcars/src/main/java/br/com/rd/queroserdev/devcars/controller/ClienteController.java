@@ -68,6 +68,7 @@ public class ClienteController {
 		return ResponseEntity.created(uri).body(new ClienteFisicoDTO(cliente));
 	}
 	
+	@Transactional
 	@PostMapping("/j")
 	public ResponseEntity<ClienteJuridicoDTO> cadastrarClienteJuridico(@RequestBody @Valid ClienteJuridicoForm form, UriComponentsBuilder uriBuilder){
 		Cliente cliente = form.converter();

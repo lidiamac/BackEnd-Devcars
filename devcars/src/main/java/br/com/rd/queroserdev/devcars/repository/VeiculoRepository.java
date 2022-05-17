@@ -29,7 +29,19 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	Veiculo findByCodVeiculo(Integer idVeiculo);
 
 	
+	@Query("SELECT ma FROM Veiculo ma WHERE ma.modeloVeiculo = :modelo AND " +
+											"ma.anoVeiculo = :ano")
+	List<Veiculo> getByModeloAno(@Param("modelo")String modelo, 
+								@Param("ano")Integer ano);
+
 	
+	@Query("SELECT moa FROM Veiculo moa WHERE moa.marca.marca_veiculo = :nomeMarca AND " +
+											  "moa.anoVeiculo = :ano")
+	List<Veiculo> getByMarcaAno(@Param("nomeMarca")String nomeMarca,
+								@Param("ano")Integer ano);
+
+	
+	List<Veiculo> findByDestaqueTrue();
 	
 	
 	

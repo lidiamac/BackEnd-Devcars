@@ -8,6 +8,7 @@ import br.com.rd.queroserdev.devcars.model.Agendamento;
 
 public interface AgendamentoRepository extends JpaRepository<Agendamento, Integer>{
 
+
 	List<Agendamento> findByCliente_CodCliente(Integer id);
 
 

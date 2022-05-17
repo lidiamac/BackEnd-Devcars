@@ -66,5 +66,5 @@ public class AgendamentoDto {
 	public List<AgendamentoDto> converter(List<Agendamento> agendamentos) {
 		return agendamentos.stream().map(AgendamentoDto::new).collect(Collectors.toList());
 	}
-	
+
 }
