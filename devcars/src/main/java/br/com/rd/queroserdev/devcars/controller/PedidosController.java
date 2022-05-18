@@ -1,12 +1,13 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
 
 import javax.transaction.Transactional;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.rd.queroserdev.devcars.controller.dto.MyOrderDto;
 import br.com.rd.queroserdev.devcars.controller.dto.PedidoDto;
+import br.com.rd.queroserdev.devcars.controller.dto.ResumoPedidoDTO;
 import br.com.rd.queroserdev.devcars.controller.form.PedidoForm;
 import br.com.rd.queroserdev.devcars.model.Pedido;
 import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
@@ -65,6 +67,16 @@ public class PedidosController {
 		return ResponseEntity.created(uri).body(new PedidoDto(pedido));
 	}
 	
+	
+	
+	
+	@GetMapping("/resume/{id}")
+	public ResumoPedidoDTO detalhesPedido(@PathVariable @Valid Integer id) {
+		Pedido pedido = pedidoRepository.findByCodPedido(id);
+		return new ResumoPedidoDTO(pedido);
+	}
+
+
 	@GetMapping("/{id}")
 	public ResponseEntity<MyOrderDto> listarMeusPedidos(@PathVariable Integer id){
 		
@@ -75,13 +87,9 @@ public class PedidosController {
 		}
 		return ResponseEntity.notFound().build();
 		
-		
-		
-		
 	}
 	
 	
 	
-	
-	
+
 }

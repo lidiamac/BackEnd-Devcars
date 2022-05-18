@@ -54,7 +54,7 @@ public class CartaoController {
 	
 	
 	
-	@GetMapping("cliente/{id}")
+	@GetMapping("/cliente/{id}")
 	public List<CartaoDTO> cartoes(@PathVariable @Valid Integer id){
 		List<Cartao> cartao = cartaoRepository.findByCliente_CodCliente(id);
 		CartaoDTO cartaoDTO = new CartaoDTO();

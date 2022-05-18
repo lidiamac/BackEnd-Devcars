@@ -48,7 +48,7 @@ public class VeiculoController {
 	
 	
 	@GetMapping("/cardveiculos")
-	public Page<VeiculoCardDto> listarVeiculosCard(@PageableDefault(sort="precoVeiculo", direction=Direction.DESC, page=0, size=15) 
+	public Page<VeiculoCardDto> listarVeiculosCard(@PageableDefault(sort="precoVeiculo", direction=Direction.ASC, page=0, size=15) 
 													Pageable paginacao) {
 		
 		Page<Veiculo> veiculosCard = veiculoRepository.findAll(paginacao);

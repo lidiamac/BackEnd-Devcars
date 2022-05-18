@@ -327,6 +327,9 @@ create table tb_pedido
 	previsao_entrega int null,
 	data_envio date null,
 	cod_status int not null,
+	cod_cartao int null,
+	cod_boleto int null,
+	cod_pix int null,
 
 	primary key (cod_pedido),
 	
@@ -335,7 +338,10 @@ create table tb_pedido
 	foreign key (cod_cliente) references tb_cliente (cod_cliente),
 	foreign key (cod_forma_pagamento) references tb_forma_pagamento (cod_forma_pagamento),
 	foreign key (cod_frete) references tb_frete (cod_frete),
-	foreign key (cod_status) references tb_status (cod_status)
+	foreign key (cod_status) references tb_status (cod_status),
+	foreign key (cod_cartao) references tb_cartao (cod_cartao),
+	foreign key (cod_boleto) references tb_boleto (cod_boleto),
+	foreign key (cod_pix) references tb_pix (cod_pix)
 
 )
 ;
