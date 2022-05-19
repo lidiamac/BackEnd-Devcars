@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,15 +58,24 @@ public class FavoritoController {
 // ------------ ADICIONANDO  FAVORITOS  ------------ 
 	
 //	@Transactional
-//	@PostMapping("/adf")
+//	@PostMapping
 //	public ResponseEntity<FavoritoDto> adFavorito(@RequestBody @Valid FavoritoForm form, UriComponentsBuilder uriBuilder){
-//		FavoritoDto favorito = form.converter();
+//		Favorito favorito = form.converter(favoritoRepository);
 //		
 //		favoritoRepository.save(favorito);
 //		
 //		URI uri = uriBuilder.path("/favorito/{id}").buildAndExpand(favorito.getCliente()).toUri();
 //		return ResponseEntity.created(uri).body(new FavoritoDto(favorito));
 //	}
+//		
+//		
+//		@DeleteMapping("/{id}")
+//		@Transactional
+//		public ResponseEntity<?> deleteFavoritos( @PathVariable Integer id){
+//			favoritoRepository.deleteById(id);
+//			return ResponseEntity.ok().build();
+//		
+//		}
 	
 	
 	

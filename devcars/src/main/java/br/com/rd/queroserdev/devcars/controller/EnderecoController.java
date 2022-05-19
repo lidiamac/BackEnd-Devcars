@@ -90,7 +90,7 @@ public class EnderecoController {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> deletarEnderecos( @PathVariable Integer id){
+	public ResponseEntity<?> deleteFavorito( @PathVariable Integer id){
 		enderecoRepository.deleteById(id);
 		return ResponseEntity.ok().build();
 		

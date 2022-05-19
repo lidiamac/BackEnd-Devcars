@@ -35,7 +35,18 @@ public class Favorito {
 			  inverseJoinColumns = @JoinColumn(name = "cod_veiculo"))
 	private List<Veiculo> veiculos;
 
-
+	public Favorito () {
+		
+	}
+	
+	public Favorito (Integer codFavorito,Cliente cliente, List<Veiculo> veiculos ) {
+	    
+		this.codFavorito = codFavorito;
+		this.cliente = cliente;
+		this.veiculos = veiculos;
+	}
+	
+	
 
 
 	public Integer getCodFavorito() {

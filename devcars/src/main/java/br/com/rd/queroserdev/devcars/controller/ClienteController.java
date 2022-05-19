@@ -101,7 +101,7 @@ public class ClienteController {
 //	}
 	
 
-<<<<<<< HEAD
+
 	
 //	@GetMapping("/cartao/{id}")
 //	public List<CartaoDTO> cartoes(@PathVariable @Valid Integer id){
@@ -112,8 +112,7 @@ public class ClienteController {
 //		return cartaoDTO.converter(cartao);
 //	}
 
-=======
->>>>>>> e8b017092c9af6d6c789add3bdeb53b78d2cb2d8
+
 	@Transactional
 	@PutMapping("/f/{id}")
 	public ResponseEntity<ClienteFisicoDTO> atualizar (@PathVariable Integer id, @RequestBody @Valid AtualizacaoClienteFisicoForm form){
