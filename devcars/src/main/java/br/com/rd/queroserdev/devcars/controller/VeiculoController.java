@@ -56,8 +56,8 @@ public class VeiculoController {
 	}
 
 	@GetMapping("/marcas")
-	public List<VeiculoCardDto> listaMarca(String nomeMarca) {
-		List<Veiculo> marcas = veiculoRepository.getByNomeMarca(nomeMarca);
+	public List<VeiculoCardDto> listaMarca(String marcaVeiculo) {
+		List<Veiculo> marcas = veiculoRepository.getByNomeMarca(marcaVeiculo);
 		return VeiculoCardDto.converter(marcas);
 	}
 	
@@ -74,8 +74,8 @@ public class VeiculoController {
 	}
 	
 	@GetMapping("/marcamodelo")
-	public List<VeiculoCardDto> listarPorMarcaModelo(String nomeMarca, String nomeModelo) {
-		List<Veiculo> marcaModelo = veiculoRepository.getByMarcaModelo(nomeMarca, nomeModelo);
+	public List<VeiculoCardDto> listarPorMarcaModelo(String marcaVeiculo, String nomeModelo) {
+		List<Veiculo> marcaModelo = veiculoRepository.getByMarcaModelo(marcaVeiculo, nomeModelo);
 		return VeiculoCardDto.converter(marcaModelo);
 	}
 	
@@ -86,8 +86,8 @@ public class VeiculoController {
 	}
 	
 	@GetMapping("/marcaano")
-	public List<VeiculoCardDto> listarPorMarcaAno(String nomeMarca, Integer ano) {
-		List<Veiculo> marcaAno = veiculoRepository.getByMarcaAno(nomeMarca, ano);
+	public List<VeiculoCardDto> listarPorMarcaAno(String marcaVeiculo, Integer ano) {
+		List<Veiculo> marcaAno = veiculoRepository.getByMarcaAno(marcaVeiculo, ano);
 		return VeiculoCardDto.converter(marcaAno);
 	}
 

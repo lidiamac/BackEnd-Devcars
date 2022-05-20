@@ -14,14 +14,14 @@ public class VeiculoCardDto {
 	private String Imagem;
 	private BigDecimal precoVeiculo;
 	private String modeloVeiculo;
-	private String nomeMarca;
+	private String marcaVeiculo;
 
 	public VeiculoCardDto(Veiculo veiculo) {
 		this.codVeiculo = veiculo.getCodVeiculo();
 		this.Imagem = veiculo.getImagem();
 		this.precoVeiculo = veiculo.getPrecoVeiculo();
 		this.modeloVeiculo = veiculo.getModeloVeiculo();
-		this.nomeMarca = veiculo.getMarca().getMarca_veiculo();
+		this.marcaVeiculo = veiculo.getMarca().getMarca_veiculo();
 		
 	}
 
@@ -43,7 +43,7 @@ public class VeiculoCardDto {
 	
 
 	public String getNomeMarca() {
-		return nomeMarca;
+		return marcaVeiculo;
 	}
 
 	public static List<VeiculoCardDto> converter(List<Veiculo> marcas) {

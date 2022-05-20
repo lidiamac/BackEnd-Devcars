@@ -10,7 +10,7 @@ public class DestaquesDTO {
 	private Integer codVeiculo;
 	private BigDecimal precoVeiculo;
 	private String modeloVeiculo;
-	private String nomeMarca;
+	private String marcaVeiculo;
 	private Integer anoVeiculo;
 	private String cor;
 	private String motor;
@@ -25,7 +25,7 @@ public class DestaquesDTO {
 		this.codVeiculo = veiculo.getCodVeiculo();
 		this.precoVeiculo = veiculo.getPrecoVeiculo();
 		this.modeloVeiculo = veiculo.getModeloVeiculo();
-		this.nomeMarca = veiculo.getMarca().getMarca_veiculo();
+		this.marcaVeiculo = veiculo.getMarca().getMarca_veiculo();
 		this.anoVeiculo = veiculo.getAnoVeiculo();
 		this.cor = veiculo.getCor().getNome_cor();
 		this.motor = veiculo.getMotor().getMotorVeiculo();
@@ -58,11 +58,11 @@ public class DestaquesDTO {
 	public void setModeloVeiculo(String modeloVeiculo) {
 		this.modeloVeiculo = modeloVeiculo;
 	}
-	public String getNomeMarca() {
-		return nomeMarca;
+	public String getMarcaVeiculo() {
+		return marcaVeiculo;
 	}
-	public void setNomeMarca(String nomeMarca) {
-		this.nomeMarca = nomeMarca;
+	public void setMarcaVeiculo(String marcaVeiculo) {
+		this.marcaVeiculo = marcaVeiculo;
 	}
 	public Integer getAnoVeiculo() {
 		return anoVeiculo;

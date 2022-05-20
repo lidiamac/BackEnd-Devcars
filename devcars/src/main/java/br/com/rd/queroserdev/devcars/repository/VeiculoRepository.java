@@ -10,8 +10,8 @@ import br.com.rd.queroserdev.devcars.model.Veiculo;
 
 public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	
-	@Query("SELECT m FROM Veiculo m WHERE m.marca.marca_veiculo = :nomeMarca")
-	List<Veiculo> getByNomeMarca(@Param("nomeMarca") String nomeMarca);
+	@Query("SELECT m FROM Veiculo m WHERE m.marca.marca_veiculo = :marcaVeiculo")
+	List<Veiculo> getByNomeMarca(@Param("marcaVeiculo") String marcaVeiculo);
 
 	
 	List<Veiculo> findByModeloVeiculo(String modelo);
@@ -20,9 +20,9 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	List<Veiculo> findByAnoVeiculo(Integer ano);
 
 	
-	@Query("SELECT mm FROM Veiculo mm WHERE mm.marca.marca_veiculo = :nomeMarca AND " +
+	@Query("SELECT mm FROM Veiculo mm WHERE mm.marca.marca_veiculo = :marcaVeiculo AND " +
 											"modeloVeiculo = :nomeModelo")
-	List<Veiculo> getByMarcaModelo(@Param("nomeMarca") String nomeMarca, 
+	List<Veiculo> getByMarcaModelo(@Param("marcaVeiculo") String marcaVeiculo, 
 								   @Param("nomeModelo") String nomeModelo);
 
 
@@ -35,9 +35,9 @@ public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 								@Param("ano")Integer ano);
 
 	
-	@Query("SELECT moa FROM Veiculo moa WHERE moa.marca.marca_veiculo = :nomeMarca AND " +
+	@Query("SELECT moa FROM Veiculo moa WHERE moa.marca.marca_veiculo = :marcaVeiculo AND " +
 											  "moa.anoVeiculo = :ano")
-	List<Veiculo> getByMarcaAno(@Param("nomeMarca")String nomeMarca,
+	List<Veiculo> getByMarcaAno(@Param("marcaVeiculo")String marcaVeiculo,
 								@Param("ano")Integer ano);
 
 	
