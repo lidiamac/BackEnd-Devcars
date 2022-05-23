@@ -1,13 +1,11 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
-
 import javax.transaction.Transactional;
-
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.rd.queroserdev.devcars.controller.dto.FormaPagamentoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.MyOrderDto;
 import br.com.rd.queroserdev.devcars.controller.dto.PedidoDto;
 import br.com.rd.queroserdev.devcars.controller.dto.ResumoPedidoDTO;
+import br.com.rd.queroserdev.devcars.controller.dto.VeiculoModalDto;
 import br.com.rd.queroserdev.devcars.controller.form.PedidoForm;
+import br.com.rd.queroserdev.devcars.model.FormaPagamento;
 import br.com.rd.queroserdev.devcars.model.Pedido;
+import br.com.rd.queroserdev.devcars.model.Veiculo;
 import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.devcars.repository.EnderecoRepository;
 import br.com.rd.queroserdev.devcars.repository.FormaPagamentoRepository;
@@ -92,4 +94,14 @@ public class PedidosController {
 	
 	
 
+	@GetMapping("/payment")
+	public List<FormaPagamentoDTO> formasPagamento(){
+		
+		List<FormaPagamento> formasPagamento = formaPagamentoRepository.findAll();
+		return FormaPagamentoDTO.converter(formasPagamento);
+	}
+
+	
+	
+	
 }
