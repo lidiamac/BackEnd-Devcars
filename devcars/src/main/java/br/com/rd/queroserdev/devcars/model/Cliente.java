@@ -1,8 +1,9 @@
 package br.com.rd.queroserdev.devcars.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,11 +21,16 @@ import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "tb_cliente")
-public class Cliente {
+public class Cliente implements UserDetails {
 	
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codCliente;
@@ -82,6 +88,18 @@ public class Cliente {
 	
 	@OneToMany(mappedBy = "cliente")
 	private List<CabecalhoNF> cabecalhos;
+	
+//	@Fetch(FetchMode.SELECT)
+//	@ManyToMany(fetch = FetchType.EAGER)
+	
+//	@Fetch(FetchMode.SELECT)
+//	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//	@JoinTable(name = "tb_perfil", joinColumns = {
+//			@JoinColumn(name = "cod_cliente") }, inverseJoinColumns = { @JoinColumn(name = "perfil_id") })
+	
+	@Fetch(FetchMode.SELECT)
+	@ManyToMany(fetch = FetchType.EAGER)
+	private List<Perfil> perfis = new ArrayList<>();
 	
 	
 
@@ -206,12 +224,53 @@ public class Cliente {
 		this.enderecos = enderecos;
 	}
 
-	
 
 
 	@Override
-	public String toString() {
-		return "Cliente [Id: " + codCliente + ", / Nome: " + nomeCliente + "]";
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.perfis;
+	}
+
+
+
+	@Override
+	public String getPassword() {
+		return this.senhaCliente;
+	}
+
+
+
+	@Override
+	public String getUsername() {
+		return this.emailCliente;
+	}
+
+
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+
+
+	@Override
+	public boolean isEnabled() {
+		return true;
 	}
 	
 }

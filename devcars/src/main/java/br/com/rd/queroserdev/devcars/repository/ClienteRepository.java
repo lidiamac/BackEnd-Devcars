@@ -1,6 +1,7 @@
 package br.com.rd.queroserdev.devcars.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,6 +14,8 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	List<Cliente> findAll();
 
 	Cliente findByCodCliente(Integer idCliente);	
+	
+	Optional<Cliente> findByEmailCliente(String email);
 
 
 }
