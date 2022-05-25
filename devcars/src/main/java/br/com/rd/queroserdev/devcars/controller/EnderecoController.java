@@ -2,6 +2,7 @@ package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -18,10 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.rd.queroserdev.devcars.controller.dto.DetalhesEnderecoClienteDto;
 import br.com.rd.queroserdev.devcars.controller.dto.EnderecoDto;
 import br.com.rd.queroserdev.devcars.controller.form.AtualizacaoEnderecoForm;
 import br.com.rd.queroserdev.devcars.controller.form.EnderecoForm;
+import br.com.rd.queroserdev.devcars.model.Cliente;
 import br.com.rd.queroserdev.devcars.model.Endereco;
+import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.devcars.repository.EnderecoRepository;
 
 @RestController
@@ -30,6 +34,9 @@ public class EnderecoController {
 
 	@Autowired
 	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
 
 	@GetMapping("/{id}")
 	public List<EnderecoDto> enderecos(@PathVariable @Valid Integer id){
@@ -95,6 +102,19 @@ public class EnderecoController {
 		return ResponseEntity.ok().build();
 		
 		
+	}
+	
+	
+	
+	//API DETALHAMENTO ENDEREÇO POR ID CLIENTE E ID ENDEREÇO
+	
+	@GetMapping("/cliente/{id}")
+	public ResponseEntity<DetalhesEnderecoClienteDto> detalharClienteEndereco(@PathVariable Integer id) {
+		Optional<Cliente> cliente = clienteRepository.findById(id);
+		if (cliente.isPresent()) {
+			return ResponseEntity.ok(new DetalhesEnderecoClienteDto(cliente.get()));
+		}
+		return ResponseEntity.notFound().build();
 	}
 
 		

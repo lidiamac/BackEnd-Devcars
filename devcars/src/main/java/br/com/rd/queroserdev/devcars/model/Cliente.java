@@ -131,6 +131,11 @@ public class Cliente implements UserDetails {
 		this.telefoneCliente = telefoneCliente;
 		this.senhaCliente = senhaCliente;
 	}
+	
+	public Cliente(Integer codCliente, String senhaCliente) {
+		this.codCliente = codCliente;
+		this.senhaCliente = senhaCliente;
+	}
 
 
 	public Integer getCodCliente() {
