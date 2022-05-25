@@ -53,9 +53,9 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.POST , "/cliente/j").permitAll()
 		.antMatchers(HttpMethod.POST , "/auth").permitAll()
 		.antMatchers(HttpMethod.GET , "/veiculos").permitAll()
-		.antMatchers(HttpMethod.GET , "/veiculos/*").permitAll()
+		.antMatchers(HttpMethod.GET , "/veiculos/**").permitAll()
 		.anyRequest().authenticated()
-		.and().csrf().disable()
+		.and().cors().and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, clienteRepository), UsernamePasswordAuthenticationFilter.class);
 	}
