@@ -1,6 +1,7 @@
 package br.com.rd.queroserdev.devcars.controller.dto;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import br.com.rd.queroserdev.devcars.model.Endereco;
@@ -26,7 +27,7 @@ public class ResumoPedidoDTO {
 	
 	private String formaPagamento;
 	private BigDecimal valorTotal;
-	private LocalDateTime dataPedido;
+	private LocalDate dataPedido;
 //	
 //	private String numeroCartao;
 //	private String codBarras;
@@ -125,7 +126,7 @@ public class ResumoPedidoDTO {
 //	public void setPix(String pix) {
 //		this.pix = pix;
 //	}
-	public LocalDateTime getDataPedido() {
+	public LocalDate getDataPedido() {
 		return dataPedido;
 	}
 	public Integer getCodEndereco() {
@@ -176,7 +177,7 @@ public class ResumoPedidoDTO {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	public void setDataPedido(LocalDateTime dataPedido) {
+	public void setDataPedido(LocalDate dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 	public BigDecimal getValorTotal() {

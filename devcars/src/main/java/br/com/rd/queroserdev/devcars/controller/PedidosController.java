@@ -21,6 +21,7 @@ import br.com.rd.queroserdev.devcars.controller.dto.FormaPagamentoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.MyOrderDto;
 import br.com.rd.queroserdev.devcars.controller.dto.PedidoDto;
 import br.com.rd.queroserdev.devcars.controller.dto.ResumoPedidoDTO;
+import br.com.rd.queroserdev.devcars.controller.dto.VeiculoCardDto;
 import br.com.rd.queroserdev.devcars.controller.dto.VeiculoModalDto;
 import br.com.rd.queroserdev.devcars.controller.form.PedidoForm;
 import br.com.rd.queroserdev.devcars.model.FormaPagamento;
@@ -79,21 +80,28 @@ public class PedidosController {
 	}
 
 
-	@GetMapping("/{id}")
-	public ResponseEntity<MyOrderDto> listarMeusPedidos(@PathVariable Integer id){
-		
-		Optional<Pedido> meusPedidos = pedidoRepository.findById(id);
-		if(meusPedidos.isPresent()) {
-			return ResponseEntity.ok(new MyOrderDto(meusPedidos.get()));
-			
-		}
-		return ResponseEntity.notFound().build();
-		
-	}
+//	@GetMapping("/{id}")
+//	public ResponseEntity<MyOrderDto> listarMeusPedidos(@PathVariable Integer id){
+//		
+//		Optional<Pedido> meusPedidos = pedidoRepository.findById(id);
+//		if(meusPedidos.isPresent()) {
+//			return ResponseEntity.ok(new MyOrderDto(meusPedidos.get()));
+//			
+//		}
+//		return ResponseEntity.notFound().build();
+//		
+//	}
 	
 	
 
+	@GetMapping("/{codCliente}")
+	public List<MyOrderDto> listarMeusPedidos(@PathVariable Integer codCliente) {
+		List<Pedido> pedidos = pedidoRepository.findByClienteCodCliente(codCliente);
+		return MyOrderDto.converter(pedidos);
+	}
 	
+			
+			
 	
 
 	@GetMapping("/payment")
