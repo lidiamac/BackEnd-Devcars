@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.rd.queroserdev.devcars.controller.dto.AgendamentoDto;
+import br.com.rd.queroserdev.devcars.controller.dto.AlterarSenhaDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.CartaoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteFisicoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.ClienteJuridicoDTO;
+import br.com.rd.queroserdev.devcars.controller.form.AlterarSenhaForm;
 import br.com.rd.queroserdev.devcars.controller.form.AtualizacaoClienteFisicoForm;
 import br.com.rd.queroserdev.devcars.controller.form.AtualizacaoClienteJuridicoForm;
 import br.com.rd.queroserdev.devcars.controller.form.ClienteFisicoForm;
@@ -123,6 +125,39 @@ public class ClienteController {
 			Cliente clienteJuridico = form.atualizar(id, clienteRepository);
 			return ResponseEntity.ok(new ClienteJuridicoDTO(clienteJuridico));
 		}
+		return ResponseEntity.notFound().build();
+	}
+	
+	
+	
+	
+//	obs: terá que descriptografar senha
+	@GetMapping("/{id}/alterarSenha")
+	public ResponseEntity<AlterarSenhaDTO> verificarSenha(@PathVariable Integer id) {
+		
+		Optional<Cliente>cliente = clienteRepository.findById(id);
+		
+		if(cliente.isPresent()) {
+			return ResponseEntity.ok(new AlterarSenhaDTO(cliente.get()));
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
+	
+	
+	
+	
+	@Transactional
+	@PutMapping("/{id}/alterarSenha")
+	public ResponseEntity<AlterarSenhaDTO> alterarSenha (@PathVariable Integer id, @RequestBody @Valid AlterarSenhaForm form){
+		Optional<Cliente> clienteOPt = clienteRepository.findById(id);
+		
+		if(clienteOPt.isPresent()) {
+			Cliente cliente = form.converter(id, clienteRepository);
+			return ResponseEntity.ok(new AlterarSenhaDTO(cliente));
+		}
+
 		return ResponseEntity.notFound().build();
 	}
 	

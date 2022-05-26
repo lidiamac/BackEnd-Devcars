@@ -46,7 +46,7 @@ public class Pedido {
 	private BigDecimal valorTotalPedido;
 	
 	@Column(nullable = false)
-	private LocalDateTime dataPedido = LocalDateTime.now();
+	private LocalDate dataPedido = LocalDate.now();
 	
 	@Column
 	private Integer previsaoEntrega;
@@ -167,11 +167,11 @@ public class Pedido {
 		this.valorTotalPedido = valorTotalPedido;
 	}
 
-	public LocalDateTime getDataPedido() {
+	public LocalDate getDataPedido() {
 		return dataPedido;
 	}
 
-	public void setDataPedido(LocalDateTime dataPedido) {
+	public void setDataPedido(LocalDate dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 
