@@ -54,6 +54,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.POST , "/auth").permitAll()
 		.antMatchers(HttpMethod.GET , "/veiculos").permitAll()
 		.antMatchers(HttpMethod.GET , "/veiculos/**").permitAll()
+		.antMatchers(HttpMethod.GET , "/frete/**").permitAll()
 		.antMatchers(HttpMethod.GET , "/").permitAll()
 		.anyRequest().authenticated()
 		.and().cors().and().csrf().disable()
