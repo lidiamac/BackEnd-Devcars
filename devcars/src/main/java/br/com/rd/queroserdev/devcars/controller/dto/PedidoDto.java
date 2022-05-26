@@ -23,7 +23,7 @@ public class PedidoDto {
 		this.codCliente = pedido.getCliente().getCodCliente();
 		this.codEndereco = pedido.getEndereco().getCodEndereco();
 		this.codPagamento = pedido.getFormaPagamento().getCodFormaPagamento();
-		this.codFrete = pedido.getFrete().getCod_frete();
+		this.codFrete = pedido.getFrete().getCodFrete();
 		this.valorTotal = pedido.getValorTotalPedido();
 		this.codStatus = pedido.getStatus().getCodStatus();
 		this.dataPedido = pedido.getDataPedido();
