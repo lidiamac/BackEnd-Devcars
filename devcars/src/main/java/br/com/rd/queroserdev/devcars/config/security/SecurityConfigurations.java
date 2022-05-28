@@ -58,6 +58,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET , "/enderecos/**").permitAll()
 		.antMatchers(HttpMethod.GET , "/cartao/**").permitAll()
 		.antMatchers(HttpMethod.POST, "/placeorder/**").permitAll()
+		.antMatchers(HttpMethod.GET, "/placeorder/**").permitAll()
 		.antMatchers(HttpMethod.GET , "/").permitAll()
 		.anyRequest().authenticated().and().cors()
 		.and().csrf().disable()
@@ -65,6 +66,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, clienteRepository), UsernamePasswordAuthenticationFilter.class);
 
 	}
+
 
 
 	

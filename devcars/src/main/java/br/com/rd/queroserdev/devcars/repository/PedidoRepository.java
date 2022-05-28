@@ -14,5 +14,4 @@ public interface PedidoRepository extends JpaRepository<Pedido, Integer>{
 		
 
 		List<Pedido> findByClienteCodCliente(Integer codCliente);
-
 }
