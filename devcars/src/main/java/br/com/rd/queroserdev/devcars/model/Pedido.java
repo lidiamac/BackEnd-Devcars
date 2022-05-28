@@ -75,7 +75,7 @@ public class Pedido {
 	}
 
 	public Pedido(Cliente cliente, Veiculo veiculo, Endereco endereco, FormaPagamento formaPagamento, Frete frete,
-			BigDecimal valorTotalPedido, Status status) {
+			BigDecimal valorTotalPedido, Status status, Cartao cartao) {
 		super();
 		this.cliente = cliente;
 		this.veiculo = veiculo;
@@ -84,6 +84,7 @@ public class Pedido {
 		this.frete = frete;
 		this.valorTotalPedido = valorTotalPedido;
 		this.status = status;
+		this.cartao = cartao;
 	}
 
 	@Override

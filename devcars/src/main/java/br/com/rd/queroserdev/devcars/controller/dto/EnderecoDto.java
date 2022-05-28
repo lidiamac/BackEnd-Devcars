@@ -7,6 +7,7 @@ import br.com.rd.queroserdev.devcars.model.Endereco;
 
 public class EnderecoDto {
 	
+	private Integer codEndereco;
 	private String cep;
 	private String rua;
 	private String complemento;
@@ -18,6 +19,7 @@ public class EnderecoDto {
 	public EnderecoDto() {}
 	
 	public EnderecoDto(Endereco endereco) {
+		this.codEndereco = endereco.getCodEndereco();
 		this.cep = endereco.getCepEndereco();
 		this.rua = endereco.getRuaEndereco();
 		this.complemento = endereco.getComplemento();
@@ -27,6 +29,12 @@ public class EnderecoDto {
 		this.uf = endereco.getUf();
 	}
 
+	
+	public Integer getCodEndereco() {
+		return codEndereco;
+	}
+
+	
 	public String getCep() {
 		return cep;
 	}
@@ -55,6 +63,7 @@ public class EnderecoDto {
 		return uf;
 	}
 	
+
 	public static List<EnderecoDto> converter(List<Endereco> enderecos) {
 		return enderecos.stream().map(EnderecoDto::new).collect(Collectors.toList());
 	}
