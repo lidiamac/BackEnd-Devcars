@@ -14,9 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.rd.queroserdev.devcars.controller.dto.MarcaDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.VeiculoCardDto;
 import br.com.rd.queroserdev.devcars.controller.dto.VeiculoModalDto;
+import br.com.rd.queroserdev.devcars.model.Marca;
 import br.com.rd.queroserdev.devcars.model.Veiculo;
+import br.com.rd.queroserdev.devcars.repository.MarcaRepository;
 import br.com.rd.queroserdev.devcars.repository.VeiculoRepository;
 
 @RestController
@@ -25,6 +28,9 @@ public class VeiculoController {
 
 	@Autowired
 	private VeiculoRepository veiculoRepository;
+	
+	@Autowired
+	private MarcaRepository marcaRepository;
 
 	
 	@GetMapping("")
@@ -57,14 +63,20 @@ public class VeiculoController {
 
 	@GetMapping("/marcas")
 	public List<VeiculoCardDto> listaMarca(String marcaVeiculo) {
-		List<Veiculo> marcas = veiculoRepository.getByNomeMarca(marcaVeiculo);
+		List<Veiculo> marcas = veiculoRepository.getByMarcaVeiculo(marcaVeiculo);
 		return VeiculoCardDto.converter(marcas);
 	}
 	
-	@GetMapping("/modelos")
-	public List<VeiculoCardDto> listaModelo(String modelo) {
-		List<Veiculo> modelos = veiculoRepository.findByModeloVeiculo(modelo);
-		return VeiculoCardDto.converter(modelos);
+	@GetMapping("/marca")
+	public List<MarcaDTO> marcas() {
+		List<Marca> marca = marcaRepository.findAll();
+		return MarcaDTO.converter(marca);
+	}
+	
+	@GetMapping("/marcaid")
+	public List<VeiculoCardDto> listaMarcaID(Integer codMarca) {
+		List<Veiculo> marcaId = veiculoRepository.findAllByMarcaVeiculo(codMarca);
+		return VeiculoCardDto.converter(marcaId);
 	}
 	
 	@GetMapping("/ano")

@@ -1,9 +1,12 @@
 package br.com.rd.queroserdev.devcars.controller.dto;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
-import br.com.rd.queroserdev.devcars.model.Endereco;
 import br.com.rd.queroserdev.devcars.model.Pedido;
 
 public class ResumoPedidoDTO {
@@ -26,7 +29,11 @@ public class ResumoPedidoDTO {
 	
 	private String formaPagamento;
 	private BigDecimal valorTotal;
-	private LocalDateTime dataPedido;
+	private LocalDate dataPedido;
+//	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
+//	private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
+	
+	
 //	
 //	private String numeroCartao;
 //	private String codBarras;
@@ -125,7 +132,7 @@ public class ResumoPedidoDTO {
 //	public void setPix(String pix) {
 //		this.pix = pix;
 //	}
-	public LocalDateTime getDataPedido() {
+	public LocalDate getDataPedido() {
 		return dataPedido;
 	}
 	public Integer getCodEndereco() {
@@ -176,7 +183,7 @@ public class ResumoPedidoDTO {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	public void setDataPedido(LocalDateTime dataPedido) {
+	public void setDataPedido(LocalDate dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 	public BigDecimal getValorTotal() {

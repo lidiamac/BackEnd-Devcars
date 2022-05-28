@@ -2,7 +2,6 @@ package br.com.rd.queroserdev.devcars.model;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

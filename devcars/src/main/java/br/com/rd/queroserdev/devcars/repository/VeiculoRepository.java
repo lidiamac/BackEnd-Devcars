@@ -11,10 +11,14 @@ import br.com.rd.queroserdev.devcars.model.Veiculo;
 public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 	
 	@Query("SELECT m FROM Veiculo m WHERE m.marca.marca_veiculo = :marcaVeiculo")
-	List<Veiculo> getByNomeMarca(@Param("marcaVeiculo") String marcaVeiculo);
-
+	List<Veiculo> getByMarcaVeiculo(@Param("marcaVeiculo") String marcaVeiculo);
+	
+	@Query("SELECT v FROM Veiculo v WHERE v.marca.cod_marca = :codMarca")
+	List<Veiculo> findAllByMarcaVeiculo(@Param("codMarca")Integer codMarca);
 	
 	List<Veiculo> findByModeloVeiculo(String modelo);
+	
+//	List<Veiculo> getByCodMarca(@Param("codMarca"))
 
 
 	List<Veiculo> findByAnoVeiculo(Integer ano);

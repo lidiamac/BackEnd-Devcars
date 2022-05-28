@@ -2,7 +2,7 @@ package br.com.rd.queroserdev.devcars.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tb_pedido")
@@ -46,8 +48,9 @@ public class Pedido {
 	private BigDecimal valorTotalPedido;
 	
 	@Column(nullable = false)
-	private LocalDateTime dataPedido = LocalDateTime.now();
+	private LocalDate dataPedido;
 	
+
 	@Column
 	private Integer previsaoEntrega;
 	
@@ -167,11 +170,11 @@ public class Pedido {
 		this.valorTotalPedido = valorTotalPedido;
 	}
 
-	public LocalDateTime getDataPedido() {
+	public LocalDate getDataPedido() {
 		return dataPedido;
 	}
 
-	public void setDataPedido(LocalDateTime dataPedido) {
+	public void setDataPedido(LocalDate dataPedido) {
 		this.dataPedido = dataPedido;
 	}
 

@@ -42,7 +42,7 @@ public class VeiculoCardDto {
 	}
 	
 
-	public String getNomeMarca() {
+	public String getMarcaVeiculo() {
 		return marcaVeiculo;
 	}
 

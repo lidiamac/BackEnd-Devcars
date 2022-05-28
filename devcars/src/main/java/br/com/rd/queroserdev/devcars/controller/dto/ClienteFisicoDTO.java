@@ -1,6 +1,5 @@
 package br.com.rd.queroserdev.devcars.controller.dto;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import br.com.rd.queroserdev.devcars.model.Cliente;
@@ -9,7 +8,7 @@ public class ClienteFisicoDTO {
 
 	private Integer codCliente;
 	private String nomeCliente;
-	private LocalDate dataNascimento;
+	private String dataNascimento;
 	private String tipoDocumento;
 	private String numeroDocumento;
 	private String emailCliente;
@@ -19,7 +18,7 @@ public class ClienteFisicoDTO {
 	
 	public ClienteFisicoDTO(Cliente cliente) {
 		this.codCliente = cliente.getCodCliente();
-		this.dataNascimento = cliente.getDataNascimento();
+		this.dataNascimento = cliente.getDataNascimento().toString();
 		this.nomeCliente = cliente.getNomeCliente();
 		this.tipoDocumento = cliente.getTipoDocumento();
 		this.numeroDocumento = cliente.getNumeroDocumento();
@@ -36,11 +35,11 @@ public class ClienteFisicoDTO {
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
-	public LocalDate getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
 	public void setDataNascimento(String dataNascimento) {
-		this.dataNascimento = LocalDate.parse(dataNascimento, formatter);
+		this.dataNascimento = String.format(dataNascimento, formatter);
 	}
 	public String getTipoDocumento() {
 		return tipoDocumento;
@@ -75,9 +74,6 @@ public class ClienteFisicoDTO {
 		this.codCliente = codCliente;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
 
 
 

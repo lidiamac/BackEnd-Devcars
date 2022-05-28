@@ -1,7 +1,8 @@
 package br.com.rd.queroserdev.devcars.controller.dto;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.Date;
 
 import br.com.rd.queroserdev.devcars.model.Pedido;
 
@@ -14,7 +15,7 @@ public class PedidoDto {
 	private Integer codFrete;
 	private BigDecimal valorTotal;
 	private Integer codStatus;
-	private LocalDateTime dataPedido;
+	private LocalDate dataPedido;
 	
 
 	public PedidoDto(Pedido pedido) {
@@ -50,7 +51,7 @@ public class PedidoDto {
 		return codStatus;
 	}
 
-	public LocalDateTime getDataPedido() {
+	public LocalDate getDataPedido() {
 		return dataPedido;
 	}
 	
