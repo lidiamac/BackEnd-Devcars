@@ -52,6 +52,8 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.POST , "/cliente/f").permitAll()
 		.antMatchers(HttpMethod.POST , "/cliente/j").permitAll()
 		.antMatchers(HttpMethod.POST , "/auth").permitAll()
+		.antMatchers(HttpMethod.POST , "/enderecos/**").permitAll()
+		.antMatchers(HttpMethod.POST , "/cartao/**").permitAll()
 		.antMatchers(HttpMethod.GET , "/veiculos").permitAll()
 		.antMatchers(HttpMethod.GET , "/veiculos/**").permitAll()
 		.antMatchers(HttpMethod.GET , "/frete/**").permitAll()
@@ -66,7 +68,6 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.and().addFilterBefore(new AutenticacaoViaTokenFilter(tokenService, clienteRepository), UsernamePasswordAuthenticationFilter.class);
 
 	}
-
 
 
 	
