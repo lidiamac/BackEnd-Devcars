@@ -51,7 +51,7 @@ public class Endereco {
 	
 
 	public Endereco(String cepEndereco, String ruaEndereco, String complemento, String numeroEndereco,
-			String bairro, String cidade, String uf   ) {
+			String bairro, String cidade, String uf, Cliente cliente ) {
 		this.cepEndereco = cepEndereco;
 		this.ruaEndereco = ruaEndereco;
 		this.complemento = complemento;
@@ -59,7 +59,7 @@ public class Endereco {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.uf = uf;
-		
+		this.clientes = cliente.getCodCliente();
 		
 	}
 

@@ -5,8 +5,13 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import br.com.rd.queroserdev.devcars.model.Cartao;
+import br.com.rd.queroserdev.devcars.model.Cliente;
 import br.com.rd.queroserdev.devcars.model.Endereco;
+import br.com.rd.queroserdev.devcars.model.ModalidadeCartao;
+import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.devcars.repository.EnderecoRepository;
+import br.com.rd.queroserdev.devcars.repository.ModalidadeCartaoRepository;
 
 public class EnderecoForm {
 	
@@ -31,6 +36,8 @@ public class EnderecoForm {
 	@NotNull @NotEmpty
 	private String uf;
 
+	private Integer codCliente;
+	
 	
 	public String getCepEndereco() {
 		return cepEndereco;
@@ -75,9 +82,21 @@ public class EnderecoForm {
 		this.uf = uf;
 	}
 	
-	public Endereco converter(EnderecoRepository enderecorepository) {
-			
-		return new Endereco(cepEndereco, ruaEndereco, complemento, numeroEndereco, bairro, cidade, uf );
+	public Integer getCodCliente() {
+		return codCliente;
 	}
+	public void setCodCliente(Integer codCliente) {
+		this.codCliente = codCliente;
+	}
+	
+	
+	
+	public Endereco converter(ClienteRepository clienteRepository) {
+		Cliente cliente = clienteRepository.findByCodCliente(codCliente);
+		
+		
+		return new Endereco(cepEndereco, ruaEndereco, complemento, numeroEndereco, bairro, cidade,uf, cliente);
+	}
+	
 
 }
