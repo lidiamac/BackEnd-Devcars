@@ -520,7 +520,7 @@ values
 )
 ;
 
--- MARCA 9: Mercedes
+-- MARCA 10: Mercedes
 
 insert into tb_marca
 (
@@ -531,6 +531,34 @@ values
 (	
 	10,
 	'MERCEDES'		
+)
+;
+
+-- MARCA 11: Mercedes
+
+insert into tb_marca
+(
+	cod_marca,
+	marca_veiculo
+)
+values
+(	
+	11,
+	'FORD'		
+)
+;
+
+-- MARCA 12: Mercedes
+
+insert into tb_marca
+(
+	cod_marca,
+	marca_veiculo
+)
+values
+(	
+	12,
+	'CHRYSLER'		
 )
 ;
 
@@ -2104,7 +2132,7 @@ values (
 	'1990-07-02',
 	'RUDOLPH_BOLTON@GMAIL.COM',
 	'1621641550',
-	md5('qBLZN9Qb'),
+	'$2a$10$T6blIyPMoeH97ENhtarz7.T7xP8Ba254SWreXvtQCmOjeEOrosiQ.',
 	null,
 	null
 )
@@ -2131,7 +2159,7 @@ insert into tb_cliente
 	'1983-02-05',
 	'CAR_BLAKE@GMAIL.COM',
 	'11995847267',
-	md5('sMAGQpJJ'),
+	'$2a$10$TxqqHdoD1EX4TF0GLHGRQugMpJrqcMi96cxH43GQQx5EwTjT8mWou',
 	null,
 	null
 )
@@ -2157,7 +2185,7 @@ insert into tb_cliente
 	'1969-12-09',
 	'CARMEND_DS@OUTLOOK.COM',
 	'12985375316',
-	md5('wzE1YJB8'),
+	'$2a$10$G02fVr/TkMgKqkSt00UFbOIgJYjWZFQNqy4gyPM3PB9sLfmhQOqhm',
 	null,
 	null
 )
@@ -2183,7 +2211,7 @@ insert into tb_cliente
 	'1989-09-01',
 	'DANIELPSALOIO@YAHOO.COM',
 	'11963348271',
-	md5('DS3L2J5y'),
+	'$2a$10$6xRLbTdML13Vz2uYSsJjOO69i//r4PooWFZKvS/B7gkMZ24OyqZUq',
 	null,
 	null
 )
@@ -2210,7 +2238,7 @@ insert into tb_cliente
 	'1997-07-04',
 	'RAPHMENA@GMAIL.COM',
 	'11938120144',
-	md5('9pJpWWDk'),
+	'$2a$10$LXpR0l7BmkWw3yTbXF2/ke64Hksa8vE/KVOgZTWr4wTC8rKPu5Tma',
 	null,
 	null
 )
@@ -2238,7 +2266,7 @@ insert into tb_cliente
 	null,
 	'FABRICACAO@MARCELOCORRETORES.COM.BR',
 	'1123355721',
-	md5('3fJpiWDw'),
+	'$2a$10$bUCPhte0Vj7/uJvQmfV5ReVt1NY6coR9T.rM6eb33TgbMzoK.HW82',
 	'038538569199',
 	'MARCELO CORRETORES ASSOCIADOS ME'
 )
@@ -2265,7 +2293,7 @@ insert into tb_cliente
 	null,
 	'LUCIAELETRONICA@YAHOO.COM.BR',
 	'1825616127',
-	md5('7Eu1hSlZ'),
+	'$2a$10$PojI39VRxaNVhhvQiCIx8.JUkGHXoMrx8pPdmQZOSM/t/FGyUFzku',
 	'816601200893',
 	'LUCIA ELETRONICA ME'
 )
@@ -2291,7 +2319,7 @@ insert into tb_cliente
 	null,
 	'LOCACOES@DLLAUTO.COM.BR',
 	'112583229',
-	md5('WT9WRk5g'),
+	'$2a$10$2VgZmLL0EqJw35qiEEK0aOXLgL7syntI/xM7MX/jQzJg7XXoFATG.',
 	'950709614887',
 	'DLL LOCACOES DE AUTOMOVEIS LTDA'
 )
@@ -2317,7 +2345,7 @@ insert into tb_cliente
 	null,
 	'ALIMENTOS@ANALULTDA.COM.BR',
 	'1223216509',
-	md5('ueeperHo'),
+	'$2a$10$nym7TrfRfVcqnVZ4a2uH5eMM78QJ/PZvUW3NdZnCk51foanbIZmvC',
 	'297925752340',
 	'ANALU ALIMENTOS LTDA'
 )
@@ -2344,7 +2372,7 @@ insert into tb_cliente
 	null,
 	'FINANCEIRO@THALESADVOCACIA.COM.BR',
 	'1124286774',
-	md5('2MksTQqP'),
+	'$2a$10$70qwQwiHhYpYoaQLWonPAuBave1BNh/rs6qD/CN5kwTIqcs.eYNSW',
 	'219720561199',
 	'THALES ADVOCACIA LTDA'
 )
