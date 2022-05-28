@@ -1,13 +1,10 @@
 package br.com.rd.queroserdev.devcars.controller;
 
 import java.net.URI;
-import java.util.Optional;
-
-import javax.validation.Valid;
+import java.util.List;
 
 import javax.transaction.Transactional;
-
-
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,11 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.rd.queroserdev.devcars.controller.dto.FormaPagamentoDTO;
 import br.com.rd.queroserdev.devcars.controller.dto.MyOrderDto;
 import br.com.rd.queroserdev.devcars.controller.dto.PedidoDto;
 import br.com.rd.queroserdev.devcars.controller.dto.ResumoPedidoDTO;
 import br.com.rd.queroserdev.devcars.controller.form.PedidoForm;
+import br.com.rd.queroserdev.devcars.model.FormaPagamento;
 import br.com.rd.queroserdev.devcars.model.Pedido;
+import br.com.rd.queroserdev.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.devcars.repository.EnderecoRepository;
 import br.com.rd.queroserdev.devcars.repository.FormaPagamentoRepository;
@@ -57,10 +57,13 @@ public class PedidosController {
 	@Autowired 
 	private ClienteRepository clienteRepository;
 	
+	@Autowired 
+	private CartaoRepository cartaoRepository;
+	
 	@PostMapping
 	@Transactional
 	public ResponseEntity<PedidoDto> placeorder(@RequestBody PedidoForm form, UriComponentsBuilder uriBuilder) {
-		Pedido pedido = form.converter(clienteRepository, veiculoRepository, enderecoRepository, formaPagamentoRepository, freteRepository, statusRepository);
+		Pedido pedido = form.converter(clienteRepository, veiculoRepository, enderecoRepository, formaPagamentoRepository, freteRepository, statusRepository, cartaoRepository);
 		pedidoRepository.save(pedido);
 		
 		URI uri = uriBuilder.path("/placeorder/{id}").buildAndExpand(pedido.getCodPedido()).toUri();
@@ -77,19 +80,38 @@ public class PedidosController {
 	}
 
 
-	@GetMapping("/{id}")
-	public ResponseEntity<MyOrderDto> listarMeusPedidos(@PathVariable Integer id){
-		
-		Optional<Pedido> meusPedidos = pedidoRepository.findById(id);
-		if(meusPedidos.isPresent()) {
-			return ResponseEntity.ok(new MyOrderDto(meusPedidos.get()));
-			
-		}
-		return ResponseEntity.notFound().build();
-		
-	}
-	
+//	@GetMapping("/{id}")
+//	public ResponseEntity<MyOrderDto> listarMeusPedidos(@PathVariable Integer id){
+//		
+//		Optional<Pedido> meusPedidos = pedidoRepository.findById(id);
+//		if(meusPedidos.isPresent()) {
+//			return ResponseEntity.ok(new MyOrderDto(meusPedidos.get()));
+//			
+//		}
+//		return ResponseEntity.notFound().build();
+//		
+//	}
 	
 	
 
+	@GetMapping("/{codCliente}")
+	public List<MyOrderDto> listarMeusPedidos(@PathVariable Integer codCliente) {
+		List<Pedido> pedidos = pedidoRepository.findByClienteCodCliente(codCliente);
+		return MyOrderDto.converter(pedidos);
+	}
+	
+			
+			
+	
+
+	@GetMapping("/payment")
+	public List<FormaPagamentoDTO> formasPagamento(){
+		
+		List<FormaPagamento> formasPagamento = formaPagamentoRepository.findAll();
+		return FormaPagamentoDTO.converter(formasPagamento);
+	}
+
+	
+	
+	
 }

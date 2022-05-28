@@ -2,16 +2,13 @@ package br.com.rd.queroserdev.devcars.controller.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import br.com.rd.queroserdev.devcars.model.Endereco;
-import br.com.rd.queroserdev.devcars.model.FormaPagamento;
-import br.com.rd.queroserdev.devcars.model.Marca;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import br.com.rd.queroserdev.devcars.model.Pedido;
-import br.com.rd.queroserdev.devcars.model.Status;
-import br.com.rd.queroserdev.devcars.model.Veiculo;
 
 public class MyOrderDto {
 
@@ -19,6 +16,7 @@ public class MyOrderDto {
 	private String status;
 	private String marca;
 	private String modeloVeiculo;
+	private String linkImagemVeiculo;
 	private BigDecimal valorFrete;
 	private BigDecimal valorVeiculo;
 	private String cep;
@@ -29,6 +27,11 @@ public class MyOrderDto {
 	private String estado;
 	private String formaPagamento;
 	private BigDecimal totalPedido;
+	private LocalDate dataPedido;
+	private LocalDate dataEnvio;
+	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
+	
 	
 
 	public MyOrderDto(Pedido p) {
@@ -36,6 +39,7 @@ public class MyOrderDto {
 		this.status = p.getStatus().getStatusPedido();
 		this.marca = p.getVeiculo().getMarca().getMarca_veiculo();
 		this.modeloVeiculo = p.getVeiculo().getModeloVeiculo();
+		this.linkImagemVeiculo = p.getVeiculo().getImagem();
 		this.valorFrete = p.getFrete().getValorFrete();
 		this.valorVeiculo = p.getVeiculo().getPrecoVeiculo();
 		this.cep = p.getEndereco().getCepEndereco();
@@ -45,7 +49,8 @@ public class MyOrderDto {
 		this.estado = p.getEndereco().getUf();
 		this.formaPagamento = p.getFormaPagamento().getDescricaoFormaPagamento();
 		this.totalPedido = p.getValorTotalPedido();
-		
+		this.dataPedido = p.getDataPedido();
+		this.dataEnvio = p.getDataEnvio();
 		
 	}
 
@@ -104,7 +109,26 @@ public class MyOrderDto {
 	public BigDecimal getTotalPedido() {
 		return totalPedido;
 	}
+
+	public String getLinkImagemVeiculo() {
+		return linkImagemVeiculo;
+	}
+
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	public LocalDate getDataPedido() {
+//		String dataPedidoString = dataPedido.toString();
+//		dataPedido = LocalDate.parse(dataPedidoString,formatter);
+		return dataPedido;
+	}
+
+	public LocalDate getDataEnvio() {
+		return dataEnvio;
+	}
 	
+	
+	public static List<MyOrderDto> converter(List<Pedido> marcas) {
+		return marcas.stream().map(MyOrderDto::new).collect(Collectors.toList());
+	}
 	
 
 }

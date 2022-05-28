@@ -1,11 +1,7 @@
 package br.com.rd.queroserdev.devcars.controller.dto;
 
 import java.math.BigDecimal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import br.com.rd.queroserdev.devcars.model.Pedido;
 
@@ -32,8 +28,7 @@ public class ResumoPedidoDTO {
 	private LocalDate dataPedido;
 //	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); 
 //	private SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy"); 
-	
-	
+
 //	
 //	private String numeroCartao;
 //	private String codBarras;

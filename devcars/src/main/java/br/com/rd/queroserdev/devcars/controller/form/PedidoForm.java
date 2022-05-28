@@ -2,6 +2,7 @@ package br.com.rd.queroserdev.devcars.controller.form;
 
 import java.math.BigDecimal;
 
+import br.com.rd.queroserdev.devcars.model.Cartao;
 import br.com.rd.queroserdev.devcars.model.Cliente;
 import br.com.rd.queroserdev.devcars.model.Endereco;
 import br.com.rd.queroserdev.devcars.model.FormaPagamento;
@@ -9,6 +10,7 @@ import br.com.rd.queroserdev.devcars.model.Frete;
 import br.com.rd.queroserdev.devcars.model.Pedido;
 import br.com.rd.queroserdev.devcars.model.Status;
 import br.com.rd.queroserdev.devcars.model.Veiculo;
+import br.com.rd.queroserdev.devcars.repository.CartaoRepository;
 import br.com.rd.queroserdev.devcars.repository.ClienteRepository;
 import br.com.rd.queroserdev.devcars.repository.EnderecoRepository;
 import br.com.rd.queroserdev.devcars.repository.FormaPagamentoRepository;
@@ -25,6 +27,7 @@ public class PedidoForm {
 	private Integer codFrete;
 	private BigDecimal valor;
 	private Integer codStatus;
+	private Integer codCartao;
 	
 	public Integer getCodCliente() {
 		return codCliente;
@@ -68,12 +71,22 @@ public class PedidoForm {
 	public void setCodStatus(Integer codStatus) {
 		this.codStatus = codStatus;
 	}
+	
+	public Integer getCodCartao() {
+		return codCartao;
+	}
+	public void setCodCartao(Integer codCartao) {
+		this.codCartao = codCartao;
+	}
+	
+	
 	public Pedido converter(ClienteRepository clienteRepository,
 							VeiculoRepository veiculoRepository,
 							EnderecoRepository enderecoRepository,
 							FormaPagamentoRepository formaPagamentoRepository,
 							FreteRepository freteRepository,
-							StatusRepository statusRepository) {
+							StatusRepository statusRepository,
+							CartaoRepository cartaoRepository) {
 		
 		Cliente cliente = clienteRepository.findByCodCliente(codCliente);
 		Veiculo veiculo = veiculoRepository.findByCodVeiculo(codVeiculo);
@@ -81,8 +94,9 @@ public class PedidoForm {
 		FormaPagamento pagamento = formaPagamentoRepository.findByCodFormaPagamento(codPagamento);
 		Frete frete = freteRepository.getCodFrete(codFrete);
 		Status status = statusRepository.findByCodStatus(codStatus);
+		Cartao cartao = cartaoRepository.findByCodCartao(codCartao);
 		
-		return new Pedido(cliente, veiculo, endereco, pagamento, frete, valor, status);
+		return new Pedido(cliente, veiculo, endereco, pagamento, frete, valor, status, cartao);
 	}
 	
 	

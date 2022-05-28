@@ -59,6 +59,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		
+		<!-- INÍCIO: HABILITANDO O SPRING SECURITY  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- FIM: HABILITANDO O SPRING SECURITY  -->
+		
+		<!-- INÍCIO: DEPENDÊNCIA DA LIB JJWT - GERAÇÃO DE TOKEN  -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<!-- FIM: DEPENDÊNCIA DA LIB JJWT - GERAÇÃO DE TOKEN  -->
+		
 	</dependencies>
 
 	<build>
