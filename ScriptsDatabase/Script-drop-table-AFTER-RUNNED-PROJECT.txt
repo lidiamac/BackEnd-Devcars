@@ -15,7 +15,9 @@ drop table tb_cartao;
 drop table tb_modalidade_cartao;
 drop table tb_endereco_cliente;
 drop table tb_endereco;
-drop table tb_cliente;
+drop table tb_cliente_perfis ;
+drop table tb_perfil;
+drop table tb_cliente ;
 drop table tb_veiculo;
 drop table tb_motor;
 drop table tb_marca;
@@ -25,6 +27,4 @@ drop table tb_combustivel;
 drop table tb_fornecedor;
 drop table login;
 
-
- show tables;
-
+show tables;
